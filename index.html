@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PrintZap — L'Assistente di Stampa Intelligente per Cartolerie e Centri Copie</title>
+  <meta name="description" content="Ricevi, organizza e stampa automaticamente i file da WhatsApp, Telegram, Email e Bancone Wi-Fi. Zero caos, conformità GDPR totale e notifica 'Stampa Pronta' in un clic.">
+  
+  <!-- Open Graph / WhatsApp Preview -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="PrintZap — L'Assistente di Stampa per Cartolerie">
+  <meta property="og:description" content="Automatizza la ricezione e la stampa dei file dei clienti da WhatsApp, Telegram ed Email. Scopri quanto tempo puoi risparmiare ogni giorno!">
+  <meta property="og:image" content="logo.png">
+
+  <!-- Google Fonts: Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/png" href="logo.png">
+</head>
+<body>
+
+  <!-- ================= NAVBAR ================= -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="#" class="nav-brand">
+        <img src="logo.png" alt="PrintZap Logo" class="nav-logo" onerror="this.style.display='none'">
+        <span>Print<span style="color: var(--primary-light);">Zap</span></span>
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="#confronto" data-i18n="nav_why">Perché Cambiare</a></li>
+        <li><a href="#funzionalita" data-i18n="nav_features">Caratteristiche</a></li>
+        <li><a href="#calcolatore" data-i18n="nav_calculator">Risparmio</a></li>
+        <li><a href="#prezzi" data-i18n="nav_pricing">Prezzi</a></li>
+        <li><a href="#faq" data-i18n="nav_faq">FAQ</a></li>
+        <li><a href="#guide" style="color: var(--primary-light); font-weight: 700;" data-i18n="nav_hub">Manuali & Guide 📖</a></li>
+        <li><a href="pulsanti.html" style="color: #38bdf8;" data-i18n="nav_buttons">Pulsanti 🎛️</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <!-- Language Switcher IT / EN -->
+        <div class="lang-switch-box" id="langSwitcher">
+          <button type="button" class="lang-btn active" data-lang="it">🇮🇹 IT</button>
+          <span class="lang-divider">/</span>
+          <button type="button" class="lang-btn" data-lang="en">🇬🇧 EN</button>
+        </div>
+
+        <a href="https://apps.microsoft.com" class="btn-ms-store btn-sm" id="navStoreBtn" target="_blank" rel="noopener">
+          <span class="ms-store-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+              <rect x="2" y="2" width="9.5" height="9.5" fill="#f25022"/>
+              <rect x="12.5" y="2" width="9.5" height="9.5" fill="#7fba00"/>
+              <rect x="2" y="12.5" width="9.5" height="9.5" fill="#00a4ef"/>
+              <rect x="12.5" y="12.5" width="9.5" height="9.5" fill="#ffb900"/>
+            </svg>
+          </span>
+          <span class="ms-store-text">
+            <span class="ms-store-sub">Microsoft Store</span>
+            <span class="ms-store-main" data-i18n="nav_download">Ottieni dallo Store</span>
+          </span>
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ================= HERO SECTION ================= -->
+  <header class="hero">
+    <div class="container hero-content">
+      <div class="badge badge-blue">
+        <span data-i18n="hero_badge">⚡ 30 Giorni di Prova Gratuita Completa Senza Carta di Credito</span>
+      </div>
+
+      <h1 class="hero-title" data-i18n="hero_title">
+        Ricevi, organizza e stampa i file dei clienti <br>
+        <span class="gradient-text">da WhatsApp ed Email in 1 Clic</span>
+      </h1>
+
+      <p class="hero-subtitle" data-i18n="hero_subtitle">
+        Basta con il Desktop invaso da allegati senza nome, clienti che sbirciano i messaggi privati degli altri e ore perse a salvare file a mano. 
+        PrintZap cataloga tutto in cartelle ordinate, rispetta la privacy GDPR e avvisa il cliente quando le stampe sono pronte.
+      </p>
+
+      <div class="hero-cta">
+        <a href="https://apps.microsoft.com" class="btn-ms-store" id="heroStoreBtn" target="_blank" rel="noopener">
+          <span class="ms-store-icon">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
+              <rect x="2" y="2" width="9.5" height="9.5" fill="#f25022"/>
+              <rect x="12.5" y="2" width="9.5" height="9.5" fill="#7fba00"/>
+              <rect x="2" y="12.5" width="9.5" height="9.5" fill="#00a4ef"/>
+              <rect x="12.5" y="12.5" width="9.5" height="9.5" fill="#ffb900"/>
+            </svg>
+          </span>
+          <span class="ms-store-text">
+            <span class="ms-store-sub" data-i18n="hero_cta_sub">30 Giorni di Prova Gratuita</span>
+            <span class="ms-store-main" data-i18n="hero_cta_download">Ottieni da Microsoft Store</span>
+          </span>
+        </a>
+        <a href="#prezzi" class="btn btn-secondary" data-i18n="hero_cta_pricing">
+          Vedi Piani & Prezzi
+        </a>
+      </div>
+
+      <div class="trust-badges">
+        <div class="trust-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          <span data-i18n="hero_trust_meta">Nessun costo a messaggio Meta</span>
+        </div>
+        <div class="trust-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          <span data-i18n="hero_trust_gdpr">100% Conforme GDPR al Bancone</span>
+        </div>
+        <div class="trust-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          <span data-i18n="hero_trust_printer">Funziona con qualsiasi stampante Windows</span>
+        </div>
+      </div>
+
+      <!-- ================= INTERACTIVE DASHBOARD PREVIEW ================= -->
+      <div class="mockup-wrapper">
+        <div class="mockup-header">
+          <div class="mockup-dots">
+            <div class="mockup-dot"></div>
+            <div class="mockup-dot"></div>
+            <div class="mockup-dot"></div>
+          </div>
+          <div data-i18n="mockup_title"><strong>PrintZap Dashboard v1.1.14</strong> — Gestione Ordini Real-Time</div>
+          <div class="mockup-status">
+            <span class="status-pulse"></span>
+            <span data-i18n="mockup_status">WhatsApp Connesso</span>
+          </div>
+        </div>
+
+        <div class="mockup-body" style="padding: 0; background: #0c0d16; overflow: hidden; display: flex; justify-content: center;">
+          <img src="dashboard-preview.png" alt="Interfaccia reale di PrintZap con WhatsApp integrato" style="width: 100%; height: auto; display: block; border-bottom-left-radius: 14px; border-bottom-right-radius: 14px;">
+        </div>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- ================= COMPARISON SECTION ================= -->
+  <section class="section" id="confronto">
+    <div class="container">
+      <div class="section-title-wrap">
+        <div class="badge badge-blue" data-i18n="comp_badge">Il Confronto</div>
+        <h2 class="section-title" data-i18n="comp_title">Come lavori oggi vs Come lavorerai con PrintZap</h2>
+        <p class="section-subtitle" data-i18n="comp_subtitle">
+          Abbiamo analizzato i problemi reali delle cartolerie per creare la soluzione definitiva.
+        </p>
+      </div>
+
+      <div class="comparison-grid">
+        <!-- Bad side -->
+        <div class="card-comparison card-bad">
+          <div class="comparison-header">
+            <span style="font-size: 2rem;">❌</span>
+            <h3 data-i18n="comp_bad_title">Senza PrintZap (Il Caos Quotidiano)</h3>
+          </div>
+          <ul class="comparison-list">
+            <li class="comparison-item">
+              <svg class="icon-cross" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+              <div><span data-i18n="comp_bad_1_title">Violazione Privacy GDPR:</span><span data-i18n="comp_bad_1_desc"> I clienti al bancone leggono sul monitor le chat private e i numeri altrui.</span></div>
+            </li>
+            <li class="comparison-item">
+              <svg class="icon-cross" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+              <div><span data-i18n="comp_bad_2_title">Cartella Download intasata:</span><span data-i18n="comp_bad_2_desc"> Centinaia di file con nomi casuali scaricati a mano uno ad uno.</span></div>
+            </li>
+            <li class="comparison-item">
+              <svg class="icon-cross" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+              <div><span data-i18n="comp_bad_3_title">Messaggi a mano:</span><span data-i18n="comp_bad_3_desc"> Devi prendere lo smartphone e digitare a ogni cliente che il suo lavoro è pronto.</span></div>
+            </li>
+            <li class="comparison-item">
+              <svg class="icon-cross" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+              <div><span data-i18n="comp_bad_4_title">Notti e weekend persi:</span><span data-i18n="comp_bad_4_desc"> I messaggi arrivati a computer spento vanno cercati manualmente nelle chat.</span></div>
+            </li>
+            <li class="comparison-item">
+              <svg class="icon-cross" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+              <div><span data-i18n="comp_bad_5_title">Disallineamenti e doppio lavoro:</span><span data-i18n="comp_bad_5_desc"> Se elimini le chat concluse dallo smartphone, sul PC ti restano ordini vecchi e confusione.</span></div>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Good side -->
+        <div class="card-comparison card-good">
+          <div class="comparison-header">
+            <span style="font-size: 2rem;">✅</span>
+            <h3 data-i18n="comp_good_title">Con PrintZap (Flusso Perfetto in 1 Clic)</h3>
+          </div>
+          <ul class="comparison-list">
+            <li class="comparison-item">
+              <svg class="icon-check" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <div><span data-i18n="comp_good_1_title">Schermo 100% a prova di sguardi:</span><span data-i18n="comp_good_1_desc"> Numeri di telefono mascherati e nessuna chat privata mostrata a video.</span></div>
+            </li>
+            <li class="comparison-item">
+              <svg class="icon-check" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <div><span data-i18n="comp_good_2_title">Cartelle ordinate per data e cliente:</span><span data-i18n="comp_good_2_desc"> Ogni file viene catalogato automaticamente sul tuo hard disk.</span></div>
+            </li>
+            <li class="comparison-item">
+              <svg class="icon-check" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <div><span data-i18n="comp_good_3_title">Notifica "Stampa Pronta" con 1 Clic:</span><span data-i18n="comp_good_3_desc"> Invia la notifica direttamente da PrintZap o rispondi dallo smartphone; il badge non letti resta intatto.</span></div>
+            </li>
+            <li class="comparison-item">
+              <svg class="icon-check" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <div><span data-i18n="comp_good_4_title">Recupero Notti e Weekend (96h):</span><span data-i18n="comp_good_4_desc"> Accendi il PC il lunedì mattina e trovi tutti i file già organizzati.</span></div>
+            </li>
+            <li class="comparison-item">
+              <svg class="icon-check" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <div><span data-i18n="comp_good_5_title">Sinergia WhatsApp & Salvaguardia Cronologia:</span><span data-i18n="comp_good_5_desc"> Chatti normalmente da WhatsApp Desktop/Web; cancellando una chat dal telefono si rimuove anche da PrintZap. Rimuovere o evadere un ordine da PrintZap NON tocca la chat di WhatsApp (preservando tutta la cronologia dei messaggi), ma cancella i file archiviati sul PC liberando spazio prezioso sull'hard disk.</span></div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= VISUAL HUB: LE GUIDE COMPLETE ================= -->
+  <section class="section" id="guide" style="background: radial-gradient(circle at 50% 50%, rgba(56, 189, 248, 0.05) 0%, transparent 70%);">
+    <div class="container">
+      <div class="section-title-wrap">
+        <div class="badge badge-sky" data-i18n="hub_badge">📖 Documentazione Ufficiale Illustrata</div>
+        <h2 class="section-title" data-i18n="hub_title">Scopri PrintZap nel Dettaglio: Schermata per Schermata</h2>
+        <p class="section-subtitle" data-i18n="hub_subtitle">
+          Due manuali pratici con screenshot reali per padroneggiare ogni automatismo: dalla ricezione alla notifica, fino a tutti i pulsanti operativi.
+        </p>
+      </div>
+
+      <div class="hub-grid">
+        <!-- Card 1: Flusso di Lavoro 8 Passi -->
+        <a href="guida.html" class="hub-card">
+          <div class="hub-card-preview">
+            <img src="guida_img/06-printzap-notifica-viola.png" alt="Guida Flusso di Lavoro 8 Passi PrintZap" loading="lazy">
+            <div class="hub-card-tag badge-violet" data-i18n="hub_card1_tag">📘 9 Passi (Con Scansione QR)</div>
+          </div>
+          <div class="hub-card-content">
+            <h3 data-i18n="hub_card1_title">Guida Flusso di Lavoro al Bancone</h3>
+            <p data-i18n="hub_card1_desc">
+              Segui l'intero ciclo di un ordine reale: arrivo su WhatsApp, apertura automatica in Explorer, notifica viola "Stampa Pronta" in 1 clic e download automatico dai link cloud Adobe/Drive.
+            </p>
+            <ul class="hub-list">
+              <li><span class="hub-check">✓</span> <span data-i18n="hub_card1_p1">Ricezione protetta senza mostrare le chat al pubblico</span></li>
+              <li><span class="hub-check">✓</span> <span data-i18n="hub_card1_p2">Codice colore Viola per ordine evaso e notificato</span></li>
+              <li><span class="hub-check">✓</span> <span data-i18n="hub_card1_p3">Gestione etichetta gialla GIACENZA per ordini di ieri</span></li>
+            </ul>
+            <div class="hub-card-action">
+              <span class="hub-link-btn" data-i18n="hub_card1_btn">Leggi il Manuale Passo per Passo ➔</span>
+            </div>
+          </div>
+        </a>
+
+        <!-- Card 2: Enciclopedia Pulsanti & Icone (33 Controlli) -->
+        <a href="pulsanti.html" class="hub-card">
+          <div class="hub-card-preview">
+            <img src="pulsanti_img/impostazioni_completa.png" alt="Mappa Pulsanti & Impostazioni PrintZap" loading="lazy">
+            <div class="hub-card-tag badge-sky" data-i18n="hub_card2_tag">🎛️ 33 Controlli & Schede</div>
+          </div>
+          <div class="hub-card-content">
+            <h3 data-i18n="hub_card2_title">Enciclopedia Pulsanti & Schede Impostazioni</h3>
+            <p data-i18n="hub_card2_desc">
+              La mappa visiva definitiva: scorciatoie della barra laterale, interruttori sonori, semafori di stato e le 6 schede avanzate di configurazione.
+            </p>
+            <ul class="hub-list">
+              <li><span class="hub-check">✓</span> <span data-i18n="hub_card2_p1">Mappa completa barra laterale (WhatsApp, E-mail, Telegram, Bancone)</span></li>
+              <li><span class="hub-check">✓</span> <span data-i18n="hub_card2_p2">Semafori intelligenti (Verde, Giallo Oro, Giallo Giacenza, Viola)</span></li>
+              <li><span class="hub-check">✓</span> <span data-i18n="hub_card2_p3">Manuale 6 schede: QR Code Bancone, Bot Telegram, Statistiche, Log</span></li>
+            </ul>
+            <div class="hub-card-action">
+              <span class="hub-link-btn" data-i18n="hub_card2_btn">Esplora Tutti i Pulsanti & Icone ➔</span>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= FEATURES SECTION ================= -->
+  <section class="section" id="funzionalita">
+    <div class="container">
+      <div class="section-title-wrap">
+        <div class="badge" data-i18n="feat_badge">Caratteristiche Esclusive</div>
+        <h2 class="section-title" data-i18n="feat_title">Tutto quello che serve alla tua cartoleria</h2>
+        <p class="section-subtitle" data-i18n="feat_subtitle">
+          Non un gestionale generico, ma uno strumento laser focalizzato sul tuo flusso di stampa quotidiano.
+        </p>
+      </div>
+
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon-box icon-box-wa">📱</div>
+          <h4 data-i18n="feat_1_title">Multi-Canale Reale</h4>
+          <p data-i18n="feat_1_desc">Ricevi file da WhatsApp Web, Bot Telegram, casella Email e Portale Wi-Fi del bancone in un unico cruscotto centralizzato.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon-box icon-box-emerald">🛡️</div>
+          <h4 data-i18n="feat_2_title">Privacy GDPR a Norma</h4>
+          <p data-i18n="feat_2_desc">I dati personali e i numeri di telefono sono oscurati. Puoi lasciare il monitor girato verso il cliente senza alcun rischio di sanzioni.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon-box icon-box-sky">⚡</div>
+          <h4 data-i18n="feat_3_title">Notifica "Stampa Pronta"</h4>
+          <p data-i18n="feat_3_desc">Invia la notifica di ritiro con un clic o rispondendo direttamente "stampa pronta" dallo smartphone mentre cammini in negozio.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon-box icon-box-amber">🌙</div>
+          <h4 data-i18n="feat_4_title">Memoria Notti & Weekend</h4>
+          <p data-i18n="feat_4_desc">Finestra di recupero fino a 96 ore: i file inviati la domenica o la notte vengono scaricati subito all'accensione del computer.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon-box icon-box-violet">📶</div>
+          <h4 data-i18n="feat_5_title">QR Code Bancone Wi-Fi</h4>
+          <p data-i18n="feat_5_desc">I clienti al bancone scansionano il codice QR con lo smartphone e caricano i documenti senza doverti chiedere il numero di telefono.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon-box icon-box-rose">💶</div>
+          <h4 data-i18n="feat_6_title">Zero Canoni Meta</h4>
+          <p data-i18n="feat_6_desc">Nessun abbonamento mensile obbligatorio e zero costi per ogni singolo messaggio. Funziona col tuo numero WhatsApp abituale.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon-box icon-box-sky">🔗</div>
+          <h4 data-i18n="feat_7_title">Download Link Cloud (Adobe, Drive...)</h4>
+          <p data-i18n="feat_7_desc">Se il cliente invia link di Adobe Acrobat, Google Drive, Dropbox o OneDrive, PrintZap scarica direttamente il file sul tuo PC senza farti aprire il browser.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon-box icon-box-wa">⚡</div>
+          <h4 data-i18n="feat_8_title">Connessione QR Code in 5 Sec</h4>
+          <p data-i18n="feat_8_desc">Inquadra il QR Code mostrato a video con WhatsApp e sei subito operativo, senza configurazioni complesse o account sviluppatore.</p>
+        </div>
+      </div>
+
+      <!-- ================= COLOR CODING SYSTEM SHOWCASE ================= -->
+      <div class="color-showcase-box">
+        <div class="color-showcase-header">
+          <div class="badge badge-blue" data-i18n="color_badge">Segnali Visivi Intelligenti</div>
+          <h3 class="section-title" style="font-size: 2rem; margin: 12px 0 10px;" data-i18n="color_title">Codice Colori del Bancone: Tutto Sotto Controllo a Colpo d'Occhio</h3>
+          <p style="color: var(--text-muted); font-size: 0.95rem; margin: 0;" data-i18n="color_subtitle">PrintZap adotta un'interfaccia reattiva a colori: ogni stato del cliente o del file è immediatamente riconoscibile senza dover leggere o interpretare nulla.</p>
+        </div>
+
+        <div class="color-showcase-grid">
+          <!-- Card 1: Viola Pulsante -->
+          <div class="color-card color-card-purple">
+            <div class="color-indicator-row">
+              <span class="color-dot dot-purple"></span>
+              <span class="color-sample-badge badge-sample-purple" data-i18n="color_1_badge">NOTIFICA INVIATA</span>
+            </div>
+            <h4 data-i18n="color_1_title">Viola Pulsante: Lavoro Finito & Notificato</h4>
+            <p data-i18n="color_1_desc">Tutti i file del cliente sono stampati e la notifica di 'Stampa Pronta' è stata inviata. L'intera riga pulsa dolcemente in viola: appena il cliente entra al bancone sai già al volo che il suo lavoro è pronto da consegnare!</p>
+          </div>
+
+          <!-- Card 2: Giallo Giacenza -->
+          <div class="color-card color-card-amber">
+            <div class="color-indicator-row">
+              <span class="color-dot dot-amber"></span>
+              <span class="color-sample-badge badge-sample-amber" data-i18n="color_2_badge">GIACENZA</span>
+            </div>
+            <h4 data-i18n="color_2_title">Giallo con Badge 'GIACENZA': Lavori Sospesi</h4>
+            <p data-i18n="color_2_desc">Documenti arrivati ieri o nei giorni scorsi non ancora ritirati o aperti. Il badge giallo GIACENZA salta subito all'occhio per azzerare qualsiasi dimenticanza dei lavori arretrati.</p>
+          </div>
+
+          <!-- Card 3: Giallo Nuovi File -->
+          <div class="color-card color-card-yellow">
+            <div class="color-indicator-row">
+              <span class="color-dot dot-yellow"></span>
+              <span class="color-sample-badge badge-sample-yellow" data-i18n="color_3_badge">NUOVI FILE</span>
+            </div>
+            <h4 data-i18n="color_3_title">Giallo Intenso: File Aggiunti Durante il Lavoro</h4>
+            <p data-i18n="color_3_desc">Se hai già stampato un file ma il cliente ne invia altri subito dopo, il nome si colora in giallo con un bagliore dorato, avvisandoti all'istante dell'aggiornamento senza dover riaprire WhatsApp.</p>
+          </div>
+
+          <!-- Card 4: Verde Operativo -->
+          <div class="color-card color-card-green">
+            <div class="color-indicator-row">
+              <span class="color-dot dot-green"></span>
+              <span class="color-sample-badge badge-sample-green" data-i18n="color_4_badge">DA STAMPARE</span>
+            </div>
+            <h4 data-i18n="color_4_title">Verde Operativo: Nuovi File Ricevuti</h4>
+            <p data-i18n="color_4_desc">Nuovi file appena scaricati in attesa di essere mandati in stampa. Il badge numerico verde conta esattamente quanti documenti devono ancora essere lanciati con 1 clic.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= CALCULATOR SECTION ================= -->
+  <section class="section" id="calcolatore">
+    <div class="container">
+      <div class="section-title-wrap">
+        <div class="badge badge-blue" data-i18n="calc_badge">Calcola il tuo Vantaggio</div>
+        <h2 class="section-title" data-i18n="calc_title">Quanto tempo perdi ogni giorno al bancone?</h2>
+        <p class="section-subtitle" data-i18n="calc_subtitle">Sposta il cursore sul numero medio di file che ricevi quotidianamente dai tuoi clienti.</p>
+      </div>
+
+      <div class="calculator-box">
+        <div class="calc-label-row">
+          <label style="font-weight: 600; font-size: 1.15rem;" data-i18n="calc_files_label">File ricevuti al giorno:</label>
+          <span class="calc-val-highlight"><span id="filesCountDisplay">40</span> <span data-i18n="calc_files_unit">file/giorno</span></span>
+        </div>
+
+        <div class="calc-slider-wrap">
+          <input type="range" min="10" max="150" step="5" value="40" class="custom-range" id="filesSlider">
+        </div>
+
+        <div class="calc-results-grid">
+          <div class="calc-result-item">
+            <div class="calc-res-num" id="timeSavedDay">1.5 ore</div>
+            <div class="calc-res-desc" data-i18n="calc_day_desc">Tempo risparmiato OGNI GIORNO</div>
+          </div>
+          <div class="calc-result-item">
+            <div class="calc-res-num" id="timeSavedMonth">38 ore</div>
+            <div class="calc-res-desc" data-i18n="calc_month_desc">Ore recuperate OGNI MESE</div>
+          </div>
+          <div class="calc-result-item">
+            <div class="calc-res-num" id="stressSaved">Elevatissimo</div>
+            <div class="calc-res-desc" data-i18n="calc_stress_desc">Beneficio su stress ed errori</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= REQUIREMENTS SECTION (REALI & MINIMI) ================= -->
+  <section class="section" id="requisiti">
+    <div class="container">
+      <div class="section-title-wrap">
+        <div class="badge badge-blue" data-i18n="req_badge">Requisiti di Sistema</div>
+        <h2 class="section-title" data-i18n="req_title">Reali e Minimi: funziona sul computer del tuo negozio</h2>
+        <p class="section-subtitle" data-i18n="req_subtitle">
+          Nessun costoso server o hardware dedicato. PrintZap sfrutta l'ambiente Windows già presente sul tuo banco.
+        </p>
+      </div>
+
+      <div class="requirements-grid">
+        <div class="req-card">
+          <div class="req-icon-box">🪟</div>
+          <h4 data-i18n="req_os_title">Sistema Operativo</h4>
+          <p data-i18n="req_os_desc">Windows 10 o Windows 11 (64-bit)</p>
+        </div>
+
+        <div class="req-card">
+          <div class="req-icon-box">🌐</div>
+          <h4 data-i18n="req_browser_title">Google Chrome</h4>
+          <p data-i18n="req_browser_desc">Installato sul PC (richiesto dal motore WhatsApp Web)</p>
+        </div>
+
+        <div class="req-card">
+          <div class="req-icon-box">⚡</div>
+          <h4 data-i18n="req_ram_title">Memoria RAM</h4>
+          <p data-i18n="req_ram_desc">Minimo 4 GB (consigliati 8 GB per PDF pesanti)</p>
+        </div>
+
+        <div class="req-card">
+          <div class="req-icon-box">💾</div>
+          <h4 data-i18n="req_disk_title">Spazio su Hard Disk</h4>
+          <p data-i18n="req_disk_desc">Circa 500 MB per il software + archivio file ricevuti</p>
+        </div>
+
+        <div class="req-card">
+          <div class="req-icon-box">🖨️</div>
+          <h4 data-i18n="req_printers_title">Stampanti Compatibili</h4>
+          <p data-i18n="req_printers_desc">Qualsiasi stampante, fotocopiatrice o plotter Windows</p>
+        </div>
+
+        <div class="req-card">
+          <div class="req-icon-box">📶</div>
+          <h4 data-i18n="req_net_title">Connessione Internet</h4>
+          <p data-i18n="req_net_desc">Connessione attiva (ADSL, Fibra, 4G/5G o Wi-Fi)</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= PRICING SECTION ================= -->
+  <section class="section" id="prezzi">
+    <div class="container">
+      <div class="section-title-wrap">
+        <div class="badge" data-i18n="price_badge">Prezzi Trasparenti</div>
+        <h2 class="section-title" data-i18n="price_title">Investi pochi centesimi al giorno, <br>risparmia fino a 40 ore di lavoro al mese</h2>
+        <p class="section-subtitle" data-i18n="price_subtitle">
+          Nessun costo nascosto. Nessun vincolo complicato. Inizia oggi con <strong>30 giorni di prova gratuita reale</strong> senza carta di credito.
+        </p>
+      </div>
+
+      <!-- Pricing Cards -->
+      <div class="pricing-grid">
+        <!-- Monthly Card -->
+        <div class="pricing-card">
+          <div class="pricing-header">
+            <span class="plan-tag" data-i18n="plan_monthly_tag">FLESSIBILITÀ MENSILE</span>
+            <h3 class="plan-name" data-i18n="plan_monthly_name">Piano Mensile</h3>
+            <p class="plan-desc" data-i18n="plan_monthly_desc">Tutte le funzionalità di PrintZap, con rinnovo mese per mese.</p>
+          </div>
+          <div class="price-box">
+            <span class="price-currency">€</span>
+            <span class="price-amount">19</span>
+            <span class="price-period" data-i18n="plan_monthly_period">+ IVA / mese</span>
+          </div>
+          <p class="price-subtext" data-i18n="plan_monthly_subtext">Meno di 65 centesimi al giorno. Disdici quando vuoi.</p>
+          <ul class="plan-features">
+            <li><svg class="icon-check" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> <span data-i18n="plan_feat_channels">Tutti i canali attivi (WhatsApp, Telegram, Email, Bancone Wi-Fi)</span></li>
+            <li><svg class="icon-check" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> <span data-i18n="plan_feat_notifications">Notifiche illimitate "Stampa Pronta" ai clienti</span></li>
+            <li><svg class="icon-check" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> <span data-i18n="plan_feat_weekend">Recupero automatico Notti & Weekend (96 ore)</span></li>
+            <li><svg class="icon-check" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> <span data-i18n="plan_feat_updates">Tutti gli aggiornamenti software inclusi</span></li>
+            <li><svg class="icon-check" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> <span data-i18n="plan_feat_cancel">Zero vincoli: disdici in qualsiasi momento</span></li>
+          </ul>
+          <a href="https://apps.microsoft.com" class="btn-ms-store" style="width: 100%; justify-content: center;" target="_blank" rel="noopener">
+            <span class="ms-store-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                <rect x="2" y="2" width="9.5" height="9.5" fill="#f25022"/>
+                <rect x="12.5" y="2" width="9.5" height="9.5" fill="#7fba00"/>
+                <rect x="2" y="12.5" width="9.5" height="9.5" fill="#00a4ef"/>
+                <rect x="12.5" y="12.5" width="9.5" height="9.5" fill="#ffb900"/>
+              </svg>
+            </span>
+            <span class="ms-store-text">
+              <span class="ms-store-main" data-i18n="plan_monthly_btn">Ottieni da Microsoft Store (30gg Gratis)</span>
+            </span>
+          </a>
+        </div>
+
+        <!-- Annual Card (Popular) -->
+        <div class="pricing-card pricing-card-popular">
+          <div class="popular-ribbon" data-i18n="plan_annual_ribbon">SCELTO DAL 90% DELLE CARTOLERIE</div>
+          <div class="pricing-header">
+            <span class="plan-tag tag-emerald" data-i18n="plan_annual_tag">MASSIMO RISPARMIO</span>
+            <h3 class="plan-name" data-i18n="plan_annual_name">Piano Annuale</h3>
+            <p class="plan-desc" data-i18n="plan_annual_desc">Lo stesso software completo, con quasi 30 € di sconto all'anno.</p>
+          </div>
+          <div class="price-box">
+            <span class="price-currency">€</span>
+            <span class="price-amount">200</span>
+            <span class="price-period" data-i18n="plan_annual_period">+ IVA / anno</span>
+          </div>
+          <p class="price-subtext" style="color: var(--primary-light);" data-i18n="plan_annual_subtext">Pari a soli <strong>16,60 € / mese</strong> (risparmi 28 € all'anno!)</p>
+          <ul class="plan-features">
+            <li><svg class="icon-check" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> <span data-i18n="plan_annual_feat_full"><strong>Identico al piano mensile: tutte le funzionalità incluse al 100%</strong></span></li>
+            <li><svg class="icon-check" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> <span data-i18n="plan_annual_feat_savings">Risparmio economico immediato rispetto al canone mensile</span></li>
+            <li><svg class="icon-check" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> <span data-i18n="plan_annual_feat_support">Tutti gli aggiornamenti software inclusi per 12 mesi</span></li>
+            <li><svg class="icon-check" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> <span data-i18n="plan_annual_feat_invoice">Una sola fattura annuale (più comodo per il commercialista)</span></li>
+            <li><svg class="icon-check" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> <span data-i18n="plan_annual_feat_locked">Prezzo bloccato e zero pensieri per un anno intero</span></li>
+          </ul>
+          <a href="https://apps.microsoft.com" class="btn-ms-store" style="width: 100%; justify-content: center; background: linear-gradient(135deg, #10b981 0%, #059669 100%); border-color: rgba(16, 185, 129, 0.4); box-shadow: 0 4px 20px rgba(16, 185, 129, 0.4);" target="_blank" rel="noopener">
+            <span class="ms-store-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                <rect x="2" y="2" width="9.5" height="9.5" fill="#ffffff"/>
+                <rect x="12.5" y="2" width="9.5" height="9.5" fill="#ffffff"/>
+                <rect x="2" y="12.5" width="9.5" height="9.5" fill="#ffffff"/>
+                <rect x="12.5" y="12.5" width="9.5" height="9.5" fill="#ffffff"/>
+              </svg>
+            </span>
+            <span class="ms-store-text">
+              <span class="ms-store-main" data-i18n="plan_annual_btn">Ottieni da Microsoft Store (30gg Gratis)</span>
+            </span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Trial Guarantee Box -->
+      <div class="trial-guarantee-box">
+        <div class="guarantee-icon">🎁</div>
+        <div class="guarantee-text">
+          <h4 data-i18n="guarantee_title">Garanzia 30 Giorni di Prova Completa Senza Impegno</h4>
+          <p data-i18n="guarantee_desc">Installa PrintZap nel tuo negozio e usalo liberamente per un mese intero. Nessuna carta di credito richiesta all'attivazione: vedi con i tuoi occhi il tempo risparmiato ogni mattina, e solo se ne sei pienamente soddisfatto decidi se abbonarti.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= FAQ SECTION ================= -->
+  <section class="section" id="faq">
+    <div class="container">
+      <div class="section-title-wrap">
+        <div class="badge" data-i18n="faq_badge">Dubbi Frequenti</div>
+        <h2 class="section-title" data-i18n="faq_title">Domande & Risposte</h2>
+      </div>
+
+      <div class="faq-wrap">
+        <div class="faq-item">
+          <div class="faq-question">
+            <span data-i18n="faq_q1">Devo cambiare le stampanti che ho già in negozio?</span>
+            <span class="faq-icon">+</span>
+          </div>
+          <div class="faq-answer" data-i18n="faq_a1">
+            Assolutamente no! PrintZap si interfaccia direttamente con Windows: funziona con qualsiasi stampante, fotocopiatrice, multifunzione o plotter già installato sul tuo computer (Canon, HP, Ricoh, Brother, Kyocera, ecc.).
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            <span data-i18n="faq_q2">Devo pagare ogni mese un canone a WhatsApp o Facebook?</span>
+            <span class="faq-icon">+</span>
+          </div>
+          <div class="faq-answer" data-i18n="faq_a2">
+            No! PrintZap utilizza il protocollo WhatsApp Web standard del tuo numero aziendale. Non richiede account sviluppatore Meta e non ci sono costi a consumo per messaggio inviato.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            <span data-i18n="faq_q3">Cosa succede se il computer del negozio è spento?</span>
+            <span class="faq-icon">+</span>
+          </div>
+          <div class="faq-answer" data-i18n="faq_a3">
+            Nessun problema: grazie alla nuova finestra intelligente di 96 ore, all'accensione del computer il mattino o il lunedì dopo il weekend, PrintZap scarica e organizza automaticamente tutti i file arrivati mentre eri chiuso.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            <span data-i18n="faq_q4">I file e i dati dei miei clienti vanno su qualche server esterno?</span>
+            <span class="faq-icon">+</span>
+          </div>
+          <div class="faq-answer" data-i18n="faq_a4">
+            No, la privacy è totale al 100%. Il database SQLite e tutte le cartelle con i file rimangono fisicamente ed esclusivamente all'interno dell'hard disk del tuo computer. Nessun dato viene caricato su cloud terzi.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            <span data-i18n="faq_q5">Posso chattare con i clienti da PrintZap o devo continuare a usare WhatsApp Desktop/Web?</span>
+            <span class="faq-icon">+</span>
+          </div>
+          <div class="faq-answer" data-i18n="faq_a5">
+            Per dialogare e inviare normali messaggi di testo con i tuoi clienti continui a utilizzare la tua consueta applicazione WhatsApp (Desktop, Web o Smartphone). PrintZap lavora in perfetta sinergia: si occupa in automatico di scaricare e catalogare i file di stampa, e ti permette di inviare la notifica ufficiale di "Stampa Pronta" con un singolo clic direttamente dalla sua dashboard (preservando il badge verde dei non letti su WhatsApp) oppure rispondendo 'stampa pronta' dal telefono.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            <span data-i18n="faq_q6">Cosa succede se cancello una chat dal telefono o da WhatsApp Desktop?</span>
+            <span class="faq-icon">+</span>
+          </div>
+          <div class="faq-answer" data-i18n="faq_a6">
+            La logica è progettata per proteggere la tua cronologia e non intasare il computer: se cancelli una chat dal tuo smartphone o da WhatsApp Desktop/Web, PrintZap recepisce la cancellazione e rimuove l'ordine dal banco per evitare doppioni. Al contrario, se elimini o evadi un ordine da PrintZap, la tua conversazione su WhatsApp NON viene toccata (la cronologia e i messaggi con il cliente rimangono sempre intatti e al sicuro sul tuo telefono), ma vengono cancellati i file archiviati sul PC per liberare spazio prezioso su disco!
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            <span data-i18n="faq_q7">A cosa servono i diversi colori e badge (viola, giallo, scritta giacenza) che vedo a video?</span>
+            <span class="faq-icon">+</span>
+          </div>
+          <div class="faq-answer" data-i18n="faq_a7">
+            PrintZap usa un sistema di semafori visivi studiato per il caos del bancone: il <strong>Viola Elettrico pulsante</strong> indica che l'ordine è stampato al 100% e la notifica è stata inviata (pronto per la consegna); il <strong>badge Giallo GIACENZA</strong> evidenzia i documenti arrivati ieri o nei giorni scorsi non ancora ritirati; il <strong>Giallo Intenso</strong> segnala nuovi file inviati dal cliente dopo la prima stampa; il <strong>Verde</strong> indica i file freschi ancora da stampare. Tutto è pensato per lavorare veloci e a zero errori anche nelle ore di punta!
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= CTA BANNER ================= -->
+  <div class="container" id="contatti">
+    <div class="cta-banner">
+      <h2 data-i18n="cta_title">Pronto a dire addio al caos delle stampe?</h2>
+      <p data-i18n="cta_desc">
+        Scarica subito PrintZap per Windows e inizia la tua prova gratuita di 30 giorni nel tuo negozio. Zero rischi, zero vincoli.
+      </p>
+      <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
+        <a href="https://apps.microsoft.com" class="btn-ms-store" style="font-size: 1.15rem; padding: 16px 34px;" target="_blank" rel="noopener">
+          <span class="ms-store-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <rect x="2" y="2" width="9.5" height="9.5" fill="#f25022"/>
+              <rect x="12.5" y="2" width="9.5" height="9.5" fill="#7fba00"/>
+              <rect x="2" y="12.5" width="9.5" height="9.5" fill="#00a4ef"/>
+              <rect x="12.5" y="12.5" width="9.5" height="9.5" fill="#ffb900"/>
+            </svg>
+          </span>
+          <span class="ms-store-text">
+            <span class="ms-store-main" data-i18n="cta_btn_download">Ottieni da Microsoft Store</span>
+          </span>
+        </a>
+        <a href="https://wa.me/390965370621?text=Ciao!%20Vorrei%20maggiori%20informazioni%20su%20PrintZap%20per%20la%20mia%20cartoleria." target="_blank" data-phone="390965370621" class="btn btn-wa js-wa-contact" style="font-size: 1.15rem; padding: 18px 36px;">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.03 14.69 2 12.04 2M12.05 3.67C14.25 3.67 16.31 4.53 17.87 6.09C19.42 7.65 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.15 12.04 20.15C10.56 20.15 9.11 19.76 7.85 19L7.55 18.83L4.43 19.65L5.26 16.61L5.06 16.29C4.24 14.99 3.8 13.47 3.8 11.91C3.81 7.37 7.5 3.67 12.05 3.67Z"/>
+          </svg>
+          <span data-i18n="cta_btn_wa">Scrivici su WhatsApp (0965 370621)</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= UNIFIED 4-COLUMN FOOTER ================= -->
+  <footer class="footer-unified">
+    <div class="container">
+      <div class="footer-grid">
+        <!-- Col 1: Brand -->
+        <div class="footer-col footer-brand">
+          <a href="#" class="nav-brand">
+            <img src="logo.png" alt="PrintZap Logo" class="nav-logo" onerror="this.style.display='none'">
+            <span>Print<span style="color: var(--primary-light);">Zap</span></span>
+          </a>
+          <p data-i18n="footer_brand_desc">
+            L'assistente di stampa intelligente per cartolerie, copisterie e centri copie. Zero caos al bancone e conformità GDPR totale.
+          </p>
+          <div style="font-size: 0.82rem; color: var(--text-dim);">
+            Made with ❤️ for Italian Print Shops
+          </div>
+        </div>
+
+        <!-- Col 2: Manuals & Guides -->
+        <div class="footer-col">
+          <h4 data-i18n="footer_col_guides">Manuali & Guide</h4>
+          <ul>
+            <li><a href="guida.html" data-i18n="footer_link_step_guide">Guida Flusso (8 Passi) 📖</a></li>
+            <li><a href="pulsanti.html" data-i18n="footer_link_buttons">Mappa 33 Pulsanti 🎛️</a></li>
+            <li><a href="#guide" data-i18n="nav_hub">Hub Documentazione</a></li>
+            <li><a href="#requisiti" data-i18n="footer_link_req">Requisiti di Sistema</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Product & Store -->
+        <div class="footer-col">
+          <h4 data-i18n="footer_col_product">Prodotto & Store</h4>
+          <ul>
+            <li><a href="https://apps.microsoft.com" target="_blank" rel="noopener" data-i18n="footer_link_store">Download Microsoft Store</a></li>
+            <li><a href="#prezzi" data-i18n="footer_link_pricing">Piani & Prezzi</a></li>
+            <li><a href="#calcolatore" data-i18n="footer_link_calc">Calcolatore Risparmio</a></li>
+            <li><a href="#faq">FAQ & Risposte</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Support & Legal -->
+        <div class="footer-col">
+          <h4 data-i18n="footer_col_support">Assistenza & Note</h4>
+          <ul>
+            <li><a href="https://wa.me/390965370621?text=Ciao!%20Vorrei%20maggiori%20informazioni%20su%20PrintZap%20per%20la%20mia%20cartoleria." target="_blank" class="js-wa-contact" data-phone="390965370621" data-i18n="footer_link_wa">Assistenza WhatsApp Diretta</a></li>
+            <li><button type="button" class="btn-legal-link" id="openLegalModal" style="color: var(--text-muted); padding: 0; background: none; border: none; font-size: 0.88rem; cursor: pointer; text-align: left;" data-i18n="legal_btn">Privacy Policy & GDPR</button></li>
+            <li><span style="color: var(--text-dim); font-size: 0.85rem;">📞 0965 370621</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p data-i18n="footer_copy">© 2026 PrintZap. Tutti i diritti riservati. Compatibile con Windows 10 & 11.</p>
+        <p data-i18n="footer_text"><strong>PrintZap</strong> — Il software intelligente per la gestione delle stampe in cartoleria.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ================= LEGAL / PRIVACY GDPR MODAL ================= -->
+  <div class="modal-overlay" id="legalModal">
+    <div class="modal-card">
+      <h3 data-i18n="legal_modal_title">🛡️ Trasparenza GDPR & Note Legali</h3>
+      <div class="modal-content">
+        <p data-i18n="legal_p1">
+          <strong>100% Archiviazione Locale:</strong> PrintZap è progettato secondo i principi di Privacy by Design (Regolamento UE 2016/679 - GDPR). Tutti i file ricevuti, i registri di stampa, i database SQLite e le credenziali risiedono fisicamente ed esclusivamente sul PC locale dell'utente (%APPDATA%\PrintZap). Nessun documento viene caricato su server cloud di terze parti.
+        </p>
+        <p data-i18n="legal_p2">
+          <strong>Mascheramento Dati Sensibili:</strong> L'interfaccia operativa oscura automaticamente numeri di telefono e dati personali non pertinenti, consentendo all'operatore di lavorare con il monitor visibile al pubblico senza violare la riservatezza dei clienti in attesa al bancone.
+        </p>
+        <p data-i18n="legal_p3">
+          <strong>Periodo di Prova:</strong> La licenza di prova di 30 giorni è gratuita, non rinnovabile automaticamente e non richiede alcun inserimento di strumenti di pagamento.
+        </p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" id="closeLegalModal" data-i18n="legal_close">Ho Capito / Chiudi</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="translations.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

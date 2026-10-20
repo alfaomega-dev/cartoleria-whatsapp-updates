@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Guida Operativa PrintZap — Procedura e Manuale Passo per Passo</title>
+  <link rel="icon" type="image/png" href="logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Specific styles for Step-by-Step Guide */
+    .guide-header {
+      padding: 120px 0 40px;
+      text-align: center;
+      background: radial-gradient(circle at 50% 20%, rgba(37, 211, 102, 0.08) 0%, transparent 60%);
+    }
+    .guide-nav-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 0;
+      border-bottom: 1px solid var(--border-subtle);
+      margin-bottom: 40px;
+    }
+    .btn-back-home {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .btn-back-home:hover {
+      color: var(--primary);
+    }
+    .guide-step-card {
+      background: rgba(15, 23, 42, 0.65);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      padding: 36px;
+      margin-bottom: 50px;
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      box-shadow: 0 10px 35px rgba(0,0,0,0.4);
+      transition: border-color 0.25s, box-shadow 0.25s;
+    }
+    .guide-step-card:hover {
+      border-color: rgba(37, 211, 102, 0.4);
+      box-shadow: 0 15px 45px rgba(0,0,0,0.6);
+    }
+    .guide-step-header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+    }
+    .guide-step-number {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background: var(--gradient-primary);
+      color: white;
+      font-size: 1.3rem;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 15px rgba(37, 211, 102, 0.35);
+      flex-shrink: 0;
+    }
+    .guide-step-title {
+      font-size: 1.55rem;
+      font-weight: 800;
+      color: var(--text-main);
+      margin: 0;
+    }
+    .guide-img-wrapper {
+      margin: 24px 0;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.7);
+      background: #000;
+      position: relative;
+    }
+    .guide-img-wrapper img {
+      width: 100%;
+      height: auto;
+      display: block;
+      transition: transform 0.3s ease;
+    }
+    .guide-badge-box {
+      display: flex;
+      gap: 10px;
+      margin-top: 10px;
+      flex-wrap: wrap;
+    }
+    .guide-detail-list {
+      list-style: none;
+      padding: 0;
+      margin: 20px 0 0;
+    }
+    .guide-detail-list li {
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-size: 0.98rem;
+      line-height: 1.6;
+      color: var(--text-muted);
+    }
+    .guide-detail-list li:last-child {
+      border-bottom: none;
+    }
+    .guide-detail-list strong {
+      color: var(--text-main);
+    }
+    .icon-point {
+      color: var(--primary);
+      font-weight: 800;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .callout-box {
+      margin-top: 18px;
+      padding: 16px 20px;
+      border-radius: var(--radius-md);
+      font-size: 0.92rem;
+      line-height: 1.6;
+    }
+    .callout-amber {
+      background: rgba(234, 179, 8, 0.1);
+      border: 1px solid rgba(234, 179, 8, 0.3);
+      color: #facc15;
+    }
+    .callout-purple {
+      background: rgba(139, 92, 246, 0.1);
+      border: 1px solid rgba(139, 92, 246, 0.3);
+      color: #c4b5fd;
+    }
+    .callout-cyan {
+      background: rgba(56, 189, 248, 0.1);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      color: #7dd3fc;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ================= HEADER NAVBAR ================= -->
+  <nav class="navbar" style="border-bottom: 1px solid var(--border-subtle);">
+    <div class="container nav-container">
+      <a href="index.html" class="logo-link">
+        <img src="logo.png" alt="PrintZap Logo" class="nav-logo">
+        <span class="logo-text">Print<span>Zap</span></span>
+      </a>
+
+      <div class="nav-actions">
+        <!-- Bilingual Switcher -->
+        <div class="lang-switch-box">
+          <button type="button" class="lang-pill active" id="lang-btn-it" onclick="setGuideLang('it')">🇮🇹 IT</button>
+          <button type="button" class="lang-pill" id="lang-btn-en" onclick="setGuideLang('en')">🇬🇧 EN</button>
+        </div>
+        <a href="pulsanti.html" class="btn btn-outline" style="border-color: #38bdf8; color: #38bdf8; padding: 8px 16px; font-size: 0.85rem;" data-g18n="nav_buttons">🎛️ Mappa Pulsanti</a>
+        <a href="index.html" class="btn btn-outline" style="padding: 8px 16px; font-size: 0.85rem;" data-g18n="back_home">← Torna alla Home</a>
+        <a href="https://apps.microsoft.com" class="btn-ms-store btn-sm" target="_blank" rel="noopener">
+          <span class="ms-store-icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+              <rect x="2" y="2" width="9.5" height="9.5" fill="#f25022"/>
+              <rect x="12.5" y="2" width="9.5" height="9.5" fill="#7fba00"/>
+              <rect x="2" y="12.5" width="9.5" height="9.5" fill="#00a4ef"/>
+              <rect x="12.5" y="12.5" width="9.5" height="9.5" fill="#ffb900"/>
+            </svg>
+          </span>
+          <span class="ms-store-text">
+            <span class="ms-store-main" style="font-size: 0.82rem;">Microsoft Store</span>
+          </span>
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ================= HERO GUIDA ================= -->
+  <header class="guide-header">
+    <div class="container" style="max-width: 900px;">
+      <div class="badge badge-emerald" style="margin-bottom: 16px;" data-g18n="guide_badge">Guida Operativa Ufficiale</div>
+      <h1 class="hero-title" style="font-size: 2.8rem; margin: 0 0 16px;" data-g18n="guide_title">Manuale Illustrato Passo per Passo</h1>
+      <p style="color: var(--text-muted); font-size: 1.1rem; line-height: 1.6;" data-g18n="guide_subtitle">
+        Tutte le schermate del software spiegate pulsante per pulsante: dalla ricezione del file alla stampa, fino alla notifica e alla gestione della cartella clienti.
+      </p>
+    </div>
+  </header>
+
+  <!-- ================= MAIN CONTENT STEPS ================= -->
+  <main class="container" style="max-width: 1000px; padding-bottom: 80px;">
+
+    <!-- PASSO 0: COLLEGAMENTO WHATSAPP CON QR CODE -->
+    <div class="guide-step-card" id="passo-0">
+      <div class="guide-step-header">
+        <div class="guide-step-number" style="background: linear-gradient(135deg, #25D366 0%, #128C7E 100%); box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);">0</div>
+        <div>
+          <h2 class="guide-step-title" data-g18n="step0_title">Primo Avvio: Connessione WhatsApp via Scansione QR Code</h2>
+          <span style="color: var(--text-muted); font-size: 0.88rem;" data-g18n="step0_tag">Associazione sicura dello smartphone in 5 secondi (senza costi API)</span>
+        </div>
+      </div>
+
+      <div class="guide-img-wrapper">
+        <img src="guida_img/00-whatsapp-qr-code.png" alt="Scansione QR Code WhatsApp PrintZap">
+      </div>
+
+      <ul class="guide-detail-list">
+        <li>
+          <span class="icon-point">▶</span>
+          <div>
+            <strong data-g18n="step0_p1_strong">Come associare il telefono:</strong>
+            <span data-g18n="step0_p1_text">Apri WhatsApp sul tuo telefono, entra in <em>Impostazioni &gt; Dispositivi collegati</em>, tocca <em>Collega un dispositivo</em> e inquadra il QR Code mostrato a video.</span>
+          </div>
+        </li>
+        <li>
+          <span class="icon-point">▶</span>
+          <div>
+            <strong data-g18n="step0_p2_strong">Semaforo Barra Laterale:</strong>
+            <span data-g18n="step0_p2_text">L'icona dello smartphone in basso a sinistra pulsa in arancione durante l'attesa del codice e diventa verde fissa a connessione completata.</span>
+          </div>
+        </li>
+        <li>
+          <span class="icon-point">▶</span>
+          <div>
+            <strong data-g18n="step0_p3_strong">Pulsanti Aggiorna QR e Rigenera:</strong>
+            <span data-g18n="step0_p3_text">Se il codice scade o sostituisci lo smartphone aziendale, puoi richiedere un nuovo QR Code all'istante con un semplice clic.</span>
+          </div>
+        </li>
+      </ul>
+
+      <div class="callout-box callout-green" style="margin-top: 20px;">
+        <span data-g18n="step0_callout">🔒 <strong>Nessun canone WhatsApp / Meta:</strong> PrintZap si collega direttamente al tuo account WhatsApp Web ufficiale senza bisogno di costosi account sviluppatore o abbonamenti terzi.</span>
+      </div>
+    </div>
+
+    <!-- PASSO 1: DASHBOARD & INDIRIZZO / PORTA 3000 -->
+    <div class="guide-step-card" id="passo-1">
+      <div class="guide-step-header">
+        <div class="guide-step-number">1</div>
+        <div>
+          <h2 class="guide-step-title" data-g18n="step1_title">Dashboard Principale & Indirizzo Locale (Porta 3000)</h2>
+          <span style="color: var(--text-muted); font-size: 0.88rem;" data-g18n="step1_tag">Schermata di avvio operativo e personalizzazione porta</span>
+        </div>
+      </div>
+
+      <div class="guide-img-wrapper">
+        <img src="guida_img/01-dashboard-url-porta.png" alt="Dashboard PrintZap e indirizzo localhost:3000">
+      </div>
+
+      <ul class="guide-detail-list">
+        <li>
+          <span class="icon-point">▶</span>
+          <div>
+            <strong data-g18n="step1_p1_strong">Indirizzo Web Locale (<code>localhost:3000</code>):</strong>
+            <span data-g18n="step1_p1_text">PrintZap si apre direttamente nel tuo browser predefinito (Google Chrome) a questo indirizzo locale. Non richiede connessioni a server remoti e risponde istantaneamente a zero lag.</span>
+          </div>
+        </li>
+        <li>
+          <span class="icon-point">▶</span>
+          <div>
+            <strong data-g18n="step1_p2_strong">Porta 3000 Personalizzabile in Installazione:</strong>
+            <span data-g18n="step1_p2_text">Se il computer del tuo negozio utilizza già altri software o gestionali che occupano la porta <code>3000</code>, durante l'installazione o nel file di configurazione è possibile impostare liberamente qualsiasi altra porta (es. <code>3001</code>, <code>8080</code>) con auto-fallback garantito.</span>
+          </div>
+        </li>
+        <li>
+          <span class="icon-point">▶</span>
+          <div>
+            <strong data-g18n="step1_p3_strong">Barra Laterale di Controllo:</strong>
+            <span data-g18n="step1_p3_text">Sulla sinistra trovi i canali attivi (WhatsApp, E-mail, Telegram, Bancone Wi-Fi) e le scorciatoie rapide per accedere alla cartella generale documenti, alle impostazioni e allo stato connessione.</span>
+          </div>
+        </li>
+      </ul>
+
+      <div class="callout-box callout-cyan" data-g18n="step1_callout">
+        💡 <strong>Zero Conflitti:</strong> PrintZap include un meccanismo di auto-rilevamento porte. Se la porta 3000 è occupata all'avvio, il sistema scala in automatico per garantirti continuità di servizio.
+      </div>
+    </div>
+
+    <!-- PASSO 2: PANNELLO IMPOSTAZIONI -->
+    <div class="guide-step-card" id="passo-2">
+      <div class="guide-step-header">
+        <div class="guide-step-number">2</div>
+        <div>
+          <h2 class="guide-step-title" data-g18n="step2_title">Pannello Impostazioni & Configurazione del Servizio</h2>
+          <span style="color: var(--text-muted); font-size: 0.88rem;" data-g18n="step2_tag">Tutte le schede operative a portata di clic</span>
+        </div>
+      </div>
+
+      <div class="guide-img-wrapper">
+        <img src="guida_img/02-pannello-impostazioni.png" alt="Pannello Impostazioni con schede WhatsApp, Telegram, Email, Stampanti">
+      </div>
+
+      <ul class="guide-detail-list">
+        <li>
+          <span class="icon-point">▶</span>
+          <div>
+            <strong data-g18n="step2_p1_strong">Accesso Rapido (Icona Ingranaggio):</strong>
+            <span data-g18n="step2_p1_text">Come evidenziato dalla freccia rossa, cliccando sull'icona a ingranaggio in basso a sinistra si apre il centro di controllo completo di PrintZap.</span>
+          </div>
+        </li>
+        <li>
+          <span class="icon-point">▶</span>
+          <div>
+            <strong data-g18n="step2_p2_strong">Panoramica Schede:</strong>
+            <span data-g18n="step2_p2_text">Puoi configurare singolarmente: <strong>WhatsApp</strong> (connessione QR Code e lookback 96h), <strong>Telegram</strong>, <strong>Web Bancone</strong>, <strong>E-mail</strong> (ricezione IMAP/SMTP), <strong>Servizio</strong> (stampanti predefinite e cartelle su disco), <strong>Aggiornamenti</strong>, <strong>Licenza</strong>, <strong>Statistiche</strong> e <strong>Sistema & Log</strong>.</span>
+          </div>
+        </li>
+        <li>
+          <span class="icon-point">▶</span>
+          <div>
+            <strong data-g18n="step2_p3_strong">Attivazione Flessibile:</strong>
+            <span data-g18n="step2_p3_text">Ogni canale secondario (come l'E-mail mostrata nella foto) dispone di un interruttore ON/OFF: attivi solo i canali che usi realmente in negozio.</span>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <!-- PASSO 3: FLUSSO WHATSAPP DESKTOP -->
+    <div class="guide-step-card" id="passo-3">
+      <div class="guide-step-header">
+        <div class="guide-step-number">3</div>
+        <div>
+          <h2 class="guide-step-title" data-g18n="step3_title">Flusso di Lavoro: Arrivo del File su WhatsApp Desktop</h2>
+          <span style="color: var(--text-muted); font-size: 0.88rem;" data-g18n="step3_tag">Usi WhatsApp come hai sempre fatto, senza cambiare abitudini</span>
+        </div>
+      </div>
+
+      <div class="guide-img-wrapper">
+        <img src="guida_img/03-whatsapp-desktop-ricezione.png" alt="WhatsApp Desktop ricezione file cliente">
+      </div>
+
+      <ul class="guide-detail-list">
+        <li>
+          <span class="icon-point">▶</span>
+          <div>
+            <strong data-g18n="step3_p1_strong">Ricezione Naturale da WhatsApp:</strong>
+            <span data-g18n="step3_p1_text">Il cliente (alle 10:50) invia un'immagine o un documento tramite WhatsApp. Sul tuo computer il badge verde mostra <code>1</code> messaggio non letto.</span>
+          </div>
+        </li>
+        <li>
+          <span class="icon-point">▶</span>
+          <div>
+            <strong data-g18n="step3_p2_strong">Zero Operazioni Manuali:</strong>
+            <span data-g18n="step3_p2_text">Non devi aprire la chat, non devi fare clic col tasto destro e non devi premere "Salva con nome". PrintZap rileva il file all'istante e lo cataloga automaticamente.</span>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <!-- PASSO 4: PRINTZAP ORDINE ATTIVO & ETICHETTA GIACENZA -->
+    <div class="guide-step-card" id="passo-4">
+      <div class="guide-step-header">
+        <div class="guide-step-number">4</div>
+        <div>
+          <h2 class="guide-step-title" data-g18n="step4_title">Ordine Ricevuto & Etichetta GIACENZA a Video</h2>
+          <span style="color: var(--text-muted); font-size: 0.88rem;" data-g18n="step4_tag">Comprensione immediata dello stato cliente e delle stampe arretrate</span>
+        </div>
+      </div>
+
+      <div class="guide-img-wrapper">
+        <img src="guida_img/04-printzap-ordine-ricevuto.png" alt="PrintZap ordine attivo con etichetta GIACENZA e file da stampare">
+      </div>
+
+      <ul class="guide-detail-list">
+        <li>
+          <span class="icon-point">▶</span>
+          <div>
+            <strong data-g18n="step4_p1_strong">Comprensione Immediata del Cliente:</strong>
+            <span data-g18n="step4_p1_text">Il cliente compare in cima alla colonna di sinistra. Cliccandoci sopra, vedi la sua scheda con il numero oscurato per privacy (GDPR al bancone).</span>
+          </div>
+        </li>
+        <li>
+          <span class="icon-point">▶</span>
+          <div>
+            <strong data-g18n="step4_p2_strong">Perché compare il Badge Giallo "GIACENZA":</strong>
+            <span data-g18n="step4_p2_text">Come si nota nello screenshot, accanto a <em>CLIENTE</em> c'è il badge giallo <strong>GIACENZA</strong>. Questo accade perché il cliente aveva già file o ordini arrivati ieri o nei giorni passati e non ancora ritirati! L'avviso visivo ti permette di accorgerti subito che il cliente ha documenti arretrati.</span>
+          </div>
+        </li>
+        <li>
+          <span class="icon-point">▶</span>
+          <div>
+            <strong data-g18n="step4_p3_strong">Raggruppamento per Sessioni Temporali:</strong>
+            <span data-g18n="step4_p3_text">I file ricevuti sono organizzati in comode cartelle di sessione (<em>"Oggi alle 10:50 (1 file)"</em>) con badge arancione <strong>"DA STAMPARE (1)"</strong>.</span>
+          </div>
+        </li>
+      </ul>
+
+      <div class="callout-box callout-amber" data-g18n="step4_callout">
+        ⚠️ <strong>Attenzione al Badge GIACENZA:</strong> Quando vedi l'etichetta gialla GIACENZA, sai che oltre ai file freschi di oggi ci sono documenti precedenti in attesa di essere consegnati. Mai più stampe dimenticate sul banco!
+      </div>
+    </div>
+
+    <!-- PASSO 5: CARTELLA SU DISCO WINDOWS EXPLORER -->
+    <div class="guide-step-card" id="passo-5">
+      <div class="guide-step-header">
+        <div class="guide-step-number">5</div>
+        <div>
+          <h2 class="guide-step-title" data-g18n="step5_title">Apertura Istantanea della Cartella sul PC (Tasto "Apri Cartella")</h2>
+          <span style="color: var(--text-muted); font-size: 0.88rem;" data-g18n="step5_tag">Tutti i file catalogati con il nome reale del cliente</span>
+        </div>
+      </div>
+
+      <div class="guide-img-wrapper">
+        <img src="guida_img/05-cartella-cliente-explorer.png" alt="Windows Explorer cartella dedicata Cartella_Cliente creata automaticamente">
+      </div>
+
+      <ul class="guide-detail-list">
+        <li>
+          <span class="icon-point">▶</span>
+          <div>
+            <strong data-g18n="step5_p1_strong">Un Solo Clic su "Apri Cartella":</strong>
+            <span data-g18n="step5_p1_text">Premendo il pulsante <strong>"📂 Apri Cartella"</strong> in alto a destra su PrintZap, Windows Explorer si apre istantaneamente in primo piano esattamente nella cartella creata per quel cliente:  
+            <code>...\PrintZap\file_da_stampare\Cartella_Cliente\</code></span>
+          </div>
+        </li>
+        <li>
+          <span class="icon-point">▶</span>
+          <div>
+            <strong data-g18n="step5_p2_strong">File già Estratto e Pronto:</strong>
+            <span data-g18n="step5_p2_text">Il file <code>1792140653056_mlm7.jpg</code> è già salvato e pronto per essere aperto con Photoshop, Acrobat Reader o trascinato nel software della stampante/plotter.</span>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <!-- PASSO 6: NOTIFICA INVIATA & STATO VIOLA -->
+    <div class="guide-step-card" id="passo-6">
+      <div class="guide-step-header">
+        <div class="guide-step-number">6</div>
+        <div>
+          <h2 class="guide-step-title" data-g18n="step6_title">Invio Notifica "Stampa Pronta" & Cambio Colore a Video (Viola)</h2>
+          <span style="color: var(--text-muted); font-size: 0.88rem;" data-g18n="step6_tag">Il semaforo visivo che avvisa che il lavoro è concluso</span>
+        </div>
+      </div>
+
+      <div class="guide-img-wrapper">
+        <img src="guida_img/06-printzap-notifica-viola.png" alt="PrintZap pulsante e riga diventano VIOLA dopo l'invio della notifica">
+      </div>
+
+      <ul class="guide-detail-list">
+        <li>
+          <span class="icon-point">▶</span>
+          <div>
+            <strong data-g18n="step6_p1_strong">Un Clic su "Notifica Pronto":</strong>
+            <span data-g18n="step6_p1_text">Appena hai stampato il documento, clicchi su <strong>"🖨️ Notifica Pronto"</strong> (o premi il pulsante 🚀 nella cartella di sessione).</span>
+          </div>
+        </li>
+        <li>
+          <span class="icon-point">▶</span>
+          <div>
+            <strong data-g18n="step6_p2_strong">La Trasformazione Cromatica in VIOLA:</strong>
+            <span data-g18n="step6_p2_text">Il pulsante si trasforma all'istante in <strong>VIOLA</strong> (<code>Invia Notifica</code> / <code>🔁 Reinvia Notifica</code>), il nome del cliente si colora di lilla e il badge del file diventa verde: <strong>"✅ GIÀ STAMPATO"</strong>.</span>
+          </div>
+        </li>
+        <li>
+          <span class="icon-point">▶</span>
+          <div>
+            <strong data-g18n="step6_p3_strong">Controllo al Bancone:</strong>
+            <span data-g18n="step6_p3_text">Quando il cliente entra in negozio, guardi lo schermo e il colore viola ti dice all'istante: <em>"Il lavoro del CLIENTE è concluso al 100% ed è stato già avvisato!"</em>.</span>
+          </div>
+        </li>
+      </ul>
+
+      <div class="callout-box callout-purple" data-g18n="step6_callout">
+        🟣 <strong>Feedback Visivo Totale:</strong> Non serve ricordarsi se hai già avvisato il cliente: il colore viola della riga lo certifica a colpo d'occhio.
+      </div>
+    </div>
+
+    <!-- PASSO 7: WHATSAPP MESSAGGIO RECAPITATO & CRONOLOGIA INTATTA -->
+    <div class="guide-step-card" id="passo-7">
+      <div class="guide-step-header">
+        <div class="guide-step-number">7</div>
+        <div>
+          <h2 class="guide-step-title" data-g18n="step7_title">Conferma Ricezione su WhatsApp & Salvaguardia Cronologia</h2>
+          <span style="color: var(--text-muted); font-size: 0.88rem;" data-g18n="step7_tag">Messaggio ufficiale recapitato senza perdere un singolo messaggio precedente</span>
+        </div>
+      </div>
+
+      <div class="guide-img-wrapper">
+        <img src="guida_img/07-whatsapp-notifica-conferma.png" alt="WhatsApp messaggio Stampa Pronta recapitato con storico integro">
+      </div>
+
+      <ul class="guide-detail-list">
+        <li>
+          <span class="icon-point">▶</span>
+          <div>
+            <strong data-g18n="step7_p1_strong">Messaggio Consegnato su WhatsApp (Ore 10:53):</strong>
+            <span data-g18n="step7_p1_text">Sull'app WhatsApp del cliente arriva puntuale il messaggio ufficiale con doppia spunta:  
+            <em>"✅ Stampa Pronta! 🖨️ Il tuo documento è pronto per il ritiro."</em></span>
+          </div>
+        </li>
+        <li>
+          <span class="icon-point">▶</span>
+          <div>
+            <strong data-g18n="step7_p2_strong">La Prova della Cronologia Intatta:</strong>
+            <span data-g18n="step7_p2_text">Guardando la schermata, si vede chiaramente che tutta la conversazione precedente di ieri (con il PDF <em>"La selezione del personale.pdf"</em> e la precedente notifica) è rimasta perfettamente memorizzata e intatta. Questo spiega anche perché su PrintZap compariva l'etichetta <strong>GIACENZA</strong> per il <em>CLIENTE</em>!</span>
+          </div>
+        </li>
+        <li>
+          <span class="icon-point">▶</span>
+          <div>
+            <strong data-g18n="step7_p3_strong">Preservazione del Badge Non Letti:</strong>
+            <span data-g18n="step7_p3_text">L'invio della notifica da PrintZap non marca come letti i messaggi che volevi consultare con calma dal telefono. La tua normale operatività quotidiana rimane inalterata.</span>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <!-- PASSO 8: LINK CLOUD DOWNLOADER (ADOBE, DRIVE...) & GESTIONE FILE AGGIUNTI (STATO GIALLO) -->
+    <div class="guide-step-card" id="passo-8">
+      <div class="guide-step-header">
+        <div class="guide-step-number">8</div>
+        <div>
+          <h2 class="guide-step-title" data-g18n="step8_title">Download Automatico Link Cloud (Adobe, Drive...) & File Aggiunti (Giallo)</h2>
+          <span style="color: var(--text-muted); font-size: 0.88rem;" data-g18n="step8_tag">Niente più link aperti a mano nel browser e gestione visiva degli aggiornamenti</span>
+        </div>
+      </div>
+
+      <div class="guide-img-wrapper">
+        <img src="guida_img/08-link-downloader-aggiornamento-giallo.png" alt="PrintZap download automatico link Adobe e gestione file aggiunti con stato giallo">
+      </div>
+
+      <ul class="guide-detail-list">
+        <li>
+          <span class="icon-point">▶</span>
+          <div>
+            <strong data-g18n="step8_p1_strong">Download Automatico da Link Cloud:</strong>
+            <span data-g18n="step8_p1_text">Quando il cliente invia un link di condivisione invece di allegare il file, PrintZap estrae e scarica automaticamente il documento sul tuo computer in locale. Supporta nativamente:
+            <strong>Adobe Acrobat</strong> (<code>acrobat.adobe.com</code>), <strong>Google Drive</strong>, <strong>Google Quick Share</strong>, <strong>Dropbox</strong>, <strong>OneDrive</strong>, <strong>Pinterest</strong> e qualsiasi link diretto o con meta-tag Open Graph!</span>
+          </div>
+        </li>
+        <li>
+          <span class="icon-point">▶</span>
+          <div>
+            <strong data-g18n="step8_p2_strong">Flusso File Aggiunti & Stato Giallo Oro:</strong>
+            <span data-g18n="step8_p2_text">Nello screenshot si vede chiaramente il caso reale di un <em>CLIENTE</em>: alle 11:04 aveva inviato un primo file (già stampato, con pulsante viola <code>Reinvia Notifica</code>), ma alle 11:06 ne ha inviato un secondo (<code>DA STAMPARE</code>).</span>
+          </div>
+        </li>
+        <li>
+          <span class="icon-point">▶</span>
+          <div>
+            <strong data-g18n="step8_p3_strong">Pulsante Giallo e Avviso "Nuovi File":</strong>
+            <span data-g18n="step8_p3_text">PrintZap rileva la sessione precedente completata e accende la schermata in <strong>GIALLO ORO</strong>: il nome diventa giallo, compare l'etichetta <code>⚠️ Nuovi file</code> e il pulsante in alto a destra diventa <strong>GIALLO <code>[ 🖨️ Notifica Pronto ]</code></strong>. In questo modo sai che devi stampare il nuovo file e puoi rinotificare il cliente per il secondo lavoro senza confusione!</span>
+          </div>
+        </li>
+      </ul>
+
+      <div class="callout-box callout-amber" data-g18n="step8_callout">
+        ⚡ <strong>Zero Tempo Perso con i Link:</strong> Il cliente ti manda il link di Adobe Acrobat o Google Drive? Non devi copiare l'URL, incollarlo su Chrome e cliccare "Scarica": PrintZap fa tutto da solo e te lo fa trovare già scaricato e ordinato!
+      </div>
+    </div>
+
+    <!-- BOX FINALE -->
+    <div style="text-align: center; margin-top: 60px; padding: 40px; background: rgba(37, 211, 102, 0.05); border: 1px solid rgba(37, 211, 102, 0.3); border-radius: var(--radius-lg);">
+      <h3 style="font-size: 1.8rem; margin-bottom: 12px; color: var(--text-main);" data-g18n="final_title">Pronto a semplificare il banco della tua cartoleria?</h3>
+      <p style="color: var(--text-muted); margin-bottom: 24px;" data-g18n="final_subtitle">Installa PrintZap e prova gratis tutte queste funzionalità nel tuo negozio per 30 giorni.</p>
+      <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
+        <a href="index.html#prezzi" class="btn btn-primary" data-g18n="final_btn_try">Inizia la Prova Gratuita (30 Giorni)</a>
+        <a href="https://wa.me/390965370621" target="_blank" class="btn btn-outline" style="border-color: #25D366; color: #25D366;" data-g18n="final_btn_wa">Scrivici su WhatsApp (0965 370621)</a>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- ================= SCRIPT I18N PER LA GUIDA ================= -->
+  <script>
+    const guideTranslations = {
+      it: {
+        back_home: "← Torna alla Home",
+        nav_buttons: "🎛️ Mappa Pulsanti",
+        guide_badge: "Guida Operativa Ufficiale",
+        guide_title: "Manuale Illustrato Passo per Passo",
+        guide_subtitle: "Tutte le schermate del software spiegate pulsante per pulsante: dalla ricezione del file alla stampa, fino alla notifica e alla gestione della cartella clienti.",
+        step0_title: "Primo Avvio: Connessione WhatsApp via Scansione QR Code",
+        step0_tag: "Associazione sicura dello smartphone in 5 secondi (senza costi API)",
+        step0_p1_strong: "Come associare il telefono:",
+        step0_p1_text: "Apri WhatsApp sul tuo telefono, entra in <em>Impostazioni &gt; Dispositivi collegati</em>, tocca <em>Collega un dispositivo</em> e inquadra il QR Code mostrato a video.",
+        step0_p2_strong: "Semaforo Barra Laterale:",
+        step0_p2_text: "L'icona dello smartphone in basso a sinistra pulsa in arancione durante l'attesa del codice e diventa verde fissa a connessione completata.",
+        step0_p3_strong: "Pulsanti Aggiorna QR e Rigenera:",
+        step0_p3_text: "Se il codice scade o sostituisci lo smartphone aziendale, puoi richiedere un nuovo QR Code all'istante con un semplice clic.",
+        step0_callout: "🔒 <strong>Nessun canone WhatsApp / Meta:</strong> PrintZap si collega direttamente al tuo account WhatsApp Web ufficiale senza bisogno di costosi account sviluppatore o abbonamenti terzi.",
+        step1_title: "Dashboard Principale & Indirizzo Locale (Porta 3000)",
+        step1_tag: "Schermata di avvio operativo e personalizzazione porta",
+        step1_p1_strong: "Indirizzo Web Locale (localhost:3000):",
+        step1_p1_text: "PrintZap si apre direttamente nel tuo browser predefinito (Google Chrome) a questo indirizzo locale. Non richiede connessioni a server remoti e risponde istantaneamente a zero lag.",
+        step1_p2_strong: "Porta 3000 Personalizzabile in Installazione:",
+        step1_p2_text: "Se il computer del tuo negozio utilizza già altri software o gestionali che occupano la porta 3000, durante l'installazione o nel file di configurazione è possibile impostare liberamente qualsiasi altra porta (es. 3001, 8080) con auto-fallback garantito.",
+        step1_p3_strong: "Barra Laterale di Controllo:",
+        step1_p3_text: "Sulla sinistra trovi i canali attivi (WhatsApp, E-mail, Telegram, Bancone Wi-Fi) e le scorciatoie rapide per accedere alla cartella generale documenti, alle impostazioni e allo stato connessione.",
+        step1_callout: "💡 <strong>Zero Conflitti:</strong> PrintZap include un meccanismo di auto-rilevamento porte. Se la porta 3000 è occupata all'avvio, il sistema scala in automatico per garantirti continuità di servizio.",
+        step2_title: "Pannello Impostazioni & Configurazione del Servizio",
+        step2_tag: "Tutte le schede operative a portata di clic",
+        step2_p1_strong: "Accesso Rapido (Icona Ingranaggio):",
+        step2_p1_text: "Come evidenziato dalla freccia rossa, cliccando sull'icona a ingranaggio in basso a sinistra si apre il centro di controllo completo di PrintZap.",
+        step2_p2_strong: "Panoramica Schede:",
+        step2_p2_text: "Puoi configurare singolarmente: WhatsApp (connessione QR Code e lookback 96h), Telegram, Web Bancone, E-mail (ricezione IMAP/SMTP), Servizio (stampanti predefinite e cartelle su disco), Aggiornamenti, Licenza, Statistiche e Sistema & Log.",
+        step2_p3_strong: "Attivazione Flessibile:",
+        step2_p3_text: "Ogni canale secondario (come l'E-mail mostrata nella foto) dispone di un interruttore ON/OFF: attivi solo i canali che usi realmente in negozio.",
+        step3_title: "Flusso di Lavoro: Arrivo del File su WhatsApp Desktop",
+        step3_tag: "Usi WhatsApp come hai sempre fatto, senza cambiare abitudini",
+        step3_p1_strong: "Ricezione Naturale da WhatsApp:",
+        step3_p1_text: "Il cliente (alle 10:50) invia un'immagine o un documento tramite WhatsApp. Sul tuo computer il badge verde mostra 1 messaggio non letto.",
+        step3_p2_strong: "Zero Operazioni Manuali:",
+        step3_p2_text: "Non devi aprire la chat, non devi fare clic col tasto destro e non devi premere 'Salva con nome'. PrintZap rileva il file all'istante e lo cataloga automaticamente.",
+        step4_title: "Ordine Ricevuto & Etichetta GIACENZA a Video",
+        step4_tag: "Comprensione immediata dello stato cliente e delle stampe arretrate",
+        step4_p1_strong: "Comprensione Immediata del Cliente:",
+        step4_p1_text: "Il cliente compare in cima alla colonna di sinistra. Cliccandoci sopra, vedi la sua scheda con il numero oscurato per privacy (GDPR al bancone).",
+        step4_p2_strong: "Perché compare il Badge Giallo 'GIACENZA':",
+        step4_p2_text: "Come si nota nello screenshot, accanto a CLIENTE c'è il badge giallo GIACENZA. Questo accade perché il cliente aveva già file o ordini arrivati ieri o nei giorni passati e non ancora ritirati! L'avviso visivo ti permette di accorgerti subito che il cliente ha documenti arretrati.",
+        step4_p3_strong: "Raggruppamento per Sessioni Temporali:",
+        step4_p3_text: "I file ricevuti sono organizzati in comode cartelle di sessione ('Oggi alle 10:50 (1 file)') con badge arancione 'DA STAMPARE (1)'.",
+        step4_callout: "⚠️ <strong>Attenzione al Badge GIACENZA:</strong> Quando vedi l'etichetta gialla GIACENZA, sai che oltre ai file freschi di oggi ci sono documenti precedenti in attesa di essere consegnati. Mai più stampe dimenticate sul banco!",
+        step5_title: "Apertura Istantanea della Cartella sul PC (Tasto 'Apri Cartella')",
+        step5_tag: "Tutti i file catalogati con il nome reale del cliente",
+        step5_p1_strong: "Un Solo Clic su 'Apri Cartella':",
+        step5_p1_text: "Premendo il pulsante '📂 Apri Cartella' in alto a destra su PrintZap, Windows Explorer si apre istantaneamente in primo piano esattamente nella cartella creata per quel cliente: ...\\PrintZap\\file_da_stampare\\Cartella_Cliente\\",
+        step5_p2_strong: "File già Estratto e Pronto:",
+        step5_p2_text: "Il file è già salvato sul disco e pronto per essere aperto con qualsiasi programma o trascinato nella stampante.",
+        step6_title: "Invio Notifica 'Stampa Pronta' & Cambio Colore a Video (Viola)",
+        step6_tag: "Il semaforo visivo che avvisa che il lavoro è concluso",
+        step6_p1_strong: "Un Clic su 'Notifica Pronto':",
+        step6_p1_text: "Appena hai stampato il documento, clicchi su '🖨️ Notifica Pronto' (o premi il pulsante 🚀 nella cartella di sessione).",
+        step6_p2_strong: "La Trasformazione Cromatica in VIOLA:",
+        step6_p2_text: "Il pulsante si trasforma all'istante in VIOLA (Invia Notifica / Reinvia Notifica), il nome del cliente si colora di lilla e il badge del file diventa verde: '✅ GIÀ STAMPATO'.",
+        step6_p3_strong: "Controllo al Bancone:",
+        step6_p3_text: "Quando il cliente entra in negozio, guardi lo schermo e il colore viola ti dice all'istante: 'Il lavoro del CLIENTE è concluso al 100% ed è stato già avvisato!'.",
+        step6_callout: "🟣 <strong>Feedback Visivo Totale:</strong> Non serve ricordarsi se hai già avvisato il cliente: il colore viola della riga lo certifica a colpo d'occhio.",
+        step7_title: "Conferma Ricezione su WhatsApp & Salvaguardia Cronologia",
+        step7_tag: "Messaggio ufficiale recapitato senza perdere un singolo messaggio precedente",
+        step7_p1_strong: "Messaggio Consegnato su WhatsApp (Ore 10:53):",
+        step7_p1_text: "Sull'app WhatsApp del cliente arriva puntuale il messaggio ufficiale con doppia spunta: '✅ Stampa Pronta! 🖨️ Il tuo documento è pronto per il ritiro.'",
+        step7_p2_strong: "La Prova della Cronologia Intatta:",
+        step7_p2_text: "Guardando la schermata, si vede chiaramente che tutta la conversazione precedente di ieri (con il PDF 'La selezione del personale.pdf' e la precedente notifica) è rimasta memorizzata e intatta. Questo spiega anche perché su PrintZap compariva l'etichetta GIACENZA per il CLIENTE!",
+        step7_p3_strong: "Preservazione del Badge Non Letti:",
+        step7_p3_text: "L'invio della notifica da PrintZap non marca come letti i messaggi che volevi consultare con calma dal telefono. La tua normale operatività quotidiana rimane inalterata.",
+        step8_title: "Download Automatico Link Cloud (Adobe, Drive...) & File Aggiunti (Giallo)",
+        step8_tag: "Niente più link aperti a mano nel browser e gestione visiva degli aggiornamenti",
+        step8_p1_strong: "Download Automatico da Link Cloud:",
+        step8_p1_text: "Quando il cliente invia un link di condivisione invece di allegare il file, PrintZap estrae e scarica automaticamente il documento sul tuo computer in locale. Supporta nativamente: Adobe Acrobat (acrobat.adobe.com), Google Drive, Google Quick Share, Dropbox, OneDrive, Pinterest e qualsiasi link diretto o con meta-tag Open Graph!",
+        step8_p2_strong: "Flusso File Aggiunti & Stato Giallo Oro:",
+        step8_p2_text: "Nello screenshot si vede chiaramente il caso reale di un CLIENTE: alle 11:04 aveva inviato un primo file (già stampato, con pulsante viola 'Reinvia Notifica'), ma alle 11:06 ne ha inviato un secondo ('DA STAMPARE').",
+        step8_p3_strong: "Pulsante Giallo e Avviso 'Nuovi File':",
+        step8_p3_text: "PrintZap rileva la sessione precedente completata e accende la schermata in GIALLO ORO: il nome diventa giallo, compare l'etichetta '⚠️ Nuovi file' e il pulsante in alto a destra diventa GIALLO '[ 🖨️ Notifica Pronto ]'. In questo modo sai subito che devi stampare il nuovo file e puoi rinotificare il cliente per il secondo lavoro senza confusione!",
+        step8_callout: "⚡ <strong>Zero Tempo Perso con i Link:</strong> Il cliente ti manda il link di Adobe Acrobat o Google Drive? Non devi copiare l'URL, incollarlo su Chrome e cliccare 'Scarica': PrintZap fa tutto da solo e te lo fa trovare già scaricato e ordinato!",
+        final_title: "Pronto a semplificare il banco della tua cartoleria?",
+        final_subtitle: "Installa PrintZap e prova gratis tutte queste funzionalità nel tuo negozio per 30 giorni.",
+        final_btn_try: "Inizia la Prova Gratuita (30 Giorni)",
+        final_btn_wa: "Scrivici su WhatsApp (0965 370621)"
+      },
+      en: {
+        back_home: "← Back to Home",
+        nav_buttons: "🎛️ Buttons Map",
+        guide_badge: "Official User Guide",
+        guide_title: "Step-by-Step Illustrated Manual",
+        guide_subtitle: "Every screen of the software explained button by button: from receiving files to printing, customer notifications, and folder organization.",
+        step0_title: "Initial Setup: WhatsApp Connection via QR Code Scan",
+        step0_tag: "Secure smartphone pairing in 5 seconds (zero API fees)",
+        step0_p1_strong: "How to pair your phone:",
+        step0_p1_text: "Open WhatsApp on your mobile phone, go to <em>Settings &gt; Linked Devices</em>, tap <em>Link a Device</em>, and point your camera at the QR code displayed on screen.",
+        step0_p2_strong: "Sidebar Status Indicator:",
+        step0_p2_text: "The phone icon in the bottom-left sidebar pulses orange while awaiting the QR code scan, and turns solid green once connected.",
+        step0_p3_strong: "Refresh & Regenerate Buttons:",
+        step0_p3_text: "If the code times out or you swap store phones, you can request a brand new QR Code instantly with a single click.",
+        step0_callout: "🔒 <strong>Zero WhatsApp / Meta Monthly Fees:</strong> PrintZap connects directly with official WhatsApp Web technology without needing expensive Meta developer accounts or third-party gateways.",
+        step1_title: "Main Dashboard & Local Address (Port 3000)",
+        step1_tag: "Startup screen and custom port settings",
+        step1_p1_strong: "Local Web Address (localhost:3000):",
+        step1_p1_text: "PrintZap opens directly inside your default browser (Google Chrome) at this local address. It does not require external servers and runs with zero latency.",
+        step1_p2_strong: "Port 3000 Customizable during Setup:",
+        step1_p2_text: "If your store computer already has other management software using port 3000, you can choose any other port (e.g., 3001, 8080) during installation with automatic conflict resolution.",
+        step1_p3_strong: "Control Sidebar:",
+        step1_p3_text: "On the left sidebar you can monitor active channels (WhatsApp, E-mail, Telegram, Counter Wi-Fi) and quick links to your master print folder, settings, and connection status.",
+        step1_callout: "💡 <strong>Zero Port Conflicts:</strong> PrintZap features automatic port detection and fallback, ensuring uninterrupted workflow even on busy multi-app computers.",
+        step2_title: "Settings Modal & Service Configuration",
+        step2_tag: "All operational tabs accessible with 1 click",
+        step2_p1_strong: "Quick Access (Gear Icon):",
+        step2_p1_text: "As indicated by the red arrow, clicking the gear icon in the lower-left corner opens PrintZap's comprehensive settings console.",
+        step2_p2_strong: "Tabs Overview:",
+        step2_p2_text: "Individually configure: WhatsApp (QR Code connection & 96h lookback), Telegram, Countertop Wi-Fi, E-mail (IMAP/SMTP inbox), Service (default printers and hard disk paths), Software Updates, License, Statistics, and System Logs.",
+        step2_p3_strong: "Flexible Activation:",
+        step2_p3_text: "Every secondary channel (like E-mail shown in the picture) features an independent ON/OFF switch: enable only the services you actually need in your shop.",
+        step3_title: "Workflow: Receiving Files on WhatsApp Desktop",
+        step3_tag: "Keep using WhatsApp as you always have, with zero disruption",
+        step3_p1_strong: "Natural WhatsApp Reception:",
+        step3_p1_text: "The customer (at 10:50) sends an image or document via WhatsApp. Your desktop app shows 1 unread message badge.",
+        step3_p2_strong: "Zero Manual Effort:",
+        step3_p2_text: "No need to open the chat, right-click, or choose 'Save As'. PrintZap automatically intercepts and catalogs the file instantaneously.",
+        step4_title: "Active Order & The 'GIACENZA' Badge Explained",
+        step4_tag: "Instant visual awareness of customer status and pending jobs",
+        step4_p1_strong: "Instant Customer Visibility:",
+        step4_p1_text: "The customer appears at the top of the queue. Clicking reveals their file drawer with masked phone numbers for GDPR compliance at the counter.",
+        step4_p2_strong: "Why the Amber 'GIACENZA' Badge Appears:",
+        step4_p2_text: "As shown in the screenshot, CLIENTE has an amber GIACENZA badge. This happens because the customer already had older uncollected files from yesterday or past days! The badge immediately alerts you to check for backlogged prints.",
+        step4_p3_strong: "Time-Session Grouping:",
+        step4_p3_text: "Received files are organized in clean session folders ('Today at 10:50 (1 file)') with orange 'TO PRINT (1)' badges.",
+        step4_callout: "⚠️ <strong>Notice the GIACENZA Badge:</strong> When you see the yellow GIACENZA label, you know older uncollected prints are waiting alongside today's fresh files. Never lose track of prints again!",
+        step5_title: "Instant Hard Disk Folder Access ('Open Folder' Button)",
+        step5_tag: "Every file neatly categorized with the customer's real name",
+        step5_p1_strong: "Single Click on 'Open Folder':",
+        step5_p1_text: "Clicking '📂 Open Folder' in the top-right corner of PrintZap opens Windows Explorer in the foreground directly inside the customer folder: ...\\PrintZap\\file_da_stampare\\Cartella_Cliente\\",
+        step5_p2_strong: "File Ready to Print:",
+        step5_p2_text: "The document is already downloaded on your hard drive, ready to open in Acrobat Reader, Photoshop, or drag into your production plotter.",
+        step6_title: "Sending 'Print Ready' Pickup Notice & Color Shift to PURPLE",
+        step6_tag: "The visual traffic light signaling that the job is complete",
+        step6_p1_strong: "1-Click on 'Notifica Pronto':",
+        step6_p1_text: "As soon as printing finishes, click '🖨️ Notifica Pronto' (or press the 🚀 button in the session folder header).",
+        step6_p2_strong: "Color Transformation into PURPLE:",
+        step6_p2_text: "The action button instantly turns PURPLE (Send Notification / Resend Notification), the customer name glows lilac, and the file badge turns green: '✅ ALREADY PRINTED'.",
+        step6_p3_strong: "Countertop Certainty:",
+        step6_p3_text: "When the customer enters your shop, one glance at the purple card confirms: 'The CLIENT\\'s order is 100% finished and they have already been notified!'.",
+        step6_callout: "🟣 <strong>Total Visual Feedback:</strong> No need to remember who was notified: the purple glow certifies completion at a single glance.",
+        step7_title: "WhatsApp Delivery Confirmation & Full History Protection",
+        step7_tag: "Official pickup alert delivered with zero loss of previous messages",
+        step7_p1_strong: "Delivered on WhatsApp (10:53 AM):",
+        step7_p1_text: "The customer receives the official pickup alert with double checkmarks: '✅ Stampa Pronta! 🖨️ Il tuo documento è pronto per il ritiro.'",
+        step7_p2_strong: "Proof of History Preservation:",
+        step7_p2_text: "The screenshot shows yesterday's previous conversation (including the earlier PDF 'La selezione del personale.pdf' and past notices) completely intact. This also confirms why PrintZap flagged the CLIENT with the GIACENZA badge!",
+        step7_p3_strong: "Unread Badges Preserved:",
+        step7_p3_text: "Sending notifications through PrintZap does not mark incoming chats as read, preserving your mobile notification badges for stress-free review.",
+        step8_title: "Automatic Cloud Link Downloader (Adobe, Drive...) & Added Files (Yellow)",
+        step8_tag: "No more manually pasting links into your browser, plus instant visual update alerts",
+        step8_p1_strong: "Automatic Download from Cloud Links:",
+        step8_p1_text: "When customers send sharing links instead of attaching raw files, PrintZap automatically detects, extracts, and downloads the document directly to your local PC. Natively supports: Adobe Acrobat (acrobat.adobe.com), Google Drive, Google Quick Share, Dropbox, OneDrive, Pinterest, and direct links with Open Graph metadata!",
+        step8_p2_strong: "Added Files Workflow & Golden Yellow State:",
+        step8_p2_text: "The screenshot illustrates the real-world case of a CLIENT: at 11:04 AM they sent a first document (already printed, marked with purple 'Resend Notification' button), but at 11:06 AM they sent a second document ('TO PRINT').",
+        step8_p3_strong: "Yellow Action Button & 'New Files' Alert:",
+        step8_p3_text: "PrintZap detects the finished previous session and lights up the screen in GOLDEN YELLOW: the customer name turns yellow, the '⚠️ New Files' badge appears, and the top-right button turns YELLOW '[ 🖨️ Notifica Pronto ]'. You know immediately that new files need printing and you can re-notify the customer for the second job with zero confusion!",
+        step8_callout: "⚡ <strong>Zero Wasted Time on Links:</strong> Customers send Adobe Acrobat or Google Drive links? You no longer have to copy the link, paste it into Chrome, and click 'Download': PrintZap does it automatically and has the file downloaded and cataloged in seconds!",
+        final_title: "Ready to streamline your print shop counter?",
+        final_subtitle: "Install PrintZap and test every single feature in your shop free for 30 days.",
+        final_btn_try: "Start Free 30-Day Trial",
+        final_btn_wa: "Chat on WhatsApp (+39 0965 370621)"
+      }
+    };
+
+    function setGuideLang(lang) {
+      localStorage.setItem('printzap_lang', lang);
+      document.querySelectorAll('.lang-pill').forEach(btn => {
+        btn.classList.toggle('active', btn.id === `lang-btn-${lang}`);
+      });
+      document.documentElement.lang = lang;
+
+      const dict = guideTranslations[lang] || guideTranslations.it;
+      document.querySelectorAll('[data-g18n]').forEach(el => {
+        const key = el.getAttribute('data-g18n');
+        if (dict[key]) {
+          el.innerHTML = dict[key];
+        }
+      });
+    }
+
+    // Auto-detect saved language
+    document.addEventListener('DOMContentLoaded', () => {
+      const savedLang = localStorage.getItem('printzap_lang') || 'it';
+      setGuideLang(savedLang);
+    });
+  </script>
+
+</body>
+</html>

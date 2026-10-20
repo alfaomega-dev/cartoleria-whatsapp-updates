@@ -1,0 +1,2030 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mappa Pulsanti & Icone — PrintZap</title>
+  <link rel="icon" type="image/png" href="logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Specific styles for Buttons Guide */
+    .buttons-header {
+      padding: 120px 0 30px;
+      text-align: center;
+      background: radial-gradient(circle at 50% 20%, rgba(56, 189, 248, 0.09) 0%, transparent 60%);
+    }
+    .btn-nav-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 0;
+      border-bottom: 1px solid var(--border-subtle);
+      margin-bottom: 30px;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .nav-left-links {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .btn-nav-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--text-muted);
+      font-size: 0.92rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.2s;
+      padding: 6px 14px;
+      border-radius: var(--radius-sm);
+      border: 1px solid transparent;
+    }
+    .btn-nav-link:hover {
+      color: var(--primary);
+      background: rgba(37, 211, 102, 0.08);
+      border-color: rgba(37, 211, 102, 0.2);
+    }
+    .btn-nav-link.active {
+      color: #38bdf8;
+      background: rgba(56, 189, 248, 0.12);
+      border-color: rgba(56, 189, 248, 0.3);
+    }
+
+    /* Category Filter Tabs */
+    .category-filter-box {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      margin: 25px 0 45px;
+      flex-wrap: wrap;
+    }
+    .filter-btn {
+      padding: 10px 18px;
+      border-radius: 30px;
+      border: 1px solid var(--border-subtle);
+      background: rgba(15, 23, 42, 0.6);
+      color: var(--text-muted);
+      font-weight: 600;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .filter-btn:hover {
+      color: var(--text-main);
+      border-color: rgba(255, 255, 255, 0.25);
+      transform: translateY(-2px);
+    }
+    .filter-btn.active {
+      background: var(--gradient-primary);
+      color: white;
+      border-color: transparent;
+      box-shadow: 0 4px 15px rgba(37, 211, 102, 0.35);
+    }
+
+    /* Group Container */
+    .button-group-section {
+      margin-bottom: 60px;
+    }
+    .group-header-banner {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding-bottom: 14px;
+      margin-bottom: 24px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .group-icon-circle {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .group-title {
+      font-size: 1.45rem;
+      font-weight: 800;
+      color: var(--text-main);
+      margin: 0;
+    }
+    .group-desc {
+      color: var(--text-muted);
+      font-size: 0.92rem;
+      margin: 4px 0 0;
+    }
+
+    /* Grid of button cards */
+    .button-cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+      gap: 24px;
+    }
+    @media (max-width: 600px) {
+      .button-cards-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Single Button Card */
+    .btn-card {
+      background: rgba(15, 23, 42, 0.7);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.35);
+      transition: all 0.25s ease;
+      display: flex;
+      flex-direction: column;
+    }
+    .btn-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(37, 211, 102, 0.35);
+      box-shadow: 0 14px 35px rgba(0,0,0,0.55);
+    }
+
+    /* Button visual slot */
+    .btn-card-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 16px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    }
+    .btn-img-frame {
+      min-width: 72px;
+      height: 64px;
+      background: #090d16;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 6px 12px;
+      box-shadow: inset 0 2px 6px rgba(0,0,0,0.5);
+    }
+    .btn-img-frame img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+      display: block;
+      filter: drop-shadow(0 2px 5px rgba(0,0,0,0.5));
+    }
+    .btn-meta {
+      flex: 1;
+    }
+    .btn-name {
+      font-size: 1.18rem;
+      font-weight: 700;
+      color: var(--text-main);
+      margin: 0 0 4px;
+    }
+    .btn-location-badge {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      padding: 2px 8px;
+      border-radius: 4px;
+      background: rgba(255, 255, 255, 0.08);
+      color: var(--text-muted);
+    }
+
+    /* Explanation text */
+    .btn-desc {
+      color: var(--text-muted);
+      font-size: 0.94rem;
+      line-height: 1.55;
+      margin-bottom: 14px;
+      flex: 1;
+    }
+    .btn-detail-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      margin-top: 8px;
+      padding-top: 8px;
+      border-top: 1px dashed rgba(255,255,255,0.06);
+    }
+    .btn-detail-row strong {
+      color: var(--text-main);
+      min-width: 110px;
+      flex-shrink: 0;
+    }
+    .btn-detail-row span {
+      line-height: 1.45;
+    }
+
+    /* Color states badges */
+    .state-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: 4px;
+      margin-right: 6px;
+      margin-bottom: 4px;
+    }
+    .state-green {
+      background: rgba(37, 211, 102, 0.15);
+      border: 1px solid rgba(37, 211, 102, 0.35);
+      color: #25D366;
+    }
+    .state-amber {
+      background: rgba(234, 179, 8, 0.15);
+      border: 1px solid rgba(234, 179, 8, 0.35);
+      color: #facc15;
+    }
+    .state-purple {
+      background: rgba(139, 92, 246, 0.15);
+      border: 1px solid rgba(139, 92, 246, 0.35);
+      color: #c084fc;
+    }
+    .state-red {
+      background: rgba(239, 68, 68, 0.15);
+      border: 1px solid rgba(239, 68, 68, 0.35);
+      color: #f87171;
+    }
+
+    /* Interactive Sidebar Showcase */
+    .sidebar-showcase-card {
+      background: rgba(15, 23, 42, 0.8);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      padding: 32px;
+      margin-bottom: 45px;
+      display: flex;
+      gap: 32px;
+      align-items: center;
+      flex-wrap: wrap;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    }
+    .sidebar-img-col {
+      flex-shrink: 0;
+      text-align: center;
+    }
+    .sidebar-img-col img {
+      max-height: 480px;
+      width: auto;
+      border-radius: 10px;
+      border: 2px solid rgba(37, 211, 102, 0.4);
+      box-shadow: 0 0 25px rgba(37, 211, 102, 0.15);
+      background: #090d16;
+    }
+    .sidebar-info-col {
+      flex: 1;
+      min-width: 280px;
+    }
+
+    /* Detailed Tab Showcase Cards */
+    .detail-showcase-card {
+      background: rgba(15, 23, 42, 0.75);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      padding: 28px;
+      margin-top: 30px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.4);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+    }
+    .detail-card-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 20px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .detail-preview-frame {
+      border-radius: 10px;
+      overflow: hidden;
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      box-shadow: 0 6px 25px rgba(0,0,0,0.5);
+      margin-bottom: 22px;
+      background: #090d16;
+      text-align: center;
+    }
+    .detail-preview-frame img {
+      width: 100%;
+      height: auto;
+      max-height: 520px;
+      object-fit: contain;
+      display: block;
+      margin: 0 auto;
+    }
+    .feature-list-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 16px;
+      margin-top: 15px;
+    }
+    .feature-point-box {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: var(--radius-sm);
+      padding: 14px 18px;
+    }
+    .feature-point-title {
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 6px;
+      font-size: 0.95rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .feature-point-desc {
+      color: var(--text-muted);
+      font-size: 0.88rem;
+      line-height: 1.5;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ================= HEADER DELLA PAGINA ================= -->
+  <header class="buttons-header">
+    <div class="container">
+      <div class="hero-badge" style="margin-bottom: 14px;" data-p18n="badge_title">
+        <span class="pulse-dot"></span>
+        Mappa Visiva dei Comandi PrintZap
+      </div>
+      <h1 style="font-size: 2.6rem; font-weight: 800; margin-bottom: 14px; letter-spacing: -0.5px;" data-p18n="main_title">
+        Guida Completa a Tutti i Pulsanti & Icone
+      </h1>
+      <p style="color: var(--text-muted); font-size: 1.15rem; max-width: 780px; margin: 0 auto 20px; line-height: 1.6;" data-p18n="main_subtitle">
+        Ogni singolo tasto e controllo dell'interfaccia spiegato con la sua immagine reale, il suo funzionamento al bancone e i diversi stati di colore.
+      </p>
+
+      <!-- BARRA DI NAVIGAZIONE SECONDARIA -->
+      <div class="btn-nav-bar">
+        <div class="nav-left-links">
+          <a href="index.html" class="btn-nav-link" data-p18n="nav_back_home">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+              <polyline points="9 22 9 12 15 12 15 22"></polyline>
+            </svg>
+            Torna alla Home
+          </a>
+          <a href="guida.html" class="btn-nav-link" data-p18n="nav_to_guide">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+              <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+            </svg>
+            Guida Flusso di Lavoro (8 Passi)
+          </a>
+          <a href="pulsanti.html" class="btn-nav-link active" data-p18n="nav_current">
+            🎛️ Mappa Pulsanti
+          </a>
+        </div>
+
+        <!-- Selettore Lingua IT/EN -->
+        <div class="lang-switch-box">
+          <button type="button" class="lang-btn active" id="btn-lang-it" onclick="setButtonsLang('it')">🇮🇹 IT</button>
+          <span class="lang-divider">/</span>
+          <button type="button" class="lang-btn" id="btn-lang-en" onclick="setButtonsLang('en')">🇬🇧 EN</button>
+        </div>
+
+        <a href="https://apps.microsoft.com" class="btn-ms-store btn-sm" target="_blank" rel="noopener">
+          <span class="ms-store-icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+              <rect x="2" y="2" width="9.5" height="9.5" fill="#f25022"/>
+              <rect x="12.5" y="2" width="9.5" height="9.5" fill="#7fba00"/>
+              <rect x="2" y="12.5" width="9.5" height="9.5" fill="#00a4ef"/>
+              <rect x="12.5" y="12.5" width="9.5" height="9.5" fill="#ffb900"/>
+            </svg>
+          </span>
+          <span class="ms-store-text">
+            <span class="ms-store-main" style="font-size: 0.82rem;">Microsoft Store</span>
+          </span>
+        </a>
+      </div>
+
+      <!-- FILTRI DI CATEGORIA -->
+      <div class="category-filter-box">
+        <button type="button" class="filter-btn active" onclick="filterCategory('all', this)" data-p18n="filter_all">Tutti i Controlli (33)</button>
+        <button type="button" class="filter-btn" onclick="filterCategory('sidebar', this)" data-p18n="filter_sidebar">Barra Laterale (Sidebar)</button>
+        <button type="button" class="filter-btn" onclick="filterCategory('settings', this)" data-p18n="filter_settings">Pannello Impostazioni (Settings)</button>
+        <button type="button" class="filter-btn" onclick="filterCategory('order', this)" data-p18n="filter_order">Azioni Ordine & Notifica</button>
+        <button type="button" class="filter-btn" onclick="filterCategory('files', this)" data-p18n="filter_files">Gestione File & Sessione</button>
+        <button type="button" class="filter-btn" onclick="filterCategory('badges', this)" data-p18n="filter_badges">Badge & Semafori</button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- ================= CONTENUTO PRINCIPALE ================= -->
+  <main class="container" style="padding-bottom: 90px;">
+
+    <!-- SHOWCASE BARRA LATERALE COMPLETA & MULTICANALE -->
+    <div class="sidebar-showcase-card" id="sidebar-overview">
+      <div class="sidebar-img-col" style="display: flex; gap: 20px; align-items: flex-end; justify-content: center; flex-wrap: wrap;">
+        <div style="text-align: center;">
+          <img src="pulsanti_img/sidebar_completa.png" alt="Barra Base PrintZap (Solo WhatsApp)">
+          <div style="font-size: 0.78rem; color: var(--text-muted); margin-top: 8px; font-weight: 600;" data-p18n="sidebar_mode_single">Base (Solo WhatsApp)</div>
+        </div>
+        <div style="text-align: center;">
+          <img src="pulsanti_img/sidebar_servizi_attivi.png" alt="Barra Multicanale con Servizi Aperti">
+          <div style="font-size: 0.78rem; color: #38bdf8; margin-top: 8px; font-weight: 700;" data-p18n="sidebar_mode_multi">Multicanale (Servizi Aperti) ⚡</div>
+        </div>
+      </div>
+      <div class="sidebar-info-col">
+        <div class="hero-badge" style="margin-bottom: 10px;" data-p18n="sidebar_badge">Layout Ufficiale PrintZap</div>
+        <h3 style="font-size: 1.6rem; color: var(--text-main); margin-bottom: 12px;" data-p18n="sidebar_showcase_title">
+          La Barra di Comando Sinistra Sempre Visibile
+        </h3>
+        <p style="color: var(--text-muted); line-height: 1.6; margin-bottom: 16px;" data-p18n="sidebar_showcase_desc">
+          Posizionata sul bordo sinistro della finestra a tutta altezza, la barra laterale ti permette di navigare tra canali di ricezione, aprire l'archivio su disco e monitorare la connessione WhatsApp con un solo colpo d'occhio.
+        </p>
+        <div style="background: rgba(56, 189, 248, 0.08); border: 1px solid rgba(56, 189, 248, 0.25); border-radius: var(--radius-sm); padding: 12px 16px; margin-bottom: 16px;">
+          <div style="color: #38bdf8; font-weight: 700; font-size: 0.92rem; margin-bottom: 4px;" data-p18n="sidebar_multichannel_title">✨ Nuove Icone con Servizi Aperti:</div>
+          <div style="color: var(--text-muted); font-size: 0.88rem; line-height: 1.5;" data-p18n="sidebar_multichannel_desc">
+            Quando attivi <strong>E-mail</strong>, <strong>Telegram</strong> o <strong>Web Bancone</strong> nel pannello Impostazioni, le loro 3 rispettive icone compaiono automaticamente sotto WhatsApp, creando un centralino unico per tutti i clienti!
+          </div>
+        </div>
+        <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+          <span class="state-pill state-green" data-p18n="pill_always_ready">✓ Sempre a Portata di Clic</span>
+          <span class="state-pill state-amber" data-p18n="pill_no_navigation">✓ Zero Finestre Nascoste</span>
+          <span class="state-pill state-purple" data-p18n="pill_touch_friendly">✓ Progettata per Touchscreen</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- SEZIONE 1: BARRA LATERALE (SIDEBAR) -->
+    <section class="button-group-section" data-cat="sidebar">
+      <div class="group-header-banner">
+        <div class="group-icon-circle">📌</div>
+        <div>
+          <h2 class="group-title" data-p18n="group_sidebar_title">Pulsanti della Barra Laterale (Sidebar)</h2>
+          <p class="group-desc" data-p18n="group_sidebar_desc">I comandi di sistema principali posizionati sulla barra nera a sinistra dello schermo.</p>
+        </div>
+      </div>
+
+      <div class="button-cards-grid">
+
+        <!-- 1.1 LOGO PRINTZAP -->
+        <div class="btn-card">
+          <div class="btn-card-top">
+            <div class="btn-img-frame">
+              <img src="pulsanti_img/btn_logo.png" alt="Logo PrintZap">
+            </div>
+            <div class="btn-meta">
+              <h3 class="btn-name" data-p18n="btn1_name">Logo Badge PrintZap</h3>
+              <span class="btn-location-badge" data-p18n="loc_sidebar_top">Barra Laterale In Alto</span>
+            </div>
+          </div>
+          <p class="btn-desc" data-p18n="btn1_desc">
+            Icona identificativa di PrintZap con la saetta verde. Rappresenta lo stato del software e la versione in esecuzione attiva sul computer.
+          </p>
+          <div class="btn-detail-row">
+            <strong data-p18n="label_action">Cosa Fa:</strong>
+            <span data-p18n="btn1_action">Riporta alla vista iniziale degli ordini ed evidenzia che il motore locale è attivo.</span>
+          </div>
+        </div>
+
+        <!-- 1.2 CANALE WHATSAPP CHAT -->
+        <div class="btn-card">
+          <div class="btn-card-top">
+            <div class="btn-img-frame">
+              <img src="pulsanti_img/btn_whatsapp.png" alt="Canale WhatsApp Chat">
+            </div>
+            <div class="btn-meta">
+              <h3 class="btn-name" data-p18n="btn2_name">Chat WhatsApp / Ordini</h3>
+              <span class="btn-location-badge" data-p18n="loc_sidebar_1">Barra Laterale • Canale 1</span>
+            </div>
+          </div>
+          <p class="btn-desc" data-p18n="btn2_desc">
+            Il cuore pulsante del negozio. Mostra la coda in tempo reale di tutti i file inviati dai clienti tramite WhatsApp con sessioni raggruppate per orario.
+          </p>
+          <div class="btn-detail-row">
+            <strong data-p18n="label_indicators">Indicatori:</strong>
+            <span data-p18n="btn2_ind">
+              <span class="state-pill state-green">Badge Verde (1, 2...)</span> Mostra il numero esatto di nuovi clienti con file non letti.
+            </span>
+          </div>
+          <div class="btn-detail-row">
+            <strong data-p18n="label_click">Al Clic:</strong>
+            <span data-p18n="btn2_action">Apre la lista clienti WhatsApp e permette di selezionare la conversazione per la stampa.</span>
+          </div>
+        </div>
+
+        <!-- 1.3 CANALE E-MAIL (SERVIZIO ATTIVO) -->
+        <div class="btn-card">
+          <div class="btn-card-top">
+            <div class="btn-img-frame">
+              <img src="pulsanti_img/btn_sidebar_email.png" alt="Canale E-mail Posta">
+            </div>
+            <div class="btn-meta">
+              <h3 class="btn-name" data-p18n="btn_email_name">Canale E-mail (Busta)</h3>
+              <span class="btn-location-badge" data-p18n="loc_sidebar_email">Barra Laterale • Canale Attivo</span>
+            </div>
+          </div>
+          <p class="btn-desc" data-p18n="btn_email_desc">
+            Compare sulla barra laterale sinistra appena attivi il servizio E-mail nelle Impostazioni. Scarica in automatico documenti e allegati PDF inviati dai clienti via posta elettronica ordinaria (IMAP/SMTP).
+          </p>
+          <div class="btn-detail-row">
+            <strong data-p18n="label_activation">Come si Attiva:</strong>
+            <span data-p18n="btn_email_act">Impostazioni ⚙️ ➔ Tab E-mail ➔ Interruttore "Ricezione E-mail" su ATTIVO.</span>
+          </div>
+          <div class="btn-detail-row">
+            <strong data-p18n="label_click">Al Clic:</strong>
+            <span data-p18n="btn_email_action">Mostra la lista dei messaggi e allegati ricevuti via e-mail pronti per la stampa.</span>
+          </div>
+        </div>
+
+        <!-- 1.4 CANALE TELEGRAM (SERVIZIO ATTIVO) -->
+        <div class="btn-card">
+          <div class="btn-card-top">
+            <div class="btn-img-frame">
+              <img src="pulsanti_img/btn_sidebar_telegram.png" alt="Canale Telegram Bot">
+            </div>
+            <div class="btn-meta">
+              <h3 class="btn-name" data-p18n="btn_telegram_name">Canale Telegram (Aeroplano)</h3>
+              <span class="btn-location-badge" data-p18n="loc_sidebar_tg">Barra Laterale • Canale Attivo</span>
+            </div>
+          </div>
+          <p class="btn-desc" data-p18n="btn_telegram_desc">
+            Compare sulla barra laterale quando colleghi il Bot Telegram della cartoleria. Consente a studenti e clienti di inviare dispense pesanti e file di grandi dimensioni senza salvare numeri personali.
+          </p>
+          <div class="btn-detail-row">
+            <strong data-p18n="label_indicators">Indicatore:</strong>
+            <span data-p18n="btn_telegram_ind">Pallino di stato in basso a destra dell'icona che conferma la connessione attiva con Telegram.</span>
+          </div>
+          <div class="btn-detail-row">
+            <strong data-p18n="label_click">Al Clic:</strong>
+            <span data-p18n="btn_telegram_action">Apre la coda delle stampe ricevute via Telegram pronte per il lancio in 1 clic.</span>
+          </div>
+        </div>
+
+        <!-- 1.5 CANALE WEB BANCONE (SERVIZIO ATTIVO) -->
+        <div class="btn-card">
+          <div class="btn-card-top">
+            <div class="btn-img-frame">
+              <img src="pulsanti_img/btn_sidebar_web.png" alt="Canale Web Bancone Wi-Fi">
+            </div>
+            <div class="btn-meta">
+              <h3 class="btn-name" data-p18n="btn_web_name">Canale Web Bancone (Mondo Viola)</h3>
+              <span class="btn-location-badge" data-p18n="loc_sidebar_web">Barra Laterale • Canale Attivo</span>
+            </div>
+          </div>
+          <p class="btn-desc" data-p18n="btn_web_desc">
+            Icona a forma di mappamondo viola. Compare attivando il portale Web Bancone: i clienti fisicamente in negozio possono inquadrare un QR Code sul banco e caricare file dal proprio browser senza installare alcuna app.
+          </p>
+          <div class="btn-detail-row">
+            <strong data-p18n="label_advantage">Vantaggio Banco:</strong>
+            <span data-p18n="btn_web_adv">I file arrivano all'istante su PrintZap a costo zero, ideale per clienti con fretta o telefoni aziendali senza WhatsApp.</span>
+          </div>
+        </div>
+
+        <!-- 1.6 NOTIFICHE SONORE (CAMPANELLA) -->
+        <div class="btn-card">
+          <div class="btn-card-top">
+            <div class="btn-img-frame">
+              <img src="pulsanti_img/btn_bell.png" alt="Campanella Notifiche Sonore">
+            </div>
+            <div class="btn-meta">
+              <h3 class="btn-name" data-p18n="btn3_name">Notifiche Sonore (Suoni)</h3>
+              <span class="btn-location-badge" data-p18n="loc_sidebar_sound">Barra Laterale • Audio</span>
+            </div>
+          </div>
+          <p class="btn-desc" data-p18n="btn3_desc">
+            Interruttore a 1 clic per il campanello audio ("dindin" di cassa) che suona ogni volta che un cliente invia un nuovo documento da stampare.
+          </p>
+          <div class="btn-detail-row">
+            <strong data-p18n="label_states">Stati Visivi:</strong>
+            <span data-p18n="btn3_states">
+              <span class="state-pill state-green">Verde Brillante</span> Suono attivo (avviso sonoro ad ogni file).<br>
+              <span class="state-pill" style="background: rgba(255,255,255,0.08); color: #9ca3af;">Grigio Muto</span> Silenzioso (ideale se ascolti musica o nei picchi).
+            </span>
+          </div>
+        </div>
+
+        <!-- 1.4 CARTELLA DOCUMENTI (FOLDER GIALLO) -->
+        <div class="btn-card">
+          <div class="btn-card-top">
+            <div class="btn-img-frame">
+              <img src="pulsanti_img/btn_folder.png" alt="Cartella Documenti Generali">
+            </div>
+            <div class="btn-meta">
+              <h3 class="btn-name" data-p18n="btn4_name">Cartella Documenti PC</h3>
+              <span class="btn-location-badge" data-p18n="loc_sidebar_folder">Barra Laterale In Basso</span>
+            </div>
+          </div>
+          <p class="btn-desc" data-p18n="btn4_desc">
+            Scorciatoia globale indispensabile: apre istantaneamente la cartella principale <code>file_da_stampare</code> in Windows Explorer in primo piano.
+          </p>
+          <div class="btn-detail-row">
+            <strong data-p18n="label_action">Cosa Fa:</strong>
+            <span data-p18n="btn4_action">Non serve cercare percorsi sul desktop: un clic apre Windows Explorer con l'elenco di tutte le cartelle dei clienti.</span>
+          </div>
+          <div class="btn-detail-row">
+            <strong data-p18n="label_tip">Consiglio Banco:</strong>
+            <span data-p18n="btn4_tip">Comodissimo per controllare file stampati in passato o ripulire archiviazioni vecchie.</span>
+          </div>
+        </div>
+
+        <!-- 1.5 SMARTPHONE & QR CODE (CONNESSIONE WA) -->
+        <div class="btn-card">
+          <div class="btn-card-top">
+            <div class="btn-img-frame">
+              <img src="pulsanti_img/btn_phone.png" alt="Stato Connessione WhatsApp Smartphone">
+            </div>
+            <div class="btn-meta">
+              <h3 class="btn-name" data-p18n="btn5_name">Stato Connessione & QR Code</h3>
+              <span class="btn-location-badge" data-p18n="loc_sidebar_phone">Barra Laterale • Sistema</span>
+            </div>
+          </div>
+          <p class="btn-desc" data-p18n="btn5_desc">
+            Semaforo continuo della connessione WhatsApp Desktop. Ti informa in tempo reale se il tuo numero WhatsApp è agganciato e pronto a ricevere file.
+          </p>
+          <div class="btn-detail-row">
+            <strong data-p18n="label_colors">Colori di Stato:</strong>
+            <span data-p18n="btn5_colors">
+              <span class="state-pill state-green">Verde</span> Connesso e operativo al 100%.<br>
+              <span class="state-pill state-amber">Arancione</span> In attesa di scansione QR Code.<br>
+              <span class="state-pill state-red">Rosso</span> Disconnesso o sessione terminata.
+            </span>
+          </div>
+          <div class="btn-detail-row">
+            <strong data-p18n="label_click">Al Clic:</strong>
+            <span data-p18n="btn5_action">Apre la schermata per inquadrare il QR Code con il tuo smartphone.</span>
+          </div>
+        </div>
+
+        <!-- 1.6 IMPOSTAZIONI (INGRANAGGIO) -->
+        <div class="btn-card">
+          <div class="btn-card-top">
+            <div class="btn-img-frame">
+              <img src="pulsanti_img/btn_settings.png" alt="Pannello Impostazioni">
+            </div>
+            <div class="btn-meta">
+              <h3 class="btn-name" data-p18n="btn6_name">Pannello Impostazioni (⚙️)</h3>
+              <span class="btn-location-badge" data-p18n="loc_sidebar_settings">Barra Laterale In Basso</span>
+            </div>
+          </div>
+          <p class="btn-desc" data-p18n="btn6_desc">
+            Apre la finestra di configurazione centrale di PrintZap: WhatsApp, canali E-mail e Telegram, Web Bancone, stampanti predefinite, licenza e aggiornamenti.
+          </p>
+          <div class="btn-detail-row">
+            <strong data-p18n="label_special">Avviso Update:</strong>
+            <span data-p18n="btn6_update">
+              <span class="state-pill state-red">Pallino Rosso Acceso</span> Segnala che è disponibile una nuova versione aggiornata con 1 clic.
+            </span>
+          </div>
+        </div>
+
+        <!-- 1.7 ESCI / RESET SESSIONE -->
+        <div class="btn-card">
+          <div class="btn-card-top">
+            <div class="btn-img-frame">
+              <img src="pulsanti_img/btn_logout.png" alt="Logout e Reset Sessione">
+            </div>
+            <div class="btn-meta">
+              <h3 class="btn-name" data-p18n="btn7_name">Disconnetti / Reset Sessione</h3>
+              <span class="btn-location-badge" data-p18n="loc_sidebar_exit">Barra Laterale In Fondo</span>
+            </div>
+          </div>
+          <p class="btn-desc" data-p18n="btn7_desc">
+            Comando di sicurezza per disconnettere l'account WhatsApp dal software o resettare il motore del browser in caso di cali di rete internet prolungati.
+          </p>
+          <div class="btn-detail-row">
+            <strong data-p18n="label_action">Cosa Fa:</strong>
+            <span data-p18n="btn7_action">Scollega in sicurezza la sessione e genera un nuovo QR Code per il riavvio rapido.</span>
+          </div>
+        </div>
+
+        <!-- 1.8 TARGHETTA VERSIONE -->
+        <div class="btn-card">
+          <div class="btn-card-top">
+            <div class="btn-img-frame">
+              <img src="pulsanti_img/btn_version.png" alt="Numero Versione Software">
+            </div>
+            <div class="btn-meta">
+              <h3 class="btn-name" data-p18n="btn8_name">Versione Software (v1.1.14)</h3>
+              <span class="btn-location-badge" data-p18n="loc_sidebar_ver">Fondo Barra Laterale</span>
+            </div>
+          </div>
+          <p class="btn-desc" data-p18n="btn8_desc">
+            Mostra il numero di build attualmente installato e funzionante sul computer della tua cartoleria per verifiche di conformità e assistenza.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SEZIONE 2: AZIONI RAPIDE SULL'ORDINE (IN ALTO A DESTRA) -->
+    <section class="button-group-section" data-cat="order">
+      <div class="group-header-banner">
+        <div class="group-icon-circle">⚡</div>
+        <div>
+          <h2 class="group-title" data-p18n="group_order_title">Pulsanti di Azione sull'Ordine (In Alto a Destra)</h2>
+          <p class="group-desc" data-p18n="group_order_desc">I due pulsanti più utilizzati durante la giornata lavorativa al banco per stampare e avvisare il cliente.</p>
+        </div>
+      </div>
+
+      <div class="button-cards-grid">
+
+        <!-- 2.1 APRI CARTELLA CLIENTE -->
+        <div class="btn-card">
+          <div class="btn-card-top">
+            <div class="btn-img-frame" style="min-width: 110px;">
+              <img src="pulsanti_img/btn_apri_cartella.png" alt="Pulsante Apri Cartella Cliente">
+            </div>
+            <div class="btn-meta">
+              <h3 class="btn-name" data-p18n="btn9_name">[ 📂 Apri Cartella ]</h3>
+              <span class="btn-location-badge" data-p18n="loc_header_right">In Alto a Destra</span>
+            </div>
+          </div>
+          <p class="btn-desc" data-p18n="btn9_desc">
+            Il pulsante magico per la stampa immediata. Cliccandolo, Windows Explorer si apre in primo piano dentro la cartella nominata con il nome del cliente con tutti i file ricevuti.
+          </p>
+          <div class="btn-detail-row">
+            <strong data-p18n="label_action">Cosa Fa:</strong>
+            <span data-p18n="btn9_action">Porta Explorer davanti al browser: puoi trascinare i file direttamente nel software della stampante o aprirli con Acrobat.</span>
+          </div>
+        </div>
+
+        <!-- 2.2 NOTIFICA PRONTO (VERDE) -->
+        <div class="btn-card">
+          <div class="btn-card-top">
+            <div class="btn-img-frame" style="min-width: 110px;">
+              <img src="pulsanti_img/btn_notifica_verde.png" alt="Pulsante Notifica Pronto Verde">
+            </div>
+            <div class="btn-meta">
+              <h3 class="btn-name" data-p18n="btn10_name">[ 🖨️ Notifica Pronto ] (Verde)</h3>
+              <span class="btn-location-badge" data-p18n="loc_header_notify">In Alto a Destra • Pronto</span>
+            </div>
+          </div>
+          <p class="btn-desc" data-p18n="btn10_desc">
+            Invia all'istante il messaggio WhatsApp di cortesia al cliente: <em>"✅ Stampa Pronta! 🖨️ Il tuo documento è pronto per il ritiro."</em>
+          </p>
+          <div class="btn-detail-row">
+            <strong data-p18n="label_transformation">Cosa Succede:</strong>
+            <span data-p18n="btn10_action">Il pulsante si colora di <strong>VIOLA</strong>, il badge dei file diventa <strong>"GIÀ STAMPATO"</strong> e il cliente riceve la notifica ufficiale sul suo WhatsApp.</span>
+          </div>
+        </div>
+
+        <!-- 2.3 NOTIFICA INVIATA (VIOLA) -->
+        <div class="btn-card">
+          <div class="btn-card-top">
+            <div class="btn-img-frame" style="min-width: 110px;">
+              <img src="pulsanti_img/btn_notifica_viola.png" alt="Pulsante Notifica Viola Inviata">
+            </div>
+            <div class="btn-meta">
+              <h3 class="btn-name" data-p18n="btn11_name">[ 🔁 Reinvia Notifica ] (Viola)</h3>
+              <span class="btn-location-badge" data-p18n="loc_header_purple">In Alto a Destra • Completato</span>
+            </div>
+          </div>
+          <p class="btn-desc" data-p18n="btn11_desc">
+            Certifica a colpo d'occhio che il lavoro è concluso e il cliente è già stato avvisato. Nessun dubbio quando il cliente entra in cartoleria!
+          </p>
+          <div class="btn-detail-row">
+            <strong data-p18n="label_click">Al Clic:</strong>
+            <span data-p18n="btn11_action">Permette di spedire un secondo messaggio di promemoria se il cliente ritarda il ritiro.</span>
+          </div>
+        </div>
+
+        <!-- 2.4 NOTIFICA FILE AGGIUNTI (GIALLO ORO) -->
+        <div class="btn-card">
+          <div class="btn-card-top">
+            <div class="btn-img-frame" style="min-width: 110px;">
+              <img src="pulsanti_img/btn_notifica_giallo.png" alt="Pulsante Notifica Giallo Oro Nuovi File">
+            </div>
+            <div class="btn-meta">
+              <h3 class="btn-name" data-p18n="btn12_name">[ 🖨️ Notifica Pronto ] (Giallo Oro)</h3>
+              <span class="btn-location-badge" data-p18n="loc_header_gold">In Alto a Destra • Aggiornato</span>
+            </div>
+          </div>
+          <p class="btn-desc" data-p18n="btn12_desc">
+            Si accende in giallo brillante quando il cliente manda un secondo documento dopo che il primo era già stato stampato (es. link Adobe o ulteriori allegati).
+          </p>
+          <div class="btn-detail-row">
+            <strong data-p18n="label_advantage">Vantaggio Banco:</strong>
+            <span data-p18n="btn12_action">Ti avverte visivamente che c'è una nuova stampa da produrre e ti consente di inviare la seconda notifica senza confusione.</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SEZIONE 3: GESTIONE FILE & SCHEDE DI SESSIONE -->
+    <section class="button-group-section" data-cat="files">
+      <div class="group-header-banner">
+        <div class="group-icon-circle">📄</div>
+        <div>
+          <h2 class="group-title" data-p18n="group_files_title">Pulsanti di Gestione File & Sessioni Orarie</h2>
+          <p class="group-desc" data-p18n="group_files_desc">Tutti i controlli dedicati all'apertura diretta dei documenti, alle spunte di lavorazione e all'eliminazione file.</p>
+        </div>
+      </div>
+
+      <div class="button-cards-grid">
+
+        <!-- 3.1 APRI FILE -->
+        <div class="btn-card">
+          <div class="btn-card-top">
+            <div class="btn-img-frame" style="min-width: 100px;">
+              <img src="pulsanti_img/btn_apri_file.png" alt="Pulsante Apri File">
+            </div>
+            <div class="btn-meta">
+              <h3 class="btn-name" data-p18n="btn13_name">[ ↗️ Apri File ]</h3>
+              <span class="btn-location-badge" data-p18n="loc_file_card">Nella Card del File</span>
+            </div>
+          </div>
+          <p class="btn-desc" data-p18n="btn13_desc">
+            Apre il documento direttamente con il programma predefinito di Windows (Acrobat Reader per i PDF, Photoshop o Visualizzatore per immagini, Word per documenti .docx).
+          </p>
+          <div class="btn-detail-row">
+            <strong data-p18n="label_action">Cosa Fa:</strong>
+            <span data-p18n="btn13_action">Lancia il file in mezzo secondo, senza passare da Esplora Risorse.</span>
+          </div>
+        </div>
+
+        <!-- 3.2 NOTIFICA VELOCE SESSIONE (RAZZETTO) -->
+        <div class="btn-card">
+          <div class="btn-card-top">
+            <div class="btn-img-frame" style="min-width: 80px;">
+              <img src="pulsanti_img/btn_quick_notify.png" alt="Notifica Veloce Razzetto">
+            </div>
+            <div class="btn-meta">
+              <h3 class="btn-name" data-p18n="btn14_name">[ 🚀 Notifica Pronto Veloce ]</h3>
+              <span class="btn-location-badge" data-p18n="loc_session_header">Header della Sessione</span>
+            </div>
+          </div>
+          <p class="btn-desc" data-p18n="btn14_desc">
+            Pulsantino verde a pillola presente nella barra di sessione (<em>"Oggi alle 10:50 (1 file)"</em>). Notifica tutti i file di quel blocco temporale in un clic.
+          </p>
+        </div>
+
+        <!-- 3.3 CHECKBOX STAMPATO -->
+        <div class="btn-card">
+          <div class="btn-card-top">
+            <div class="btn-img-frame" style="min-width: 80px;">
+              <img src="pulsanti_img/btn_stampato.png" alt="Spunta Stampato">
+            </div>
+            <div class="btn-meta">
+              <h3 class="btn-name" data-p18n="btn15_name">[ ☑ Stampato ]</h3>
+              <span class="btn-location-badge" data-p18n="loc_session_right">Header Sessione & File</span>
+            </div>
+          </div>
+          <p class="btn-desc" data-p18n="btn15_desc">
+            Spunta rapida per segnare manualmente che il foglio è uscito fisicamente dalla stampante, aggiornando il conteggio senza inviare messaggi se il cliente è già al banco.
+          </p>
+        </div>
+
+        <!-- 3.4 CESTINO ELIMINA FILE SU DISCO -->
+        <div class="btn-card">
+          <div class="btn-card-top">
+            <div class="btn-img-frame">
+              <img src="pulsanti_img/btn_cestino.png" alt="Cestino Elimina File">
+            </div>
+            <div class="btn-meta">
+              <h3 class="btn-name" data-p18n="btn16_name">[ 🗑️ Elimina File su Disco ]</h3>
+              <span class="btn-location-badge" data-p18n="loc_session_trash">Header Sessione</span>
+            </div>
+          </div>
+          <p class="btn-desc" data-p18n="btn16_desc">
+            Cancella i file stampati dall'hard disk del computer per liberare spazio e mantenere la memoria del PC sempre leggera e veloce.
+          </p>
+          <div class="btn-detail-row">
+            <strong data-p18n="label_guarantee">Sicurezza WhatsApp:</strong>
+            <span data-p18n="btn16_safe">La chat su WhatsApp <strong>NON viene mai toccata</strong>! Lo storico messaggi rimane conservato al 100%.</span>
+          </div>
+        </div>
+
+        <!-- 3.5 SELETTORE VISTA GRIGLIA / LISTA -->
+        <div class="btn-card">
+          <div class="btn-card-top">
+            <div class="btn-img-frame" style="min-width: 90px;">
+              <img src="pulsanti_img/btn_griglia_lista.png" alt="Selettore Griglia e Lista">
+            </div>
+            <div class="btn-meta">
+              <h3 class="btn-name" data-p18n="btn17_name">[ ⊞ Griglia | ☰ Lista ]</h3>
+              <span class="btn-location-badge" data-p18n="loc_view_switch">In Alto a Destra Contenuti</span>
+            </div>
+          </div>
+          <p class="btn-desc" data-p18n="btn17_desc">
+            Cambia all'istante la modalità di visualizzazione: <strong>Griglia</strong> per grandi miniature fotografiche di poster e foto; <strong>Lista</strong> per elenchi compatti di dispense e PDF multipagina.
+          </p>
+        </div>
+
+        <!-- 3.6 SYNC & CHIUSURA CLIENTE -->
+        <div class="btn-card">
+          <div class="btn-card-top">
+            <div class="btn-img-frame">
+              <img src="pulsanti_img/btn_sync_close.png" alt="Ricarica e Chiudi Scheda">
+            </div>
+            <div class="btn-meta">
+              <h3 class="btn-name" data-p18n="btn18_name">[ 🔄 Ricarica | ❌ Chiudi ]</h3>
+              <span class="btn-location-badge" data-p18n="loc_col_header">Testata Colonna Chat</span>
+            </div>
+          </div>
+          <p class="btn-desc" data-p18n="btn18_desc">
+            <code>🔄</code> sincronizza e ricarica all'istante l'elenco dei messaggi WhatsApp; <code>❌</code> deseleziona il cliente attivo per tornare alla dashboard pulita.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SEZIONE 4: BADGE DI STATO & SEMAFORI VISIVI -->
+    <section class="button-group-section" data-cat="badges">
+      <div class="group-header-banner">
+        <div class="group-icon-circle">🚦</div>
+        <div>
+          <h2 class="group-title" data-p18n="group_badges_title">Badge di Stato & Semafori Intelligenti</h2>
+          <p class="group-desc" data-p18n="group_badges_desc">Le etichette cromatiche che comunicano lo stato di lavorazione di ordini e file.</p>
+        </div>
+      </div>
+
+      <div class="button-cards-grid">
+
+        <!-- 4.1 BADGE GIACENZA -->
+        <div class="btn-card">
+          <div class="btn-card-top">
+            <div class="btn-img-frame" style="min-width: 80px;">
+              <img src="pulsanti_img/badge_giacenza.png" alt="Badge Giacenza Giallo">
+            </div>
+            <div class="btn-meta">
+              <h3 class="btn-name" data-p18n="badge1_name">[ 🟡 GIACENZA ]</h3>
+              <span class="btn-location-badge" data-p18n="loc_badge_client">Accanto al Nome Cliente</span>
+            </div>
+          </div>
+          <p class="btn-desc" data-p18n="badge1_desc">
+            Segnala che il cliente ha documenti arrivati ieri o nei giorni scorsi non ancora ritirati. Ti avvisa subito per evitare che rimangano stampe dimenticate sul banco.
+          </p>
+        </div>
+
+        <!-- 4.2 BADGE DA STAMPARE -->
+        <div class="btn-card">
+          <div class="btn-card-top">
+            <div class="btn-img-frame" style="min-width: 80px;">
+              <img src="pulsanti_img/badge_da_stampare.png" alt="Badge Da Stampare Rosso">
+            </div>
+            <div class="btn-meta">
+              <h3 class="btn-name" data-p18n="badge2_name">[ 🔴 DA STAMPARE ]</h3>
+              <span class="btn-location-badge" data-p18n="loc_badge_file">Sulla Scheda del File</span>
+            </div>
+          </div>
+          <p class="btn-desc" data-p18n="badge2_desc">
+            Etichetta rossa brillante applicata a ogni nuovo file appena ricevuto su WhatsApp. Indica che il documento è in attesa di essere stampato.
+          </p>
+        </div>
+
+        <!-- 4.3 BADGE GIÀ STAMPATO -->
+        <div class="btn-card">
+          <div class="btn-card-top">
+            <div class="btn-img-frame" style="min-width: 80px;">
+              <img src="pulsanti_img/badge_gia_stampato.png" alt="Badge Già Stampato Verde">
+            </div>
+            <div class="btn-meta">
+              <h3 class="btn-name" data-p18n="badge3_name">[ 🟢 GIÀ STAMPATO ]</h3>
+              <span class="btn-location-badge" data-p18n="loc_badge_file_done">Sulla Scheda del File</span>
+            </div>
+          </div>
+          <p class="btn-desc" data-p18n="badge3_desc">
+            Etichetta verde di completamento che certifica che la stampa è terminata e la notifica WhatsApp è stata inviata con successo.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SEZIONE 5: PANNELLO IMPOSTAZIONI (CONFIGURAZIONE DEL SERVIZIO) -->
+    <section class="button-group-section" data-cat="settings">
+      <div class="group-header-banner">
+        <div class="group-icon-circle">⚙️</div>
+        <div>
+          <h2 class="group-title" data-p18n="group_settings_title">Pannello Impostazioni & Schede di Configurazione</h2>
+          <p class="group-desc" data-p18n="group_settings_desc">Tutti i 9 tab di controllo e i pulsanti della finestra di configurazione centrale di PrintZap.</p>
+        </div>
+      </div>
+
+      <!-- SHOWCASE DEL MODAL IMPOSTAZIONI -->
+      <div class="sidebar-showcase-card" style="margin-bottom: 30px;">
+        <div class="sidebar-img-col" style="flex: 1; max-width: 580px; text-align: center;">
+          <img src="pulsanti_img/impostazioni_completa.png" alt="Pannello Impostazioni PrintZap" style="max-height: 380px; width: 100%; object-fit: contain; border-radius: 10px; border: 2px solid rgba(56, 189, 248, 0.4); box-shadow: 0 0 25px rgba(56, 189, 248, 0.15); background: #090d16;">
+        </div>
+        <div class="sidebar-info-col">
+          <div class="hero-badge" style="margin-bottom: 10px; background: rgba(56, 189, 248, 0.12); border-color: rgba(56, 189, 248, 0.3); color: #38bdf8;" data-p18n="modal_badge">Pannello Impostazioni Ufficiale</div>
+          <h3 style="font-size: 1.55rem; color: var(--text-main); margin-bottom: 12px;" data-p18n="modal_showcase_title">
+            Configurazione Modulare & Multi-Canale
+          </h3>
+          <p style="color: var(--text-muted); line-height: 1.6; margin-bottom: 16px;" data-p18n="modal_showcase_desc">
+            Accessibile cliccando l'ingranaggio ⚙️ nella barra laterale, la finestra ti permette di attivare o disattivare ogni canale di ricezione in piena autonomia con appositi interruttori ON/OFF, regolare cartelle, stampanti e verificare licenza e statistiche.
+          </p>
+          <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+            <span class="state-pill state-green" data-p18n="pill_9tabs">✓ 9 Schede Dedicate</span>
+            <span class="state-pill state-purple" data-p18n="pill_modular">✓ Attivazione a Scelta Canali</span>
+            <span class="state-pill state-amber" data-p18n="pill_instant_save">✓ Salvataggio Immediato</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="button-cards-grid">
+
+        <!-- 5.1 TAB WHATSAPP -->
+        <div class="btn-card">
+          <div class="btn-card-top">
+            <div class="btn-img-frame" style="min-width: 80px;">
+              <img src="pulsanti_img/tab_whatsapp.png" alt="Tab WhatsApp">
+            </div>
+            <div class="btn-meta">
+              <h3 class="btn-name" data-p18n="tab_wa_name">Scheda WhatsApp (Smartphone)</h3>
+              <span class="btn-location-badge" data-p18n="loc_tab_1">Pannello Impostazioni • Tab 1</span>
+            </div>
+          </div>
+          <p class="btn-desc" data-p18n="tab_wa_desc">
+            Gestisce la connessione con l'account WhatsApp del negozio. Permette di visualizzare il QR Code per l'aggancio, impostare i testi delle notifiche automatiche di ritiro e configurare i messaggi personalizzati.
+          </p>
+          <div class="btn-detail-row">
+            <strong data-p18n="label_action">Cosa Fa:</strong>
+            <span data-p18n="tab_wa_act">Configura tempi di sincronizzazione, messaggi di cortesia e prefisso del paese.</span>
+          </div>
+        </div>
+
+        <!-- 5.2 TAB TELEGRAM -->
+        <div class="btn-card">
+          <div class="btn-card-top">
+            <div class="btn-img-frame" style="min-width: 80px;">
+              <img src="pulsanti_img/tab_telegram.png" alt="Tab Telegram">
+            </div>
+            <div class="btn-meta">
+              <h3 class="btn-name" data-p18n="tab_tg_name">Scheda Telegram (Bot)</h3>
+              <span class="btn-location-badge" data-p18n="loc_tab_2">Pannello Impostazioni • Tab 2</span>
+            </div>
+          </div>
+          <p class="btn-desc" data-p18n="tab_tg_desc">
+            Configurazione del Bot Telegram del negozio. Riporta l'indicatore <span class="state-pill state-red">OFF</span> quando il canale è inattivo e consente di inserire il Token bot per abilitare la ricezione di dispense pesanti.
+          </p>
+          <div class="btn-detail-row">
+            <strong data-p18n="label_states">Badge di Stato:</strong>
+            <span data-p18n="tab_tg_states">Mostra l'etichetta <strong>OFF</strong> finché l'interruttore interno non viene attivato.</span>
+          </div>
+        </div>
+
+        <!-- 5.3 TAB WEB BANCONE -->
+        <div class="btn-card">
+          <div class="btn-card-top">
+            <div class="btn-img-frame" style="min-width: 80px;">
+              <img src="pulsanti_img/tab_web_bancone.png" alt="Tab Web Bancone">
+            </div>
+            <div class="btn-meta">
+              <h3 class="btn-name" data-p18n="tab_web_name">Scheda Web Bancone (Wi-Fi)</h3>
+              <span class="btn-location-badge" data-p18n="loc_tab_3">Pannello Impostazioni • Tab 3</span>
+            </div>
+          </div>
+          <p class="btn-desc" data-p18n="tab_web_desc">
+            Attiva il portale di upload locale per i clienti collegati alla rete Wi-Fi del negozio. Genera la pagina di caricamento con QR Code da esporre sul bancone della cartoleria.
+          </p>
+          <div class="btn-detail-row">
+            <strong data-p18n="label_advantage">Vantaggio:</strong>
+            <span data-p18n="tab_web_adv">Permette a chiunque entri in negozio di caricare documenti dal cellulare senza bisogno di scambiare numeri.</span>
+          </div>
+        </div>
+
+        <!-- 5.4 TAB E-MAIL -->
+        <div class="btn-card">
+          <div class="btn-card-top">
+            <div class="btn-img-frame" style="min-width: 80px;">
+              <img src="pulsanti_img/tab_email.png" alt="Tab E-mail">
+            </div>
+            <div class="btn-meta">
+              <h3 class="btn-name" data-p18n="tab_email_name">Scheda E-mail (Posta)</h3>
+              <span class="btn-location-badge" data-p18n="loc_tab_4">Pannello Impostazioni • Tab 4</span>
+            </div>
+          </div>
+          <p class="btn-desc" data-p18n="tab_email_desc">
+            Integrazione della casella di posta (IMAP/SMTP). Consente di configurare l'indirizzo e-mail del negozio per ricevere allegati e confermare la ricezione ai mittenti.
+          </p>
+          <div class="btn-detail-row">
+            <strong data-p18n="label_action">Cosa Fa:</strong>
+            <span data-p18n="tab_email_act">Controlla periodicamente la casella e inserisce i file PDF direttamente nella coda di stampa.</span>
+          </div>
+        </div>
+
+        <!-- 5.5 TAB SERVIZIO -->
+        <div class="btn-card">
+          <div class="btn-card-top">
+            <div class="btn-img-frame" style="min-width: 80px;">
+              <img src="pulsanti_img/tab_servizio.png" alt="Tab Servizio">
+            </div>
+            <div class="btn-meta">
+              <h3 class="btn-name" data-p18n="tab_servizio_name">Scheda Servizio (Ingranaggio)</h3>
+              <span class="btn-location-badge" data-p18n="loc_tab_5">Pannello Impostazioni • Tab 5</span>
+            </div>
+          </div>
+          <p class="btn-desc" data-p18n="tab_servizio_desc">
+            Impostazioni del motore PrintZap: percorso della cartella su disco (<code>file_da_stampare</code>), selezione porta locale (es. porta 3000 o personalizzata), e avvio automatico all'accensione di Windows.
+          </p>
+        </div>
+
+        <!-- 5.6 TAB AGGIORNAMENTI -->
+        <div class="btn-card">
+          <div class="btn-card-top">
+            <div class="btn-img-frame" style="min-width: 80px;">
+              <img src="pulsanti_img/tab_aggiornamenti.png" alt="Tab Aggiornamenti">
+            </div>
+            <div class="btn-meta">
+              <h3 class="btn-name" data-p18n="tab_aggiornamenti_name">Scheda Aggiornamenti (Frecce)</h3>
+              <span class="btn-location-badge" data-p18n="loc_tab_6">Pannello Impostazioni • Tab 6</span>
+            </div>
+          </div>
+          <p class="btn-desc" data-p18n="tab_aggiornamenti_desc">
+            Controlla in tempo reale la presenza di nuove versioni del software con 1 clic. Mostra l'elenco delle novità introdotte e consente l'aggiornamento automatico sicuro senza perdere le impostazioni.
+          </p>
+        </div>
+
+        <!-- 5.7 TAB LICENZA -->
+        <div class="btn-card">
+          <div class="btn-card-top">
+            <div class="btn-img-frame" style="min-width: 80px;">
+              <img src="pulsanti_img/tab_licenza.png" alt="Tab Licenza">
+            </div>
+            <div class="btn-meta">
+              <h3 class="btn-name" data-p18n="tab_licenza_name">Scheda Licenza (Stella)</h3>
+              <span class="btn-location-badge" data-p18n="loc_tab_7">Pannello Impostazioni • Tab 7</span>
+            </div>
+          </div>
+          <p class="btn-desc" data-p18n="tab_licenza_desc">
+            Stato dell'abbonamento o prova gratuita di 30 giorni. Permette di inserire il codice licenza della tua cartoleria e visualizzare la scadenza e i dispositivi abilitati.
+          </p>
+        </div>
+
+        <!-- 5.8 TAB STATISTICHE -->
+        <div class="btn-card">
+          <div class="btn-card-top">
+            <div class="btn-img-frame" style="min-width: 80px;">
+              <img src="pulsanti_img/tab_statistiche.png" alt="Tab Statistiche">
+            </div>
+            <div class="btn-meta">
+              <h3 class="btn-name" data-p18n="tab_stats_name">Scheda Statistiche (Grafico)</h3>
+              <span class="btn-location-badge" data-p18n="loc_tab_8">Pannello Impostazioni • Tab 8</span>
+            </div>
+          </div>
+          <p class="btn-desc" data-p18n="tab_stats_desc">
+            Report completo di produttività: numero totale di file stampati nel giorno, mese e anno, clienti serviti e tempi medi di lavorazione al banco.
+          </p>
+        </div>
+
+        <!-- 5.9 TAB SISTEMA & LOG -->
+        <div class="btn-card">
+          <div class="btn-card-top">
+            <div class="btn-img-frame" style="min-width: 80px;">
+              <img src="pulsanti_img/tab_sistema_log.png" alt="Tab Sistema e Log">
+            </div>
+            <div class="btn-meta">
+              <h3 class="btn-name" data-p18n="tab_log_name">Scheda Sistema & Log (Cartella)</h3>
+              <span class="btn-location-badge" data-p18n="loc_tab_9">Pannello Impostazioni • Tab 9</span>
+            </div>
+          </div>
+          <p class="btn-desc" data-p18n="tab_log_desc">
+            Registro eventi e diagnostica tecnica. Mostra lo stato dei processi in background, verifica le connessioni internet e genera il log per l'assistenza rapida in caso di anomalie di rete.
+          </p>
+        </div>
+
+        <!-- 5.10 TOGGLE SWITCH (INTERRUTTORE SERVIZI) -->
+        <div class="btn-card">
+          <div class="btn-card-top">
+            <div class="btn-img-frame" style="min-width: 80px;">
+              <img src="pulsanti_img/toggle_switch.png" alt="Interruttore Toggle Switch">
+            </div>
+            <div class="btn-meta">
+              <h3 class="btn-name" data-p18n="toggle_switch_name">Interruttore Attiva/Disattiva</h3>
+              <span class="btn-location-badge" data-p18n="loc_toggle">Presente in Ogni Scheda Canale</span>
+            </div>
+          </div>
+          <p class="btn-desc" data-p18n="toggle_switch_desc">
+            Leva on/off rapida. Quando attivata su un servizio (E-mail, Telegram, Web Bancone), accende il motore corrispondente e aggiunge immediatamente la relativa icona sulla barra laterale sinistra!
+          </p>
+          <div class="btn-detail-row">
+            <strong data-p18n="label_states">Comportamento:</strong>
+            <span data-p18n="toggle_switch_states">
+              <span class="state-pill state-green">ON</span> Servizio in ascolto + Icona visibile in Sidebar.<br>
+              <span class="state-pill state-red">OFF</span> Servizio a riposo + Icona nascosta per massima pulizia visiva.
+            </span>
+          </div>
+        </div>
+
+        <!-- 5.11 SALVA IMPOSTAZIONI -->
+        <div class="btn-card">
+          <div class="btn-card-top">
+            <div class="btn-img-frame" style="min-width: 120px;">
+              <img src="pulsanti_img/btn_salva_impostazioni.png" alt="Pulsante Salva Impostazioni">
+            </div>
+            <div class="btn-meta">
+              <h3 class="btn-name" data-p18n="btn_save_name">[ 💾 Salva Impostazioni ]</h3>
+              <span class="btn-location-badge" data-p18n="loc_save_btn">In Basso a Destra nel Modal</span>
+            </div>
+          </div>
+          <p class="btn-desc" data-p18n="btn_save_desc">
+            Pulsante azzurro brillante con icona floppy disk. Salva e applica immediatamente tutti i parametri modificati senza richiedere il riavvio di PrintZap o di Windows.
+          </p>
+        </div>
+
+        <!-- 5.12 CHIUDI MODAL -->
+        <div class="btn-card">
+          <div class="btn-card-top">
+            <div class="btn-img-frame">
+              <img src="pulsanti_img/btn_chiudi_impostazioni.png" alt="Chiudi Impostazioni">
+            </div>
+            <div class="btn-meta">
+              <h3 class="btn-name" data-p18n="btn_close_modal_name">[ ✕ Chiudi Finestra ]</h3>
+              <span class="btn-location-badge" data-p18n="loc_close_btn">In Alto a Destra nel Modal</span>
+            </div>
+          </div>
+          <p class="btn-desc" data-p18n="btn_close_modal_desc">
+            Chiude la finestra delle impostazioni e ti riporta direttamente alla dashboard di lavoro con la coda dei file dei clienti pronti alla stampa.
+          </p>
+        </div>
+
+      </div>
+
+      <!-- APPROFONDIMENTO SCHEDE DI CONFIGURAZIONE (FOTO 1 - 6) -->
+      <div style="margin-top: 50px; border-top: 1px dashed rgba(255, 255, 255, 0.12); padding-top: 35px;">
+        <div style="text-align: center; margin-bottom: 25px;">
+          <div class="hero-badge" style="margin-bottom: 8px;" data-p18n="deepdive_badge">Guida Visiva alle Schede di Sistema</div>
+          <h3 style="font-size: 1.7rem; color: var(--text-main);" data-p18n="deepdive_title">Tutti i Menu Interni Spiegati Funzione per Funzione</h3>
+          <p style="color: var(--text-muted); font-size: 0.95rem; max-width: 720px; margin: 6px auto 0;" data-p18n="deepdive_subtitle">
+            Dalla ricezione Telegram al portale Wi-Fi con QR Code, dalla gestione temi e licenza fino al report contabile delle stampe e al backup completo.
+          </p>
+        </div>
+
+        <!-- SCHEDA 0: WHATSAPP QR -->
+        <div class="detail-showcase-card">
+          <div class="detail-card-header">
+            <div>
+              <span class="btn-location-badge" style="background: rgba(37, 211, 102, 0.15); color: #25D366;">Foto Base • Connessione WhatsApp</span>
+              <h4 style="font-size: 1.35rem; color: var(--text-main); margin: 6px 0 0;" data-p18n="card_wa_title">📱 Connessione WhatsApp & Scansione QR Code</h4>
+            </div>
+            <span class="state-pill state-green" data-p18n="pill_wa_quick">Associazione Istantanea in 5 Secondi</span>
+          </div>
+          <div class="detail-preview-frame">
+            <img src="pulsanti_img/tab_dettaglio_whatsapp_qr.png" alt="Scansione QR Code WhatsApp PrintZap">
+          </div>
+          <div class="feature-list-grid">
+            <div class="feature-point-box">
+              <div class="feature-point-title">📲 Procedura Standard WhatsApp Web</div>
+              <div class="feature-point-desc" data-p18n="wa_qr_f1_desc">Apri WhatsApp sul tuo smartphone, tocca <em>Dispositivi collegati</em> e inquadra il codice QR a video. Zero password da ricordare.</div>
+            </div>
+            <div class="feature-point-box">
+              <div class="feature-point-title">⚡ Zero Canoni Meta o API a Pagamento</div>
+              <div class="feature-point-desc" data-p18n="wa_qr_f2_desc">Si collega direttamente al tuo numero aziendale esistente senza intermediari, canoni mensili o costi a consumo per messaggio.</div>
+            </div>
+            <div class="feature-point-box">
+              <div class="feature-point-title">🔄 Aggiorna QR & Rigenera Sessione</div>
+              <div class="feature-point-desc" data-p18n="wa_qr_f3_desc">Pulsanti rapidi per rinnovare il codice se scade o per cambiare smartphone del negozio in caso di sostituzione del telefono.</div>
+            </div>
+            <div class="feature-point-box">
+              <div class="feature-point-title">🚦 Semaforo di Stato (Arancione ➔ Verde)</div>
+              <div class="feature-point-desc" data-p18n="wa_qr_f4_desc">L'icona dello smartphone in basso a sinistra pulsa in arancione durante l'attesa del QR, e diventa verde fissa non appena la sessione è attiva.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- SCHEDA 1: TELEGRAM -->
+        <div class="detail-showcase-card">
+          <div class="detail-card-header">
+            <div>
+              <span class="btn-location-badge" style="background: rgba(56, 189, 248, 0.15); color: #38bdf8;">Foto 1 • Impostazioni Telegram</span>
+              <h4 style="font-size: 1.35rem; color: var(--text-main); margin: 6px 0 0;" data-p18n="card_tg_title">✈️ Integrazione Telegram Multi-Modalità</h4>
+            </div>
+            <span class="state-pill state-green" data-p18n="pill_tg_ready">Canale Ricezione Alternativo</span>
+          </div>
+          <div class="detail-preview-frame">
+            <img src="pulsanti_img/tab_dettaglio_telegram.png" alt="Pannello Telegram PrintZap">
+          </div>
+          <div class="feature-list-grid">
+            <div class="feature-point-box">
+              <div class="feature-point-title">🔘 Interruttore "Bot & Canale Telegram"</div>
+              <div class="feature-point-desc" data-p18n="tg_f1_desc">Attiva o disattiva la ricezione dei documenti dal bot e fa comparire o scomparire l'icona Telegram dalla barra laterale.</div>
+            </div>
+            <div class="feature-point-box">
+              <div class="feature-point-title">🚀 4 Modalità di Connessione</div>
+              <div class="feature-point-desc" data-p18n="tg_f2_desc"><strong>Cloudflare Tunnel</strong> (enterprise ultra-veloce), <strong>Polling Diretto</strong> (senza tunnel, per reti aziendali chiuse), <strong>Webhook Personalizzato</strong> o <strong>Disabilitato</strong>.</div>
+            </div>
+            <div class="feature-point-box">
+              <div class="feature-point-title">💡 Creazione Bot in 30 Secondi</div>
+              <div class="feature-point-desc" data-p18n="tg_f3_desc">Guida guidata su Telegram con @BotFather: invia <code>/newbot</code>, ottieni il token API e incollalo per iniziare a ricevere dispense pesanti.</div>
+            </div>
+            <div class="feature-point-box">
+              <div class="feature-point-title">💾 Salva e Applica Configurazione</div>
+              <div class="feature-point-desc" data-p18n="tg_f4_desc">Pulsante azzurro che testa e avvia il demone Telegram all'istante senza riavviare il computer.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- SCHEDA 2: WEB BANCONE -->
+        <div class="detail-showcase-card">
+          <div class="detail-card-header">
+            <div>
+              <span class="btn-location-badge" style="background: rgba(168, 85, 247, 0.15); color: #c084fc;">Foto 2 • Web Bancone</span>
+              <h4 style="font-size: 1.35rem; color: var(--text-main); margin: 6px 0 0;" data-p18n="card_web_title">🌐 Portale Web Bancone (Caricamento via QR Code)</h4>
+            </div>
+            <span class="state-pill state-purple" data-p18n="pill_web_noapp">Zero App da Installare</span>
+          </div>
+          <div class="detail-preview-frame">
+            <img src="pulsanti_img/tab_dettaglio_web_bancone.png" alt="Pannello Web Bancone PrintZap">
+          </div>
+          <div class="feature-list-grid">
+            <div class="feature-point-box">
+              <div class="feature-point-title">📱 QR Code Dinamico da Banco</div>
+              <div class="feature-point-desc" data-p18n="web_f1_desc">I clienti inquadrano il codice sul bancone con la fotocamera del telefono e si apre la pagina di invio file sul loro browser.</div>
+            </div>
+            <div class="feature-point-box">
+              <div class="feature-point-title">📶 Wi-Fi Negozio LAN vs 4G/5G</div>
+              <div class="feature-point-desc" data-p18n="web_f2_desc">Funziona al 100% offline in rete locale Wi-Fi diretta ad altissima velocità senza passare da server esterni o consumare giga.</div>
+            </div>
+            <div class="feature-point-box">
+              <div class="feature-point-title">🖨️ Stampa Locandina Bancone (A4)</div>
+              <div class="feature-point-desc" data-p18n="web_f3_desc">Pulsante viola che genera e stampa una locandina professionale A4 già impaginata con il QR Code e il nome del Wi-Fi della tua cartoleria.</div>
+            </div>
+            <div class="feature-point-box">
+              <div class="feature-point-title">🔗 Indirizzo Locale & Tasto Copia</div>
+              <div class="feature-point-desc" data-p18n="web_f4_desc">Mostra l'URL esatto (es. <code>http://192.168.1.33:3000/upload</code>) con pulsante per copiarlo e salvarlo nei preferiti.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- SCHEDA 3: SERVIZIO & GRAFICA -->
+        <div class="detail-showcase-card">
+          <div class="detail-card-header">
+            <div>
+              <span class="btn-location-badge" style="background: rgba(37, 211, 102, 0.15); color: #25D366;">Foto 3 • Servizio & Grafica</span>
+              <h4 style="font-size: 1.35rem; color: var(--text-main); margin: 6px 0 0;" data-p18n="card_srv_title">⚙️ Impostazioni Servizio, Temi & Automazioni</h4>
+            </div>
+            <span class="state-pill state-green" data-p18n="pill_srv_custom">Personalizzazione Totale</span>
+          </div>
+          <div class="detail-preview-frame">
+            <img src="pulsanti_img/tab_dettaglio_servizio.png" alt="Pannello Servizio e Grafica PrintZap">
+          </div>
+          <div class="feature-list-grid">
+            <div class="feature-point-box">
+              <div class="feature-point-title">🎨 4 Temi Grafici Selezionabili</div>
+              <div class="feature-point-desc" data-p18n="srv_f1_desc">Scegli l'aspetto visivo che preferisci: <strong>Scuro</strong> (default riposante), <strong>Chiaro</strong> (vetrine illuminate), <strong>XP</strong> (vintage Windows XP) o <strong>NEO</strong> (neon cyberpunk).</div>
+            </div>
+            <div class="feature-point-box">
+              <div class="feature-point-title">🌐 Lingua Interfaccia (IT / EN)</div>
+              <div class="feature-point-desc" data-p18n="srv_f2_desc">Passa dall'Italiano all'Inglese per l'intera console di cassa con un semplice selettore radio.</div>
+            </div>
+            <div class="feature-point-box">
+              <div class="feature-point-title">✍️ Testo Notifica "Pronto" Modificabile</div>
+              <div class="feature-point-desc" data-p18n="srv_f3_desc">Personalizza il testo del messaggio WhatsApp/Telegram inviato automaticamente ai clienti al ritiro delle stampe.</div>
+            </div>
+            <div class="feature-point-box">
+              <div class="feature-point-title">🚀 Avvio con Windows & Notifiche Desktop</div>
+              <div class="feature-point-desc" data-p18n="srv_f4_desc">Attiva gli avvisi a comparsa su Windows e imposta l'avvio automatico all'accensione del PC per non dover mai lanciare nulla a mano.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- SCHEDA 4: STATO LICENZA -->
+        <div class="detail-showcase-card">
+          <div class="detail-card-header">
+            <div>
+              <span class="btn-location-badge" style="background: rgba(245, 158, 11, 0.15); color: #fbbf24;">Foto 4 • Stato Licenza</span>
+              <h4 style="font-size: 1.35rem; color: var(--text-main); margin: 6px 0 0;" data-p18n="card_lic_title">🔒 Stato Licenza, ID Macchina & Rinnovi</h4>
+            </div>
+            <span class="state-pill state-amber" data-p18n="pill_lic_lifetime">Trasparenza Completa</span>
+          </div>
+          <div class="detail-preview-frame">
+            <img src="pulsanti_img/tab_dettaglio_licenza.png" alt="Pannello Stato Licenza PrintZap">
+          </div>
+          <div class="feature-list-grid">
+            <div class="feature-point-box">
+              <div class="feature-point-title">🏷️ Riepilogo Licenza & Intestatario</div>
+              <div class="feature-point-desc" data-p18n="lic_f1_desc">Indica la tipologia attiva (es. <em>Licenza attiva a vita</em> per la tua cartoleria) e la data esatta di scadenza del piano.</div>
+            </div>
+            <div class="feature-point-box">
+              <div class="feature-point-title">💻 ID Dispositivo (Machine ID) & Tasto Copia</div>
+              <div class="feature-point-desc" data-p18n="lic_f2_desc">Codice hardware univoco del PC (es. <code>PZ-EA86-BB36-DD97</code>) copiabile con 1 clic per associare la postazione di cassa.</div>
+            </div>
+            <div class="feature-point-box">
+              <div class="feature-point-title">💬 Assistenza & Ordini Diretti via WhatsApp</div>
+              <div class="feature-point-desc" data-p18n="lic_f3_desc">Pulsante verde rapido per contattare il supporto ufficiale via chat o messaggio vocale per rinnovi, estensioni o supporto tecnico.</div>
+            </div>
+            <div class="feature-point-box">
+              <div class="feature-point-title">🔑 Attiva Nuova Chiave di Licenza</div>
+              <div class="feature-point-desc" data-p18n="lic_f4_desc">Campo di sblocco rapido: inserisci il codice ricevuto dal fornitore e premi <code>Attiva Chiave</code> per abilitare la licenza online.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- SCHEDA 5: STATISTICHE -->
+        <div class="detail-showcase-card">
+          <div class="detail-card-header">
+            <div>
+              <span class="btn-location-badge" style="background: rgba(6, 182, 212, 0.15); color: #22d3ee;">Foto 5 • Statistiche & Report</span>
+              <h4 style="font-size: 1.35rem; color: var(--text-main); margin: 6px 0 0;" data-p18n="card_stat_title">📊 Statistiche di Produttività & Resoconto Stampa</h4>
+            </div>
+            <span class="state-pill state-green" data-p18n="pill_stat_export">Esportazioni PDF & Excel</span>
+          </div>
+          <div class="detail-preview-frame">
+            <img src="pulsanti_img/tab_dettaglio_statistiche.png" alt="Pannello Statistiche PrintZap">
+          </div>
+          <div class="feature-list-grid">
+            <div class="feature-point-box">
+              <div class="feature-point-title">📈 7 Indicatori KPI in Tempo Reale</div>
+              <div class="feature-point-desc" data-p18n="stat_f1_desc">Visualizza: <strong>Totale Ordini</strong>, <strong>Ordini Oggi</strong>, <strong>Questo Mese</strong>, <strong>Stampati</strong>, <strong>In Coda</strong>, <strong>Clienti Unici</strong> e <strong>Volume Dati</strong> su disco.</div>
+            </div>
+            <div class="feature-point-box">
+              <div class="feature-point-title">📄 Esporta in PDF & Foglio Excel</div>
+              <div class="feature-point-desc" data-p18n="stat_f2_desc">Esporta l'intero resoconto in un documento PDF impaginato pronto per il commercialista o in tabella Excel per calcoli dettagliati.</div>
+            </div>
+            <div class="feature-point-box">
+              <div class="feature-point-title">⏰ Ora di Punta & Giorno Più Trafficato</div>
+              <div class="feature-point-desc" data-p18n="stat_f3_desc">Algoritmo intelligente che individua la fascia oraria e il giorno con massimo flusso di clienti (es. Martedì con 285 ordini).</div>
+            </div>
+            <div class="feature-point-box">
+              <div class="feature-point-title">📊 Grafico a Barre Ultime 7 Giornate</div>
+              <div class="feature-point-desc" data-p18n="stat_f4_desc">Istogramma visivo con confronto tra ordini ricevuti (blu) e stampe effettivamente completate (verde).</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- SCHEDA 6: SISTEMA & LOG -->
+        <div class="detail-showcase-card">
+          <div class="detail-card-header">
+            <div>
+              <span class="btn-location-badge" style="background: rgba(239, 68, 68, 0.15); color: #f87171;">Foto 6 • Disaster Recovery & Log</span>
+              <h4 style="font-size: 1.35rem; color: var(--text-main); margin: 6px 0 0;" data-p18n="card_sys_title">💾 Disaster Recovery, Backup & Spegnimento Pulito</h4>
+            </div>
+            <span class="state-pill state-red" data-p18n="pill_sys_safe">Massima Sicurezza Dati</span>
+          </div>
+          <div class="detail-preview-frame">
+            <img src="pulsanti_img/tab_dettaglio_sistema_log.png" alt="Pannello Sistema e Log PrintZap">
+          </div>
+          <div class="feature-list-grid">
+            <div class="feature-point-box">
+              <div class="feature-point-title">🗄️ Crea Backup Dati (.zip) & Ripristina</div>
+              <div class="feature-point-desc" data-p18n="sys_f1_desc">Salva con 1 clic l'intero database SQLite, note, storico e licenza in un file compresso protetto; ripristina all'istante su nuovo PC.</div>
+            </div>
+            <div class="feature-point-box">
+              <div class="feature-point-title">👥 Esportazione Rubrica (CSV / VCF)</div>
+              <div class="feature-point-desc" data-p18n="sys_f2_desc">Scarica tutti i contatti dei clienti in formato Excel (.CSV) per marketing o in formato scheda vCard (.VCF) per sincronizzarli sullo smartphone.</div>
+            </div>
+            <div class="feature-point-box">
+              <div class="feature-point-title">🛑 Spegnimento Pulito & Arresto PC</div>
+              <div class="feature-point-desc" data-p18n="sys_f3_desc">Pulsanti di sicurezza per chiudere il server senza corrompere il database, o per spegnere l'intero computer della cassa a fine turno.</div>
+            </div>
+            <div class="feature-point-box">
+              <div class="feature-point-title">🔍 Visualizzatore Log del Server</div>
+              <div class="feature-point-desc" data-p18n="sys_f4_desc">Apre la console diagnostica in tempo reale per verificare connessioni di rete, porte aperte ed errori di stampa.</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- BOX FINALE CALL TO ACTION -->
+    <div style="text-align: center; margin-top: 50px; padding: 40px; background: rgba(56, 189, 248, 0.05); border: 1px solid rgba(56, 189, 248, 0.3); border-radius: var(--radius-lg);">
+      <h3 style="font-size: 1.8rem; margin-bottom: 12px; color: var(--text-main);" data-p18n="final_title">Tutti i comandi pronti all'uso sul tuo banco</h3>
+      <p style="color: var(--text-muted); margin-bottom: 24px;" data-p18n="final_subtitle">Installa PrintZap e prova gratis la comodità di questa interfaccia per 30 giorni.</p>
+      <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
+        <a href="guida.html" class="btn btn-outline" style="border-color: #38bdf8; color: #38bdf8;" data-p18n="final_btn_workflow">Consulta la Guida al Flusso di Lavoro 📖</a>
+        <a href="index.html#prezzi" class="btn btn-primary" data-p18n="final_btn_try">Inizia la Prova Gratuita (30gg)</a>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- ================= SCRIPT I18N & FILTRI ================= -->
+  <script>
+    const buttonsTranslations = {
+      it: {
+        badge_title: "Mappa Visiva dei Comandi PrintZap",
+        main_title: "Guida Completa a Tutti i Pulsanti & Icone",
+        main_subtitle: "Ogni singolo tasto e controllo dell'interfaccia spiegato con la sua immagine reale, il suo funzionamento al bancone e i diversi stati di colore.",
+        nav_back_home: "Torna alla Home",
+        nav_to_guide: "Guida Flusso di Lavoro (8 Passi)",
+        nav_current: "🎛️ Mappa Pulsanti",
+        filter_all: "Tutti i Controlli (33)",
+        filter_sidebar: "Barra Laterale (Sidebar)",
+        filter_settings: "Pannello Impostazioni (Settings)",
+        filter_order: "Azioni Ordine & Notifica",
+        filter_files: "Gestione File & Sessione",
+        filter_badges: "Badge & Semafori",
+        sidebar_badge: "Layout Ufficiale PrintZap",
+        sidebar_showcase_title: "La Barra di Comando Sinistra Sempre Visibile",
+        sidebar_showcase_desc: "Posizionata sul bordo sinistro della finestra a tutta altezza, la barra laterale ti permette di navigare tra canali di ricezione, aprire l'archivio su disco e monitorare la connessione WhatsApp con un solo colpo d'occhio.",
+        sidebar_mode_single: "Base (Solo WhatsApp)",
+        sidebar_mode_multi: "Multicanale (Servizi Aperti) ⚡",
+        sidebar_multichannel_title: "✨ Nuove Icone con Servizi Aperti:",
+        sidebar_multichannel_desc: "Quando attivi <strong>E-mail</strong>, <strong>Telegram</strong> o <strong>Web Bancone</strong> nel pannello Impostazioni, le loro 3 rispettive icone compaiono automaticamente sotto WhatsApp, creando un centralino unico per tutti i clienti!",
+        pill_always_ready: "✓ Sempre a Portata di Clic",
+        pill_no_navigation: "✓ Zero Finestre Nascoste",
+        pill_touch_friendly: "✓ Progettata per Touchscreen",
+        group_sidebar_title: "Pulsanti della Barra Laterale (Sidebar)",
+        group_sidebar_desc: "I comandi di sistema principali posizionati sulla barra nera a sinistra dello schermo.",
+        btn1_name: "Logo Badge PrintZap",
+        loc_sidebar_top: "Barra Laterale In Alto",
+        btn1_desc: "Icona identificativa di PrintZap con la saetta verde. Rappresenta lo stato del software e la versione in esecuzione attiva sul computer.",
+        label_action: "Cosa Fa:",
+        btn1_action: "Riporta alla vista iniziale degli ordini ed evidenzia che il motore locale è attivo.",
+        btn2_name: "Chat WhatsApp / Ordini",
+        loc_sidebar_1: "Barra Laterale • Canale 1",
+        btn2_desc: "Il cuore pulsante del negozio. Mostra la coda in tempo reale di tutti i file inviati dai clienti tramite WhatsApp con sessioni raggruppate per orario.",
+        label_indicators: "Indicatori:",
+        btn2_ind: "Mostra il badge verde numerico con il conteggio esatto dei nuovi clienti con file non letti.",
+        label_click: "Al Clic:",
+        btn2_action: "Apre la lista clienti WhatsApp e permette di selezionare la conversazione per la stampa.",
+        btn_email_name: "Canale E-mail (Busta)",
+        loc_sidebar_email: "Barra Laterale • Canale Attivo",
+        btn_email_desc: "Compare sulla barra laterale sinistra appena attivi il servizio E-mail nelle Impostazioni. Scarica in automatico documenti e allegati PDF inviati dai clienti via posta elettronica ordinaria (IMAP/SMTP).",
+        label_activation: "Come si Attiva:",
+        btn_email_act: "Impostazioni ⚙️ ➔ Tab E-mail ➔ Interruttore 'Ricezione E-mail' su ATTIVO.",
+        btn_email_action: "Mostra la lista dei messaggi e allegati ricevuti via e-mail pronti per la stampa.",
+        btn_telegram_name: "Canale Telegram (Aeroplano)",
+        loc_sidebar_tg: "Barra Laterale • Canale Attivo",
+        btn_telegram_desc: "Compare sulla barra laterale quando colleghi il Bot Telegram della cartoleria. Consente a studenti e clienti di inviare dispense pesanti e file di grandi dimensioni senza salvare numeri personali.",
+        btn_telegram_ind: "Pallino di stato in basso a destra dell'icona che conferma la connessione attiva con Telegram.",
+        btn_telegram_action: "Apre la coda delle stampe ricevute via Telegram pronte per il lancio in 1 clic.",
+        btn_web_name: "Canale Web Bancone (Mondo Viola)",
+        loc_sidebar_web: "Barra Laterale • Canale Attivo",
+        btn_web_desc: "Icona a forma di mappamondo viola. Compare attivando il portale Web Bancone: i clienti fisicamente in negozio possono inquadrare un QR Code sul banco e caricare file dal proprio browser senza installare alcuna app.",
+        label_advantage: "Vantaggio Banco:",
+        btn_web_adv: "I file arrivano all'istante su PrintZap a costo zero, ideale per clienti con fretta o telefoni aziendali senza WhatsApp.",
+        btn3_name: "Notifiche Sonore (Suoni)",
+        loc_sidebar_sound: "Barra Laterale • Audio",
+        btn3_desc: "Interruttore a 1 clic per il campanello audio ('dindin' di cassa) che suona ogni volta che un cliente invia un nuovo documento da stampare.",
+        label_states: "Stati Visivi:",
+        btn3_states: "Verde: Suono attivo (avviso sonoro ad ogni file). Grigio: Silenzioso (ideale se ascolti musica o nei picchi).",
+        btn4_name: "Cartella Documenti PC",
+        loc_sidebar_folder: "Barra Laterale In Basso",
+        btn4_desc: "Scorciatoia globale indispensabile: apre istantaneamente la cartella principale 'file_da_stampare' in Windows Explorer in primo piano.",
+        btn4_action: "Non serve cercare percorsi sul desktop: un clic apre Windows Explorer con l'elenco di tutte le cartelle dei clienti.",
+        label_tip: "Consiglio Banco:",
+        btn4_tip: "Comodissimo per controllare file stampati in passato o ripulire archiviazioni vecchie.",
+        btn5_name: "Stato Connessione & QR Code",
+        loc_sidebar_phone: "Barra Laterale • Sistema",
+        btn5_desc: "Semaforo continuo della connessione WhatsApp Desktop. Ti informa in tempo reale se il tuo numero WhatsApp è agganciato e pronto a ricevere file.",
+        label_colors: "Colori di Stato:",
+        btn5_colors: "Verde = Connesso e operativo al 100%. Arancione = In attesa scansione QR Code. Rosso = Disconnesso.",
+        btn5_action: "Apre la schermata per inquadrare il QR Code con il tuo smartphone.",
+        btn6_name: "Pannello Impostazioni (⚙️)",
+        loc_sidebar_settings: "Barra Laterale In Basso",
+        btn6_desc: "Apre la finestra di configurazione centrale di PrintZap: WhatsApp, canali E-mail e Telegram, Web Bancone, stampanti predefinite, licenza e aggiornamenti.",
+        label_special: "Avviso Update:",
+        btn6_update: "Pallino Rosso Acceso: Segnala che è disponibile una nuova versione aggiornata con 1 clic.",
+        btn7_name: "Disconnetti / Reset Sessione",
+        loc_sidebar_exit: "Barra Laterale In Fondo",
+        btn7_desc: "Comando di sicurezza per disconnettere l'account WhatsApp dal software o resettare il motore del browser in caso di cali di rete internet prolungati.",
+        btn7_action: "Scollega in sicurezza la sessione e genera un nuovo QR Code per il riavvio rapido.",
+        btn8_name: "Versione Software (v1.1.14)",
+        loc_sidebar_ver: "Fondo Barra Laterale",
+        btn8_desc: "Mostra il numero di build attualmente installato e funzionante sul computer della tua cartoleria per verifiche di conformità e assistenza.",
+        group_order_title: "Pulsanti di Azione sull'Ordine (In Alto a Destra)",
+        group_order_desc: "I comandi più utilizzati durante la giornata lavorativa al banco per stampare e avvisare il cliente.",
+        btn9_name: "[ 📂 Apri Cartella ]",
+        loc_header_right: "In Alto a Destra",
+        btn9_desc: "Il pulsante magico per la stampa immediata. Cliccandolo, Windows Explorer si apre in primo piano dentro la cartella del cliente con tutti i file ricevuti.",
+        btn9_action: "Porta Explorer davanti al browser: puoi trascinare i file direttamente nel software della stampante o aprirli con Acrobat.",
+        btn10_name: "[ 🖨️ Notifica Pronto ] (Verde)",
+        loc_header_notify: "In Alto a Destra • Pronto",
+        btn10_desc: "Invia all'istante il messaggio WhatsApp di cortesia al cliente: '✅ Stampa Pronta! 🖨️ Il tuo documento è pronto per il ritiro.'",
+        label_transformation: "Cosa Succede:",
+        btn10_action: "Il pulsante si colora di VIOLA, il badge dei file diventa 'GIÀ STAMPATO' e il cliente riceve la notifica ufficiale sul suo WhatsApp.",
+        btn11_name: "[ 🔁 Reinvia Notifica ] (Viola)",
+        loc_header_purple: "In Alto a Destra • Completato",
+        btn11_desc: "Certifica a colpo d'occhio che il lavoro è concluso e il cliente è già stato avvisato. Nessun dubbio quando il cliente entra in cartoleria!",
+        btn11_action: "Permette di spedire un secondo messaggio di promemoria se il cliente ritarda il ritiro.",
+        btn12_name: "[ 🖨️ Notifica Pronto ] (Giallo Oro)",
+        loc_header_gold: "In Alto a Destra • Aggiornato",
+        btn12_desc: "Si accende in giallo brillante quando il cliente manda un secondo documento dopo che il primo era già stato stampato (es. link Adobe o ulteriori allegati).",
+        btn12_action: "Ti avverte visivamente che c'è una nuova stampa da produrre e ti consente di inviare la seconda notifica senza confusione.",
+        group_files_title: "Pulsanti di Gestione File & Sessioni Orarie",
+        group_files_desc: "Tutti i controlli dedicati all'apertura diretta dei documenti, alle spunte di lavorazione e all'eliminazione file.",
+        btn13_name: "[ ↗️ Apri File ]",
+        loc_file_card: "Nella Card del File",
+        btn13_desc: "Apre il documento direttamente con il programma predefinito di Windows (Acrobat Reader per i PDF, Photoshop o Visualizzatore per immagini, Word per documenti .docx).",
+        btn13_action: "Lancia il file in mezzo secondo, senza passare da Esplora Risorse.",
+        btn14_name: "[ 🚀 Notifica Pronto Veloce ]",
+        loc_session_header: "Header della Sessione",
+        btn14_desc: "Pulsantino verde a pillola presente nella barra di sessione ('Oggi alle 10:50 (1 file)'). Notifica tutti i file di quel blocco temporale in un clic.",
+        btn15_name: "[ ☑ Stampato ]",
+        loc_session_right: "Header Sessione & File",
+        btn15_desc: "Spunta rapida per segnare manualmente che il foglio è uscito fisicamente dalla stampante, aggiornando il conteggio senza inviare messaggi se il cliente è già al banco.",
+        btn16_name: "[ 🗑️ Elimina File su Disco ]",
+        loc_session_trash: "Header Sessione",
+        btn16_desc: "Cancella i file stampati dall'hard disk del computer per liberare spazio e mantenere la memoria del PC sempre leggera e veloce.",
+        label_guarantee: "Sicurezza WhatsApp:",
+        btn16_safe: "La chat su WhatsApp NON viene mai toccata! Lo storico messaggi rimane conservato al 100%.",
+        btn17_name: "[ ⊞ Griglia | ☰ Lista ]",
+        loc_view_switch: "In Alto a Destra Contenuti",
+        btn17_desc: "Cambia all'istante la modalità di visualizzazione: Griglia per grandi miniature fotografiche di poster e foto; Lista per elenchi compatti di dispense e PDF multipagina.",
+        btn18_name: "[ 🔄 Ricarica | ❌ Chiudi ]",
+        loc_col_header: "Testata Colonna Chat",
+        btn18_desc: "🔄 sincronizza e ricarica all'istante l'elenco dei messaggi WhatsApp; ❌ deseleziona il cliente attivo per tornare alla dashboard pulita.",
+        group_badges_title: "Badge di Stato & Semafori Intelligenti",
+        group_badges_desc: "Le etichette cromatiche che comunicano lo stato di lavorazione di ordini e file.",
+        badge1_name: "[ 🟡 GIACENZA ]",
+        loc_badge_client: "Accanto al Nome Cliente",
+        badge1_desc: "Segnala che il cliente ha documenti arrivati ieri o nei giorni scorsi non ancora ritirati. Ti avvisa subito per evitare che rimangano stampe dimenticate sul banco.",
+        badge2_name: "[ 🔴 DA STAMPARE ]",
+        loc_badge_file: "Sulla Scheda del File",
+        badge2_desc: "Etichetta rossa brillante applicata a ogni nuovo file appena ricevuto su WhatsApp. Indica che il documento è in attesa di essere stampato.",
+        badge3_name: "[ 🟢 GIÀ STAMPATO ]",
+        loc_badge_file_done: "Sulla Scheda del File",
+        badge3_desc: "Etichetta verde di completamento che certifica che la stampa è terminata e la notifica WhatsApp è stata inviata con successo.",
+        group_settings_title: "Pannello Impostazioni & Schede di Configurazione",
+        group_settings_desc: "Tutti i 9 tab di controllo e i pulsanti della finestra di configurazione centrale di PrintZap.",
+        modal_badge: "Pannello Impostazioni Ufficiale",
+        modal_showcase_title: "Configurazione Modulare & Multi-Canale",
+        modal_showcase_desc: "Accessibile cliccando l'ingranaggio ⚙️ nella barra laterale, la finestra ti permette di attivare o disattivare ogni canale di ricezione in piena autonomia con appositi interruttori ON/OFF, regolare cartelle, stampanti e verificare licenza e statistiche.",
+        pill_9tabs: "✓ 9 Schede Dedicate",
+        pill_modular: "✓ Attivazione a Scelta Canali",
+        pill_instant_save: "✓ Salvataggio Immediato",
+        tab_wa_name: "Scheda WhatsApp (Smartphone)",
+        loc_tab_1: "Pannello Impostazioni • Tab 1",
+        tab_wa_desc: "Gestisce la connessione con l'account WhatsApp del negozio. Permette di visualizzare il QR Code per l'aggancio, impostare i testi delle notifiche automatiche di ritiro e configurare i messaggi personalizzati.",
+        tab_wa_act: "Configura tempi di sincronizzazione, messaggi di cortesia e prefisso del paese.",
+        tab_tg_name: "Scheda Telegram (Bot)",
+        loc_tab_2: "Pannello Impostazioni • Tab 2",
+        tab_tg_desc: "Configurazione del Bot Telegram del negozio. Riporta l'indicatore OFF quando il canale è inattivo e consente di inserire il Token bot per abilitare la ricezione di dispense pesanti.",
+        tab_tg_states: "Mostra l'etichetta OFF finché l'interruttore interno non viene attivato.",
+        tab_web_name: "Scheda Web Bancone (Wi-Fi)",
+        loc_tab_3: "Pannello Impostazioni • Tab 3",
+        tab_web_desc: "Attiva il portale di upload locale per i clienti collegati alla rete Wi-Fi del negozio. Genera la pagina di caricamento con QR Code da esporre sul bancone della cartoleria.",
+        tab_web_adv: "Permette a chiunque entri in negozio di caricare documenti dal cellulare senza bisogno di scambiare numeri.",
+        tab_email_name: "Scheda E-mail (Posta)",
+        loc_tab_4: "Pannello Impostazioni • Tab 4",
+        tab_email_desc: "Integrazione della casella di posta (IMAP/SMTP). Consente di configurare l'indirizzo e-mail del negozio per ricevere allegati e confermare la ricezione ai mittenti.",
+        tab_email_act: "Controlla periodicamente la casella e inserisce i file PDF direttamente nella coda di stampa.",
+        tab_servizio_name: "Scheda Servizio (Ingranaggio)",
+        loc_tab_5: "Pannello Impostazioni • Tab 5",
+        tab_servizio_desc: "Impostazioni del motore PrintZap: percorso della cartella su disco (file_da_stampare), selezione porta locale (es. porta 3000 o personalizzata), e avvio automatico all'accensione di Windows.",
+        tab_aggiornamenti_name: "Scheda Aggiornamenti (Frecce)",
+        loc_tab_6: "Pannello Impostazioni • Tab 6",
+        tab_aggiornamenti_desc: "Controlla in tempo reale la presenza di nuove versioni del software con 1 clic. Mostra l'elenco delle novità introdotte e consente l'aggiornamento automatico sicuro senza perdere le impostazioni.",
+        tab_licenza_name: "Scheda Licenza (Stella)",
+        loc_tab_7: "Pannello Impostazioni • Tab 7",
+        tab_licenza_desc: "Stato dell'abbonamento o prova gratuita di 30 giorni. Permette di inserire il codice licenza della tua cartoleria e visualizzare la scadenza e i dispositivi abilitati.",
+        tab_stats_name: "Scheda Statistiche (Grafico)",
+        loc_tab_8: "Pannello Impostazioni • Tab 8",
+        tab_stats_desc: "Report completo di produttività: numero totale di file stampati nel giorno, mese e anno, clienti serviti e tempi medi di lavorazione al banco.",
+        tab_log_name: "Scheda Sistema & Log (Cartella)",
+        loc_tab_9: "Pannello Impostazioni • Tab 9",
+        tab_log_desc: "Registro eventi e diagnostica tecnica. Mostra lo stato dei processi in background, verifica le connessioni internet e genera il log per l'assistenza rapida in caso di anomalie di rete.",
+        toggle_switch_name: "Interruttore Attiva/Disattiva",
+        loc_toggle: "Presente in Ogni Scheda Canale",
+        toggle_switch_desc: "Leva on/off rapida. Quando attivata su un servizio (E-mail, Telegram, Web Bancone), accende il motore corrispondente e aggiunge immediatamente la relativa icona sulla barra laterale sinistra!",
+        toggle_switch_states: "ON: Servizio in ascolto + Icona visibile in Sidebar. OFF: Servizio a riposo + Icona nascosta per massima pulizia visiva.",
+        btn_save_name: "[ 💾 Salva Impostazioni ]",
+        loc_save_btn: "In Basso a Destra nel Modal",
+        btn_close_modal_name: "[ ✕ Chiudi Finestra ]",
+        loc_close_btn: "In Alto a Destra nel Modal",
+        btn_close_modal_desc: "Chiude la finestra delle impostazioni e ti riporta direttamente alla dashboard di lavoro con la coda dei file dei clienti pronti alla stampa.",
+        deepdive_badge: "Guida Visiva alle Schede di Sistema",
+        deepdive_title: "Tutti i Menu Interni Spiegati Funzione per Funzione",
+        deepdive_subtitle: "Dalla ricezione Telegram al portale Wi-Fi con QR Code, dalla gestione temi e licenza fino al report contabile delle stampe e al backup completo.",
+        card_wa_title: "📱 Connessione WhatsApp & Scansione QR Code",
+        pill_wa_quick: "Associazione Istantanea in 5 Secondi",
+        wa_qr_f1_desc: "Apri WhatsApp sul tuo smartphone, tocca <em>Dispositivi collegati</em> e inquadra il codice QR a video. Zero password da ricordare.",
+        wa_qr_f2_desc: "Si collega direttamente al tuo numero aziendale esistente senza intermediari, canoni mensili o costi a consumo per messaggio.",
+        wa_qr_f3_desc: "Pulsanti rapidi per rinnovare il codice se scade o per cambiare smartphone del negozio in caso di sostituzione del telefono.",
+        wa_qr_f4_desc: "L'icona dello smartphone in basso a sinistra pulsa in arancione durante l'attesa del QR, e diventa verde fissa non appena la sessione è attiva.",
+        card_tg_title: "✈️ Integrazione Telegram Multi-Modalità",
+        pill_tg_ready: "Canale Ricezione Alternativo",
+        tg_f1_desc: "Attiva o disattiva la ricezione dei documenti dal bot e fa comparire o scomparire l'icona Telegram dalla barra laterale.",
+        tg_f2_desc: "<strong>Cloudflare Tunnel</strong> (enterprise ultra-veloce), <strong>Polling Diretto</strong> (senza tunnel, per reti aziendali chiuse), <strong>Webhook Personalizzato</strong> o <strong>Disabilitato</strong>.",
+        tg_f3_desc: "Guida guidata su Telegram con @BotFather: invia <code>/newbot</code>, ottieni il token API e incollalo per iniziare a ricevere dispense pesanti.",
+        tg_f4_desc: "Pulsante azzurro che testa e avvia il demone Telegram all'istante senza riavviare il computer.",
+        card_web_title: "🌐 Portale Web Bancone (Caricamento via QR Code)",
+        pill_web_noapp: "Zero App da Installare",
+        web_f1_desc: "I clienti inquadrano il codice sul bancone con la fotocamera del telefono e si apre la pagina di invio file sul loro browser.",
+        web_f2_desc: "Funziona al 100% offline in rete locale Wi-Fi diretta ad altissima velocità senza passare da server esterni o consumare giga.",
+        web_f3_desc: "Pulsante viola che genera e stampa una locandina professionale A4 già impaginata con il QR Code e il nome del Wi-Fi della tua cartoleria.",
+        web_f4_desc: "Mostra l'URL esatto (es. <code>http://192.168.1.33:3000/upload</code>) con pulsante per copiarlo e salvarlo nei preferiti.",
+        card_srv_title: "⚙️ Impostazioni Servizio, Temi & Automazioni",
+        pill_srv_custom: "Personalizzazione Totale",
+        srv_f1_desc: "Scegli l'aspetto visivo che preferisci: <strong>Scuro</strong> (default riposante), <strong>Chiaro</strong> (vetrine illuminate), <strong>XP</strong> (vintage Windows XP) o <strong>NEO</strong> (neon cyberpunk).",
+        srv_f2_desc: "Passa dall'Italiano all'Inglese per l'intera console di cassa con un semplice selettore radio.",
+        srv_f3_desc: "Personalizza il testo del messaggio WhatsApp/Telegram inviato automaticamente ai clienti al ritiro delle stampe.",
+        srv_f4_desc: "Attiva gli avvisi a comparsa su Windows e imposta l'avvio automatico all'accensione del PC per non dover mai lanciare nulla a mano.",
+        card_lic_title: "🔒 Stato Licenza, ID Macchina & Rinnovi",
+        pill_lic_lifetime: "Trasparenza Completa",
+        lic_f1_desc: "Indica la tipologia attiva (es. <em>Licenza attiva a vita</em> per la tua cartoleria) e la data esatta di scadenza del piano.",
+        lic_f2_desc: "Codice hardware univoco del PC (es. <code>PZ-EA86-BB36-DD97</code>) copiabile con 1 clic per associare la postazione di cassa.",
+        lic_f3_desc: "Pulsante verde rapido per contattare il supporto ufficiale via chat o messaggio vocale per rinnovi, estensioni o supporto tecnico.",
+        lic_f4_desc: "Campo di sblocco rapido: inserisci il codice ricevuto dal fornitore e premi <code>Attiva Chiave</code> per abilitare la licenza online.",
+        card_stat_title: "📊 Statistiche di Produttività & Resoconto Stampa",
+        pill_stat_export: "Esportazioni PDF & Excel",
+        stat_f1_desc: "Visualizza: <strong>Totale Ordini</strong>, <strong>Ordini Oggi</strong>, <strong>Questo Mese</strong>, <strong>Stampati</strong>, <strong>In Coda</strong>, <strong>Clienti Unici</strong> e <strong>Volume Dati</strong> su disco.",
+        stat_f2_desc: "Esporta l'intero resoconto in un documento PDF impaginato pronto per il commercialista o in tabella Excel per calcoli dettagliati.",
+        stat_f3_desc: "Algoritmo intelligente che individua la fascia oraria e il giorno con massimo flusso di clienti (es. Martedì con 285 ordini).",
+        stat_f4_desc: "Istogramma visivo con confronto tra ordini ricevuti (blu) e stampe effettivamente completate (verde).",
+        card_sys_title: "💾 Disaster Recovery, Backup & Spegnimento Pulito",
+        pill_sys_safe: "Massima Sicurezza Dati",
+        sys_f1_desc: "Salva con 1 clic l'intero database SQLite, note, storico e licenza in un file compresso protetto; ripristina all'istante su nuovo PC.",
+        sys_f2_desc: "Scarica tutti i contatti dei clienti in formato Excel (.CSV) per marketing o in formato scheda vCard (.VCF) per sincronizzarli sullo smartphone.",
+        sys_f3_desc: "Pulsanti di sicurezza per chiudere il server senza corrompere il database, o per spegnere l'intero computer della cassa a fine turno.",
+        sys_f4_desc: "Apre la console diagnostica in tempo reale per verificare connessioni di rete, porte aperte ed errori di stampa.",
+        final_title: "Tutti i comandi pronti all'uso sul tuo banco",
+        final_subtitle: "Installa PrintZap e prova gratis la comodità di questa interfaccia per 30 giorni.",
+        final_btn_workflow: "Consulta la Guida al Flusso di Lavoro 📖",
+        final_btn_try: "Inizia la Prova Gratuita (30gg)"
+      },
+      en: {
+        badge_title: "PrintZap Visual Controls Map",
+        main_title: "Comprehensive Guide to Every Button & Icon",
+        main_subtitle: "Every single interface control explained with its real screenshot, countertop purpose, and color status indicators.",
+        nav_back_home: "Back to Home",
+        nav_to_guide: "Step-by-Step Workflow Guide (8 Steps)",
+        nav_current: "🎛️ Buttons Reference",
+        filter_all: "All Controls (33)",
+        filter_sidebar: "Sidebar Controls",
+        filter_settings: "Settings Panel",
+        filter_order: "Order & Notification Actions",
+        filter_files: "File & Session Management",
+        filter_badges: "Status Badges & Signals",
+        sidebar_badge: "Official PrintZap Layout",
+        sidebar_showcase_title: "The Persistent Left Command Sidebar",
+        sidebar_showcase_desc: "Positioned along the entire left height of your window, the sidebar lets you switch channels, open your hard disk print directory, and monitor WhatsApp connectivity in a single glance.",
+        sidebar_mode_single: "Basic (WhatsApp Only)",
+        sidebar_mode_multi: "Multi-Channel (Active Services) ⚡",
+        sidebar_multichannel_title: "✨ New Icons When Services Are Active:",
+        sidebar_multichannel_desc: "When you activate <strong>E-mail</strong>, <strong>Telegram</strong>, or <strong>Countertop Web</strong> in the Settings panel, their 3 respective icons automatically appear below WhatsApp, turning your workstation into a unified multi-channel print hub!",
+        pill_always_ready: "✓ Always 1-Click Away",
+        pill_no_navigation: "✓ Zero Hidden Modals",
+        pill_touch_friendly: "✓ Built for Touchscreens",
+        group_sidebar_title: "Left Sidebar Controls",
+        group_sidebar_desc: "Primary system controls positioned on the vertical dark panel on the left edge of your screen.",
+        btn1_name: "PrintZap Logo Badge",
+        loc_sidebar_top: "Sidebar Top",
+        btn1_desc: "PrintZap brand identity badge with the green lightning bolt. Indicates that the local engine is active and running smoothly.",
+        label_action: "What it Does:",
+        btn1_action: "Returns to the initial queue view and confirms local server status.",
+        btn2_name: "WhatsApp Chats / Orders",
+        loc_sidebar_1: "Sidebar • Channel 1",
+        btn2_desc: "The shop's heartbeat. Displays the live incoming queue of all customer files received via WhatsApp, grouped by time session.",
+        label_indicators: "Indicators:",
+        btn2_ind: "Displays a green numeric badge with the exact count of unread customers.",
+        label_click: "On Click:",
+        btn2_action: "Opens the WhatsApp customer list to select conversations and print incoming files.",
+        btn_email_name: "E-mail Channel (Envelope)",
+        loc_sidebar_email: "Sidebar • Active Channel",
+        btn_email_desc: "Appears on the left sidebar as soon as you activate the E-mail service in Settings. Automatically ingests PDF attachments sent by customers via standard e-mail (IMAP/SMTP).",
+        label_activation: "How to Enable:",
+        btn_email_act: "Settings ⚙️ ➔ E-mail Tab ➔ Switch 'E-mail Ingestion' to ON.",
+        btn_email_action: "Displays incoming e-mails and attached PDF documents ready for printing.",
+        btn_telegram_name: "Telegram Channel (Paper Plane)",
+        loc_sidebar_tg: "Sidebar • Active Channel",
+        btn_telegram_desc: "Appears on the command sidebar when you link your shop's Telegram Bot. Allows students and customers to forward large study handouts and heavy files without saving personal phone numbers.",
+        btn_telegram_ind: "Status dot at the bottom right of the icon confirming live connection to Telegram servers.",
+        btn_telegram_action: "Opens the print queue of files received via Telegram ready for 1-click output.",
+        btn_web_name: "Countertop Web Channel (Purple Globe)",
+        loc_sidebar_web: "Sidebar • Active Channel",
+        btn_web_desc: "Purple globe icon. Appears when enabling Countertop Web: in-store walk-in customers scan a QR code at your desk and upload documents straight from their mobile browser without installing any app.",
+        label_advantage: "Shop Benefit:",
+        btn_web_adv: "Files arrive immediately into PrintZap with zero friction, ideal for hurried walk-in clients or locked-down corporate phones.",
+        btn3_name: "Sound Notifications (Bell)",
+        loc_sidebar_sound: "Sidebar • Audio",
+        btn3_desc: "One-click toggle for cash register audio chime ('ding-ding') whenever a new print document arrives.",
+        label_states: "Visual States:",
+        btn3_states: "Bright Green: Audio alert active. Gray: Silent mode (ideal during rush hours or when playing background music).",
+        btn4_name: "Customer Print Folder",
+        loc_sidebar_folder: "Sidebar Lower Section",
+        btn4_desc: "Essential global shortcut: immediately opens the master 'file_da_stampare' directory in Windows Explorer in the foreground.",
+        btn4_action: "No searching through folders: 1 click brings Explorer to the front with all customer folders categorized.",
+        label_tip: "Countertop Tip:",
+        btn4_tip: "Invaluable for checking past prints or doing disk maintenance.",
+        btn5_name: "Connection Status & QR Code",
+        loc_sidebar_phone: "Sidebar • System",
+        btn5_desc: "Continuous WhatsApp Desktop traffic light. Alerts you instantly whether your phone is linked and receiving files.",
+        label_colors: "Status Colors:",
+        btn5_colors: "Green = 100% Connected. Amber = Waiting for QR Scan. Red = Disconnected.",
+        btn5_action: "Opens the modal to scan the QR Code from your mobile phone.",
+        btn6_name: "Settings Console (⚙️)",
+        loc_sidebar_settings: "Sidebar Lower Section",
+        btn6_desc: "Opens PrintZap's central configuration hub: WhatsApp, E-mail, Telegram, Countertop Wi-Fi, default printers, licensing, and updates.",
+        label_special: "Update Indicator:",
+        btn6_update: "Bright Red Dot: Indicates that a 1-click software update is available.",
+        btn7_name: "Disconnect / Reset Session",
+        loc_sidebar_exit: "Sidebar Bottom",
+        btn7_desc: "Security command to disconnect WhatsApp or reset the internal Chromium browser in case of extended internet dropouts.",
+        btn7_action: "Safely unlinks the session and generates a fresh QR code.",
+        btn8_name: "Software Version (v1.1.14)",
+        loc_sidebar_ver: "Sidebar Footer",
+        btn8_desc: "Shows the currently installed software build number for compliance checks and support.",
+        group_order_title: "Order Action Controls (Top Right)",
+        group_order_desc: "The most frequently clicked buttons at the shop counter for immediate printing and customer notifications.",
+        btn9_name: "[ 📂 Open Folder ]",
+        loc_header_right: "Top Right Corner",
+        btn9_desc: "The magic button for immediate production. Clicking brings Windows Explorer to the front directly inside the customer's folder.",
+        btn9_action: "Places files right in front of your print drivers and production RIP software.",
+        btn10_name: "[ 🖨️ Notifica Pronto ] (Green)",
+        loc_header_notify: "Top Right • Ready",
+        btn10_desc: "Instantly sends the official WhatsApp pickup alert: '✅ Stampa Pronta! 🖨️ Your document is ready for pickup.'",
+        label_transformation: "What Happens:",
+        btn10_action: "The button turns PURPLE, files turn 'ALREADY PRINTED', and the customer receives an official notification on their phone.",
+        btn11_name: "[ 🔁 Resend Notice ] (Purple)",
+        loc_header_purple: "Top Right • Completed",
+        btn11_desc: "Provides instant visual confirmation that the job is complete and the customer has already been notified.",
+        btn11_action: "Allows sending a polite reminder message if the customer is delayed in collecting prints.",
+        btn12_name: "[ 🖨️ Notifica Pronto ] (Golden Yellow)",
+        loc_header_gold: "Top Right • Updated",
+        btn12_desc: "Lights up in bright gold when the customer sends additional files after their first batch was already printed.",
+        btn12_action: "Alerts you visually that a new document must be printed and allows sending the second pickup notice with zero confusion.",
+        group_files_title: "File & Session Management Controls",
+        group_files_desc: "Controls dedicated to opening documents directly, checking items off, and managing disk storage.",
+        btn13_name: "[ ↗️ Open File ]",
+        loc_file_card: "Inside File Card",
+        btn13_desc: "Launches the file in Windows's default software (Acrobat Reader for PDFs, Photoshop/Photos for images, Word for .docx).",
+        btn13_action: "Opens files in 0.5s without digging through directories.",
+        btn14_name: "[ 🚀 Quick Session Notify ]",
+        loc_session_header: "Session Header",
+        btn14_desc: "Small green pill button in the session header ('Today at 10:50'). Notifies all files in that time block with 1 click.",
+        btn15_name: "[ ☑ Printed ]",
+        loc_session_right: "Session Header & File",
+        btn15_desc: "Quick checkbox to mark documents as physically printed on your printer without sending WhatsApp messages if the customer is already standing at the counter.",
+        btn16_name: "[ 🗑️ Delete Disk Files ]",
+        loc_session_trash: "Session Header",
+        btn16_desc: "Deletes finished print files from your computer's hard drive to reclaim disk space and keep your system fast.",
+        label_guarantee: "WhatsApp Guarantee:",
+        btn16_safe: "WhatsApp chat history is NEVER touched! Conversations remain 100% preserved.",
+        btn17_name: "[ ⊞ Grid | ☰ List ]",
+        loc_view_switch: "Content Top Right",
+        btn17_desc: "Instant view switcher: Grid for large graphical thumbnail previews; List for compact, dense review of multipage PDFs.",
+        btn18_name: "[ 🔄 Sync | ❌ Close ]",
+        loc_col_header: "Chat Column Header",
+        btn18_desc: "🔄 forces a fresh WhatsApp sync; ❌ deselects the current customer to return to a clean dashboard.",
+        group_badges_title: "Status Badges & Visual Signals",
+        group_badges_desc: "Color-coded tags indicating the live status of orders and files.",
+        badge1_name: "[ 🟡 GIACENZA ]",
+        loc_badge_client: "Beside Customer Name",
+        badge1_desc: "Warns that the customer has uncollected files received yesterday or in previous days. Prevents forgotten prints on your counter!",
+        badge2_name: "[ 🔴 TO PRINT ]",
+        loc_badge_file: "On File Card",
+        badge2_desc: "Bright red tag on newly received files. Signals that the document is awaiting production.",
+        badge3_name: "[ 🟢 ALREADY PRINTED ]",
+        loc_badge_file_done: "On File Card",
+        badge3_desc: "Green completion tag confirming that printing is done and the pickup notice was successfully sent.",
+        group_settings_title: "Settings Console & Configuration Tabs",
+        group_settings_desc: "All 9 control tabs and action buttons in PrintZap's central configuration modal.",
+        modal_badge: "Official Settings Console",
+        modal_showcase_title: "Modular & Multi-Channel Configuration",
+        modal_showcase_desc: "Accessible by clicking the gear ⚙️ on the sidebar, this window lets you activate or deactivate each receiving channel independently with intuitive ON/OFF toggle switches, adjust directories and printers, and review licensing and shop stats.",
+        pill_9tabs: "✓ 9 Dedicated Tabs",
+        pill_modular: "✓ On-Demand Channel Activation",
+        pill_instant_save: "✓ Instant Save",
+        tab_wa_name: "WhatsApp Tab (Smartphone)",
+        loc_tab_1: "Settings Modal • Tab 1",
+        tab_wa_desc: "Manages the shop's WhatsApp session. Displays the pairing QR Code, configures automatic pickup notification templates, and customizes reply prefixes.",
+        tab_wa_act: "Configures sync polling intervals, courtesy messages, and country dialing prefixes.",
+        tab_tg_name: "Telegram Tab (Bot)",
+        loc_tab_2: "Settings Modal • Tab 2",
+        tab_tg_desc: "Configuration for your shop's Telegram Bot. Displays an OFF badge when inactive, and allows entering your bot token to enable large handout intake.",
+        tab_tg_states: "Displays an OFF pill until the internal channel switch is flipped ON.",
+        tab_web_name: "Countertop Web Tab (Wi-Fi)",
+        loc_tab_3: "Settings Modal • Tab 3",
+        tab_web_desc: "Enables local network uploads for clients connected to the shop's Wi-Fi. Generates the branded upload landing page with a printable QR code for your counter.",
+        tab_web_adv: "Allows any walk-in customer to upload files directly from their phone browser without exchanging phone numbers.",
+        tab_email_name: "E-mail Tab (Mailbox)",
+        loc_tab_4: "Settings Modal • Tab 4",
+        tab_email_desc: "Standard email integration (IMAP/SMTP). Configures the shop's email inbox to ingest file attachments and send receipt acknowledgments.",
+        tab_email_act: "Periodically checks your mailbox and routes incoming PDF attachments straight into your print queue.",
+        tab_servizio_name: "Service Tab (Engine)",
+        loc_tab_5: "Settings Modal • Tab 5",
+        tab_servizio_desc: "PrintZap engine settings: target disk directory (file_da_stampare), local port configuration (e.g. 3000), and auto-start on Windows boot.",
+        tab_aggiornamenti_name: "Updates Tab (Circular Arrows)",
+        loc_tab_6: "Settings Modal • Tab 6",
+        tab_aggiornamenti_desc: "Checks for new PrintZap releases in real time with 1 click. Lists changelog improvements and performs seamless automated updates preserving your configuration.",
+        tab_licenza_name: "License Tab (Star)",
+        loc_tab_7: "Settings Modal • Tab 7",
+        tab_licenza_desc: "Subscription status and 30-day free trial overview. Allows entering your store license activation key and viewing expiration dates and enabled seats.",
+        tab_stats_name: "Statistics Tab (Chart)",
+        loc_tab_8: "Settings Modal • Tab 8",
+        tab_stats_desc: "Comprehensive productivity reporting: count of daily, monthly, and annual prints, unique clients served, and average fulfillment turnaround time.",
+        tab_log_name: "System & Logs Tab (Folder)",
+        loc_tab_9: "Settings Modal • Tab 9",
+        tab_log_desc: "Event journaling and technical diagnostics. Monitors background process health, tests external endpoints, and outputs diagnostic logs for rapid tech support.",
+        toggle_switch_name: "Toggle Switch (ON/OFF)",
+        loc_toggle: "Present in Every Channel Tab",
+        toggle_switch_desc: "One-click toggle slider. Flipping it ON activates the channel daemon and immediately reveals its corresponding icon on the left sidebar!",
+        toggle_switch_states: "ON: Channel listening + Icon visible on sidebar. OFF: Standby mode + Clean, hidden icon.",
+        btn_save_name: "[ 💾 Save Settings ]",
+        loc_save_btn: "Bottom Right in Modal",
+        btn_save_desc: "Bright cyan button with floppy disk icon. Instantly writes and applies all settings without needing to restart PrintZap or reboot Windows.",
+        btn_close_modal_name: "[ ✕ Close Window ]",
+        loc_close_btn: "Top Right in Modal",
+        btn_close_modal_desc: "Closes the configuration modal and returns immediately to the active order queue ready for printing.",
+        deepdive_badge: "System Tabs Visual Reference",
+        deepdive_title: "Every Configuration Screen Explained Feature by Feature",
+        deepdive_subtitle: "From Telegram reception to the QR-Code Wi-Fi counter upload portal, theme personalization, licensing, accounting stats, and full disaster recovery.",
+        card_wa_title: "📱 WhatsApp Connection & QR Code Pairing",
+        pill_wa_quick: "Instant 5-Second Linking",
+        wa_qr_f1_desc: "Open WhatsApp on your phone, tap <em>Linked Devices</em>, and scan the on-screen QR code. Zero passwords to remember.",
+        wa_qr_f2_desc: "Connects directly to your existing business number with zero Meta fees, monthly subscriptions, or per-message charges.",
+        wa_qr_f3_desc: "Fast controls to refresh expired codes or pair a new shop phone when replacing your mobile hardware.",
+        wa_qr_f4_desc: "The phone icon in the bottom-left sidebar pulses orange while awaiting the QR scan, and turns solid green once connected.",
+        card_tg_title: "✈️ Multi-Modal Telegram Integration",
+        pill_tg_ready: "Alternative Intake Channel",
+        tg_f1_desc: "Turns Telegram document reception ON/OFF and toggles the paper-plane icon on the left command sidebar.",
+        tg_f2_desc: "<strong>Cloudflare Tunnel</strong> (ultra-fast enterprise), <strong>Direct Polling</strong> (tunnel-free, for strict firewalls), <strong>Custom Webhook</strong>, or <strong>Disabled</strong>.",
+        tg_f3_desc: "30-second setup via @BotFather on Telegram: send <code>/newbot</code>, copy the API token, and paste it to receive heavy study booklets.",
+        tg_f4_desc: "Cyan button to test and launch the Telegram intake daemon instantly without rebooting.",
+        card_web_title: "🌐 Countertop Web Portal (QR Code Upload)",
+        pill_web_noapp: "Zero Apps Required",
+        web_f1_desc: "Walk-in customers scan the on-counter QR code with their smartphone camera to open the instant upload webpage.",
+        web_f2_desc: "Works 100% offline via direct shop Wi-Fi LAN at maximum transfer speed with zero external server dependencies or mobile data usage.",
+        web_f3_desc: "Purple button to generate and print a ready-to-laminate A4 countertop poster featuring your QR code and Wi-Fi credentials.",
+        web_f4_desc: "Displays the exact local URL (e.g. <code>http://192.168.1.33:3000/upload</code>) with a quick 1-click clipboard copy button.",
+        card_srv_title: "⚙️ Service Settings, Themes & Automation",
+        pill_srv_custom: "Total Customization",
+        srv_f1_desc: "Pick your visual aesthetic: <strong>Dark</strong> (default eye-friendly), <strong>Light</strong> (bright storefronts), <strong>XP</strong> (retro Windows XP), or <strong>NEO</strong> (neon cyberpunk).",
+        srv_f2_desc: "Toggle between Italian and English across the entire cash desk console with a single radio click.",
+        srv_f3_desc: "Customize the automated WhatsApp/Telegram pickup message template sent to customers.",
+        srv_f4_desc: "Enable Windows tray popup alerts and set PrintZap to auto-start on Windows boot so nothing requires manual launching.",
+        card_lic_title: "🔒 License Status, Machine ID & Renewals",
+        pill_lic_lifetime: "Complete Transparency",
+        lic_f1_desc: "Displays active license tier (e.g. <em>Lifetime License</em> for your shop) and exact expiration date.",
+        lic_f2_desc: "Unique workstation hardware Machine ID (e.g. <code>PZ-EA86-BB36-DD97</code>) with a 1-click copy button for license activation.",
+        lic_f3_desc: "Green WhatsApp button to contact official customer support via chat or voice note for renewals, extensions, and setup assistance.",
+        lic_f4_desc: "Fast activation field: enter the license code provided by your vendor and click <code>Activate Key</code> to unlock the software online.",
+        card_stat_title: "📊 Productivity Statistics & Print Audit",
+        pill_stat_export: "PDF & Excel Exports",
+        stat_f1_desc: "Real-time metrics: <strong>Total Orders</strong>, <strong>Orders Today</strong>, <strong>This Month</strong>, <strong>Printed</strong>, <strong>In Queue</strong>, <strong>Unique Customers</strong>, and <strong>Disk Storage</strong>.",
+        stat_f2_desc: "Export complete accounting summaries into a formatted PDF for your accountant or a detailed Excel spreadsheet.",
+        stat_f3_desc: "Smart algorithm identifying your rush hours and busiest weekday (e.g. Tuesday with 285 jobs) for counter staffing.",
+        stat_f4_desc: "7-day histogram tracking daily received jobs (blue) vs successfully completed prints (green).",
+        card_sys_title: "💾 Disaster Recovery, Backup & Clean Shutdown",
+        pill_sys_safe: "Maximum Data Integrity",
+        sys_f1_desc: "1-click complete archive backup (.zip) containing your SQLite customer database, notes, and license; instant restore on a replacement PC.",
+        sys_f2_desc: "Export your entire customer contact book to Excel (.CSV) for promotions or vCard (.VCF) to sync directly to your smartphone.",
+        sys_f3_desc: "Clean service termination or one-click cash desk PC shutdown to prevent database corruption at the end of the shift.",
+        sys_f4_desc: "Live diagnostic console viewer for monitoring network ports, connections, and print spooler events.",
+        final_title: "All commands ready on your print shop counter",
+        final_subtitle: "Install PrintZap and test the speed of this interface free for 30 days.",
+        final_btn_workflow: "Read the 8-Step Workflow Guide 📖",
+        final_btn_try: "Start Free 30-Day Trial"
+      }
+    };
+
+    function setButtonsLang(lang) {
+      localStorage.setItem('printzap_lang', lang);
+      document.getElementById('btn-lang-it').classList.toggle('active', lang === 'it');
+      document.getElementById('btn-lang-en').classList.toggle('active', lang === 'en');
+
+      const dict = buttonsTranslations[lang] || buttonsTranslations.it;
+      document.querySelectorAll('[data-p18n]').forEach(el => {
+        const key = el.getAttribute('data-p18n');
+        if (dict[key]) {
+          el.innerHTML = dict[key];
+        }
+      });
+      document.documentElement.lang = lang;
+    }
+
+    function filterCategory(category, btn) {
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      const sections = document.querySelectorAll('.button-group-section');
+      const showcase = document.getElementById('sidebar-overview');
+
+      sections.forEach(sec => {
+        const cat = sec.getAttribute('data-cat');
+        if (category === 'all' || cat === category) {
+          sec.style.display = 'block';
+        } else {
+          sec.style.display = 'none';
+        }
+      });
+
+      if (category === 'all' || category === 'sidebar') {
+        showcase.style.display = 'flex';
+      } else {
+        showcase.style.display = 'none';
+      }
+    }
+
+    // Auto load language on startup
+    window.addEventListener('DOMContentLoaded', () => {
+      const savedLang = localStorage.getItem('printzap_lang') || 'it';
+      setButtonsLang(savedLang);
+    });
+  </script>
+</body>
+</html>

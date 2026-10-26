@@ -268,8 +268,8 @@
         <li>
           <span class="icon-point">▶</span>
           <div>
-            <strong data-g18n="step1_p2_strong">Porta 3000 Personalizzabile in Installazione:</strong>
-            <span data-g18n="step1_p2_text">Se il computer del tuo negozio utilizza già altri software o gestionali che occupano la porta <code>3000</code>, durante l'installazione o nel file di configurazione è possibile impostare liberamente qualsiasi altra porta (es. <code>3001</code>, <code>8080</code>) con auto-fallback garantito.</span>
+            <strong data-g18n="step1_p2_strong">Porta TCP Personalizzabile (3000 o da Impostazioni):</strong>
+            <span data-g18n="step1_p2_text">Se il computer del tuo negozio utilizza già altri software o gestionali che occupano la porta <code>3000</code>, PrintZap scala in automatico con l'auto-fallback. Inoltre, puoi visualizzare e modificare la porta in qualsiasi momento direttamente dalla Dashboard nel pannello <strong>Impostazioni ⚙️ → Servizio & Grafica</strong>.</span>
           </div>
         </li>
         <li>
@@ -594,8 +594,8 @@
         step1_tag: "Schermata di avvio operativo e personalizzazione porta",
         step1_p1_strong: "Indirizzo Web Locale (localhost:3000):",
         step1_p1_text: "PrintZap si apre direttamente nel tuo browser predefinito (Google Chrome) a questo indirizzo locale. Non richiede connessioni a server remoti e risponde istantaneamente a zero lag.",
-        step1_p2_strong: "Porta 3000 Personalizzabile in Installazione:",
-        step1_p2_text: "Se il computer del tuo negozio utilizza già altri software o gestionali che occupano la porta 3000, durante l'installazione o nel file di configurazione è possibile impostare liberamente qualsiasi altra porta (es. 3001, 8080) con auto-fallback garantito.",
+        step1_p2_strong: "Porta TCP Personalizzabile (3000 o da Impostazioni):",
+        step1_p2_text: "Se il computer del tuo negozio utilizza già altri software o gestionali che occupano la porta 3000, PrintZap scala in automatico con l'auto-fallback. Inoltre, puoi visualizzare e modificare la porta in qualsiasi momento direttamente dalla Dashboard nel pannello <strong>Impostazioni ⚙️ → Servizio & Grafica</strong>.",
         step1_p3_strong: "Barra Laterale di Controllo:",
         step1_p3_text: "Sulla sinistra trovi i canali attivi (WhatsApp, E-mail, Telegram, Bancone Wi-Fi) e le scorciatoie rapide per accedere alla cartella generale documenti, alle impostazioni e allo stato connessione.",
         step1_callout: "💡 <strong>Zero Conflitti:</strong> PrintZap include un meccanismo di auto-rilevamento porte. Se la porta 3000 è occupata all'avvio, il sistema scala in automatico per garantirti continuità di servizio.",
@@ -604,7 +604,7 @@
         step2_p1_strong: "Accesso Rapido (Icona Ingranaggio):",
         step2_p1_text: "Come evidenziato dalla freccia rossa, cliccando sull'icona a ingranaggio in basso a sinistra si apre il centro di controllo completo di PrintZap.",
         step2_p2_strong: "Panoramica Schede:",
-        step2_p2_text: "Puoi configurare singolarmente: WhatsApp (connessione QR Code e lookback 96h), Telegram, Web Bancone, E-mail (ricezione IMAP/SMTP), Servizio (stampanti predefinite e cartelle su disco), Aggiornamenti, Licenza, Statistiche e Sistema & Log.",
+        step2_p2_text: "Puoi configurare singolarmente: WhatsApp (connessione QR Code e lookback 96h), Telegram, Web Bancone, E-mail (ricezione IMAP/SMTP), Servizio (porta TCP locale modificabile, tema grafico, lingua e avvio automatico con Windows), Aggiornamenti, Licenza, Statistiche e Sistema & Log.",
         step2_p3_strong: "Attivazione Flessibile:",
         step2_p3_text: "Ogni canale secondario (come l'E-mail mostrata nella foto) dispone di un interruttore ON/OFF: attivi solo i canali che usi realmente in negozio.",
         step3_title: "Flusso di Lavoro: Arrivo del File su WhatsApp Desktop",
@@ -678,8 +678,8 @@
         step1_tag: "Startup screen and custom port settings",
         step1_p1_strong: "Local Web Address (localhost:3000):",
         step1_p1_text: "PrintZap opens directly inside your default browser (Google Chrome) at this local address. It does not require external servers and runs with zero latency.",
-        step1_p2_strong: "Port 3000 Customizable during Setup:",
-        step1_p2_text: "If your store computer already has other management software using port 3000, you can choose any other port (e.g., 3001, 8080) during installation with automatic conflict resolution.",
+        step1_p2_strong: "Customizable TCP Port (3000 or via Settings):",
+        step1_p2_text: "If your store computer already has POS or cash registers using port 3000, PrintZap automatically scales to a free port with intelligent fallback. You can also view and customize your listening port at any time directly from the Dashboard in <strong>Settings ⚙️ → Service & Graphics</strong>.",
         step1_p3_strong: "Control Sidebar:",
         step1_p3_text: "On the left sidebar you can monitor active channels (WhatsApp, E-mail, Telegram, Counter Wi-Fi) and quick links to your master print folder, settings, and connection status.",
         step1_callout: "💡 <strong>Zero Port Conflicts:</strong> PrintZap features automatic port detection and fallback, ensuring uninterrupted workflow even on busy multi-app computers.",
@@ -688,7 +688,7 @@
         step2_p1_strong: "Quick Access (Gear Icon):",
         step2_p1_text: "As indicated by the red arrow, clicking the gear icon in the lower-left corner opens PrintZap's comprehensive settings console.",
         step2_p2_strong: "Tabs Overview:",
-        step2_p2_text: "Individually configure: WhatsApp (QR Code connection & 96h lookback), Telegram, Countertop Wi-Fi, E-mail (IMAP/SMTP inbox), Service (default printers and hard disk paths), Software Updates, License, Statistics, and System Logs.",
+        step2_p2_text: "Individually configure: WhatsApp (QR Code connection & 96h lookback), Telegram, Countertop Wi-Fi, E-mail (IMAP/SMTP inbox), Service (customizable local TCP port, visual theme, language, and Windows auto-start), Software Updates, License, Statistics, and System Logs.",
         step2_p3_strong: "Flexible Activation:",
         step2_p3_text: "Every secondary channel (like E-mail shown in the picture) features an independent ON/OFF switch: enable only the services you actually need in your shop.",
         step3_title: "Workflow: Receiving Files on WhatsApp Desktop",

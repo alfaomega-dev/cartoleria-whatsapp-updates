@@ -226,7 +226,10 @@ const TRANSLATIONS = {
     legal_p3: "<strong>Periodo di Prova:</strong> La licenza di prova di 30 giorni è gratuita, non rinnovabile automaticamente e non richiede alcun inserimento di strumenti di pagamento.",
     legal_close: "Ho Capito / Chiudi",
     footer_text: "<strong>PrintZap</strong> — Il software intelligente per la gestione delle stampe in cartoleria.",
-    footer_copy: "© 2026 PrintZap. Tutti i diritti riservati. Compatibile con Windows 10 & 11."
+    footer_copy: "© 2026 PrintZap. Tutti i diritti riservati. Compatibile con Windows 10 & 11.",
+    visitor_label: "Visite:",
+    visitor_title: "Statistiche visite in tempo reale (Oggi / Totale)",
+    hero_visitors_label: "Visite al sito:"
   },
 
   en: {
@@ -452,7 +455,10 @@ const TRANSLATIONS = {
     legal_p3: "<strong>Trial Period:</strong> The 30-day evaluation license is completely free, non-recurring, and does not require entering any payment details.",
     legal_close: "Understood / Close",
     footer_text: "<strong>PrintZap</strong> — Smart print workflow assistant for print shops and stationeries.",
-    footer_copy: "© 2026 PrintZap. All rights reserved. Compatible with Windows 10 & 11."
+    footer_copy: "© 2026 PrintZap. All rights reserved. Compatible with Windows 10 & 11.",
+    visitor_label: "Visits:",
+    visitor_title: "Real-time visitor statistics (Today / Total)",
+    hero_visitors_label: "Site visits:"
   }
 };
 

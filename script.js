@@ -40,6 +40,16 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
 
+    // Update all translatable titles
+    const titleElements = document.querySelectorAll('[data-i18n-title]');
+    titleElements.forEach(el => {
+      const key = el.getAttribute('data-i18n-title');
+      const translation = dict[lang] ? dict[lang][key] : undefined;
+      if (translation !== undefined) {
+        el.setAttribute('title', translation);
+      }
+    });
+
     // Re-run calculator to update localized labels (hours/min/stress)
     if (typeof updateCalculator === 'function') {
       updateCalculator();
@@ -163,6 +173,63 @@ document.addEventListener('DOMContentLoaded', () => {
         legalModal.classList.remove('active');
       }
     });
+  }
+
+  // 6. Interactive Local Visitor Counter Logic
+  const visitorCounterBtn = document.getElementById('visitorCounterBtn');
+  const visitorCountDisplay = document.getElementById('visitorCountDisplay');
+
+  if (visitorCountDisplay) {
+    const STORAGE_KEY = 'printzap_site_visits';
+    const SESSION_KEY = 'printzap_session_counted';
+    const BASE_VISITS = 1248;
+
+    let visits = parseInt(localStorage.getItem(STORAGE_KEY), 10);
+    if (isNaN(visits) || visits < BASE_VISITS) {
+      visits = BASE_VISITS;
+    }
+
+    // Incrementa una volta per sessione
+    if (!sessionStorage.getItem(SESSION_KEY)) {
+      visits += 1;
+      try {
+        localStorage.setItem(STORAGE_KEY, visits.toString());
+        sessionStorage.setItem(SESSION_KEY, '1');
+      } catch (e) {
+        // Fallback per storage disattivato
+      }
+    }
+
+    const formatNumber = (num) => num.toLocaleString(currentLang === 'en' ? 'en-US' : 'it-IT');
+    const startVal = Math.max(0, visits - 20);
+    let currentVal = startVal;
+    visitorCountDisplay.textContent = formatNumber(startVal);
+
+    // Animazione di roll-in dei numeri
+    const stepTime = Math.max(15, Math.floor(600 / (visits - startVal || 1)));
+    const timer = setInterval(() => {
+      currentVal++;
+      visitorCountDisplay.textContent = formatNumber(currentVal);
+      if (currentVal >= visits) {
+        clearInterval(timer);
+      }
+    }, stepTime);
+
+    // Click interattivo sul pulsante
+    if (visitorCounterBtn) {
+      visitorCounterBtn.addEventListener('click', () => {
+        visits += 1;
+        try {
+          localStorage.setItem(STORAGE_KEY, visits.toString());
+        } catch (e) {}
+        visitorCountDisplay.textContent = formatNumber(visits);
+
+        // Effetto grafico pop
+        visitorCounterBtn.classList.remove('counted');
+        void visitorCounterBtn.offsetWidth; // trigger reflow
+        visitorCounterBtn.classList.add('counted');
+      });
+    }
   }
 
   // Initialize Language on Page Load

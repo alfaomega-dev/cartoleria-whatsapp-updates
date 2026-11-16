@@ -1,7 +1,7 @@
 {
-  "version": "1.1.19",
+  "version": "1.1.20",
   "zipUrl": "https://raw.githubusercontent.com/alfaomega-dev/cartoleria-whatsapp-updates/main/releases/update-1.1.20.zip",
-  "notes": "Rilascio automatico versione 1.1.20",
+  "notes": "Rilascio ufficiale versione 1.1.20: nuova interfaccia App nativa Desktop, installer grafico con curl e codice offuscato V8",
   "fullZipUrl": "https://raw.githubusercontent.com/alfaomega-dev/cartoleria-whatsapp-updates/main/releases/PrintZap_Full.zip",
-  "lastUpdated": "2026-11-16T19:46:37.423Z"
+  "lastUpdated": "2026-11-16T20:27:00.000Z"
 }

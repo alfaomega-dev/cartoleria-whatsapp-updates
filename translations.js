@@ -14,14 +14,14 @@ const TRANSLATIONS = {
     nav_guide: "Guida Illustrata 📖",
     nav_buttons: "Pulsanti 🎛️",
     nav_hub: "Manuali & Guide 📖",
-    nav_download: "Ottieni dallo Store",
+    nav_download: "Scarica PrintZap",
 
     // Hero
     hero_badge: "⚡ 30 Giorni di Prova Gratuita Completa Senza Carta di Credito",
     hero_title: "Ricevi, organizza e stampa i file dei clienti <br><span class=\"gradient-text\">da WhatsApp ed Email in 1 Clic</span>",
     hero_subtitle: "Basta con il Desktop invaso da allegati senza nome, clienti che sbirciano i messaggi privati degli altri e ore perse a salvare file a mano. PrintZap cataloga tutto in cartelle ordinate, rispetta la privacy GDPR e avvisa il cliente quando le stampe sono pronte.",
-    hero_cta_download: "Ottieni da Microsoft Store",
-    hero_cta_sub: "30 Giorni di Prova Gratuita",
+    hero_cta_download: "Scarica per Windows (.bat)",
+    hero_cta_sub: "Installazione Rapida con curl",
     hero_cta_pricing: "Vedi Piani & Prezzi",
     hero_trust_meta: "Nessun costo a messaggio Meta",
     hero_trust_gdpr: "100% Conforme GDPR al Bancone",
@@ -195,27 +195,27 @@ const TRANSLATIONS = {
     hub_card2_btn: "Esplora Tutti i Pulsanti & Icone ➔",
 
     // Pricing Buttons
-    plan_monthly_btn: "Ottieni da Microsoft Store (30gg Gratis)",
-    plan_annual_btn: "Ottieni da Microsoft Store (30gg Gratis)",
+    plan_monthly_btn: "Scarica per Windows (30gg Gratis)",
+    plan_annual_btn: "Scarica per Windows (30gg Gratis)",
 
     // CTA & Contact
     cta_title: "Pronto a dire addio al caos delle stampe?",
-    cta_desc: "Scarica subito PrintZap da Microsoft Store e inizia la tua prova gratuita di 30 giorni nel tuo negozio. Zero rischi, zero vincoli.",
-    cta_btn_download: "Ottieni da Microsoft Store",
+    cta_desc: "Scarica subito PrintZap per Windows e inizia la tua prova gratuita di 30 giorni nel tuo negozio. Zero rischi, zero vincoli.",
+    cta_btn_download: "Scarica PrintZap per Windows",
     cta_btn_wa: "Scrivici su WhatsApp (0965 370621)",
     wa_msg: "Ciao! Ho visto il sito di PrintZap e vorrei maggiori informazioni sulla prova gratuita di 30 giorni per la mia cartoleria.",
 
     // Unified 4-Column Footer
     footer_brand_desc: "L'assistente di stampa intelligente per cartolerie, copisterie e centri copie. Zero caos al bancone e conformità GDPR totale.",
     footer_col_guides: "Manuali & Guide",
-    footer_col_product: "Prodotto & Store",
+    footer_col_product: "Prodotto & Download",
     footer_col_support: "Assistenza & Note",
     footer_link_step_guide: "Guida Flusso (8 Passi) 📖",
     footer_link_buttons: "Mappa 33 Pulsanti 🎛️",
     footer_link_pricing: "Piani & Prezzi",
     footer_link_req: "Requisiti di Sistema",
     footer_link_calc: "Calcolatore Risparmio",
-    footer_link_store: "Download da Microsoft Store",
+    footer_link_store: "Download Diretto (Windows)",
     footer_link_wa: "Assistenza WhatsApp Diretta",
 
     // Legal Modal
@@ -243,14 +243,14 @@ const TRANSLATIONS = {
     nav_guide: "Step-by-Step Guide 📖",
     nav_buttons: "Buttons 🎛️",
     nav_hub: "Manuals & Guides 📖",
-    nav_download: "Get from Store",
+    nav_download: "Download PrintZap",
 
     // Hero
     hero_badge: "⚡ 30-Day Full Free Trial Without Credit Card",
     hero_title: "Receive, organize and print customer files <br><span class=\"gradient-text\">from WhatsApp & Email in 1 Click</span>",
     hero_subtitle: "No more cluttered desktops with nameless attachments, customers peeking at private messages, or hours spent saving files manually. PrintZap catalogs everything into neat folders, protects GDPR privacy, and notifies customers when prints are ready.",
-    hero_cta_download: "Get from Microsoft Store",
-    hero_cta_sub: "30-Day Full Free Trial",
+    hero_cta_download: "Download for Windows (.bat)",
+    hero_cta_sub: "Quick Install with curl",
     hero_cta_pricing: "View Plans & Pricing",
     hero_trust_meta: "Zero Meta fees per message",
     hero_trust_gdpr: "100% Countertop GDPR Compliant",
@@ -424,27 +424,27 @@ const TRANSLATIONS = {
     hub_card2_btn: "Explore All Buttons & Icons ➔",
 
     // Pricing Buttons
-    plan_monthly_btn: "Get from Microsoft Store (30d Free)",
-    plan_annual_btn: "Get from Microsoft Store (30d Free)",
+    plan_monthly_btn: "Download for Windows (30d Free)",
+    plan_annual_btn: "Download for Windows (30d Free)",
 
     // CTA & Contact
     cta_title: "Ready to say goodbye to printing chaos?",
-    cta_desc: "Download PrintZap from the Microsoft Store now and start your 30-day free trial in your shop. Zero risk, zero commitment.",
-    cta_btn_download: "Get from Microsoft Store",
+    cta_desc: "Download PrintZap for Windows now and start your 30-day free trial in your shop. Zero risk, zero commitment.",
+    cta_btn_download: "Download PrintZap for Windows",
     cta_btn_wa: "Chat with us on WhatsApp (+39 0965 370621)",
     wa_msg: "Hello! I saw the PrintZap website and would like more information about the 30-day free trial for my print shop.",
 
     // Unified 4-Column Footer
     footer_brand_desc: "Smart print workflow assistant for print shops, copy centers, and stationeries. Zero counter chaos and complete GDPR compliance.",
     footer_col_guides: "Guides & Manuals",
-    footer_col_product: "Product & Store",
+    footer_col_product: "Product & Download",
     footer_col_support: "Support & Legal",
     footer_link_step_guide: "Workflow Guide (8 Steps) 📖",
     footer_link_buttons: "33 Buttons Map 🎛️",
     footer_link_pricing: "Plans & Pricing",
     footer_link_req: "System Requirements",
     footer_link_calc: "Savings Calculator",
-    footer_link_store: "Download from Microsoft Store",
+    footer_link_store: "Direct Download (Windows)",
     footer_link_wa: "Direct WhatsApp Support",
 
     // Legal Modal

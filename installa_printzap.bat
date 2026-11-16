@@ -282,10 +282,13 @@ function startInstallation() {
             if (fso.FileExists(tempZip)) fso.DeleteFile(tempZip, true);
         } catch(e){}
 
-        var curlCmd = 'curl.exe -L -s -o "' + tempZip + '" "' + downloadUrl + '"';
+        var flagDone = tempDir + "\\pz_dl_done.tmp";
+        try { if (fso.FileExists(flagDone)) fso.DeleteFile(flagDone, true); } catch(e){}
+
+        var curlCmd = 'cmd.exe /c curl.exe -L -s -o "' + tempZip + '" "' + downloadUrl + '" & echo done > "' + flagDone + '"';
         wsh.Run(curlCmd, 0, false);
 
-        var approxSize = 83000000; // ~79 MB
+        var approxSize = 83259000; // ~79.4 MB
         var checkTimer = setInterval(function() {
             var currentSize = 0;
             if (fso.FileExists(tempZip)) {
@@ -300,14 +303,12 @@ function startInstallation() {
                 setProgress(pct, "Download pacchetto offuscato...", mb + " MB scaricati...");
             }
 
-            // Verifica se curl.exe ha terminato
-            var taskCheck = wsh.Exec('tasklist /FI "IMAGENAME eq curl.exe" /NH');
-            var taskOut = taskCheck.StdOut.ReadAll();
-            if (taskOut.indexOf('curl.exe') === -1) {
+            if (fso.FileExists(flagDone)) {
                 clearInterval(checkTimer);
+                try { fso.DeleteFile(flagDone, true); } catch(e){}
                 onDownloadFinished();
             }
-        }, 400);
+        }, 300);
 
         function onDownloadFinished() {
             if (!fso.FileExists(tempZip) || fso.GetFile(tempZip).Size < 5000000) {

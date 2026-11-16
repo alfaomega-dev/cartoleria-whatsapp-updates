@@ -26,7 +26,7 @@ const TRANSLATIONS = {
     hero_trust_meta: "Nessun costo a messaggio Meta",
     hero_trust_gdpr: "100% Conforme GDPR al Bancone",
     hero_trust_printer: "Funziona con qualsiasi stampante Windows",
-    mockup_title: "PrintZap Dashboard v1.1.14 — Gestione Ordini Real-Time",
+    mockup_title: "PrintZap Dashboard v1.1.20 — Gestione Ordini Real-Time",
     mockup_status: "WhatsApp Connesso",
 
     // Comparison
@@ -255,7 +255,7 @@ const TRANSLATIONS = {
     hero_trust_meta: "Zero Meta fees per message",
     hero_trust_gdpr: "100% Countertop GDPR Compliant",
     hero_trust_printer: "Works with any Windows printer",
-    mockup_title: "PrintZap Dashboard v1.1.14 — Real-Time Order Management",
+    mockup_title: "PrintZap Dashboard v1.1.20 — Real-Time Order Management",
     mockup_status: "WhatsApp Connected",
 
     // Comparison

@@ -50,6 +50,15 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
 
+    // Update installer download links dynamically based on language (IT vs EN)
+    const installerFile = lang === 'en' ? 'install_printzap.bat' : 'installa_printzap.bat';
+    document.querySelectorAll('a[href$="installa_printzap.bat"], a[href$="install_printzap.bat"]').forEach(link => {
+      link.setAttribute('href', installerFile);
+      if (link.hasAttribute('download')) {
+        link.setAttribute('download', installerFile);
+      }
+    });
+
     // Re-run calculator to update localized labels (hours/min/stress)
     if (typeof updateCalculator === 'function') {
       updateCalculator();

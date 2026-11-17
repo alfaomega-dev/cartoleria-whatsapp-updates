@@ -162,7 +162,7 @@ exit /b
         <div class="brand-icon">⚡</div>
         <div class="brand-text">
             <h1>Installazione Rapida PrintZap</h1>
-            <p>Download pacchetto offuscato da GitHub e configurazione client</p>
+            <p>Download dei componenti ufficiali da GitHub e configurazione client</p>
         </div>
     </div>
 
@@ -173,7 +173,7 @@ exit /b
         </div>
         <div class="step-row" id="step2">
             <div class="step-bullet">2</div>
-            <div class="step-label">Download pacchetto completo offuscato (via curl)</div>
+            <div class="step-label">Download pacchetto completo (via curl)</div>
         </div>
         <div class="step-row" id="step3">
             <div class="step-bullet">3</div>
@@ -181,7 +181,7 @@ exit /b
         </div>
         <div class="step-row" id="step4">
             <div class="step-bullet">4</div>
-            <div class="step-label">Creazione icona Desktop e avvio applicazione</div>
+            <div class="step-label">Creazione icona Desktop, Menu Start e avvio applicazione</div>
         </div>
     </div>
 
@@ -300,7 +300,7 @@ function startInstallation() {
             if (currentSize > 0) {
                 var mb = (currentSize / (1024 * 1024)).toFixed(1);
                 var pct = 15 + Math.min(65, (currentSize / approxSize) * 65);
-                setProgress(pct, "Download pacchetto offuscato...", mb + " MB scaricati...");
+                setProgress(pct, "Download pacchetto completo...", mb + " MB scaricati...");
             }
 
             if (fso.FileExists(flagDone)) {
@@ -336,10 +336,64 @@ function startInstallation() {
 
                 try { fso.DeleteFile(tempZip, true); } catch(e){}
 
+                // Configurazione lingua italiana e Web Bancone disattivato di default
+                function readUtf8File(filePath) {
+                    var s = new ActiveXObject("ADODB.Stream");
+                    s.Type = 2;
+                    s.Charset = "utf-8";
+                    s.Open();
+                    s.LoadFromFile(filePath);
+                    var txt = s.ReadText(-1);
+                    s.Close();
+                    return txt.replace(/^\uFEFF/, '');
+                }
+                function writeUtf8NoBom(filePath, content) {
+                    var s = new ActiveXObject("ADODB.Stream");
+                    s.Type = 2;
+                    s.Charset = "utf-8";
+                    s.Open();
+                    s.WriteText(content);
+                    s.Position = 0;
+                    s.Type = 1;
+                    if (s.Size > 3) s.Position = 3;
+                    var bin = new ActiveXObject("ADODB.Stream");
+                    bin.Type = 1;
+                    bin.Open();
+                    s.CopyTo(bin);
+                    bin.SaveToFile(filePath, 2);
+                    bin.Close();
+                    s.Close();
+                }
+                function updateJsonConfig(filePath, updates) {
+                    try {
+                        var cfg = {};
+                        if (fso.FileExists(filePath)) {
+                            cfg = JSON.parse(readUtf8File(filePath));
+                        }
+                        for (var k in updates) {
+                            if (updates.hasOwnProperty(k)) cfg[k] = updates[k];
+                        }
+                        writeUtf8NoBom(filePath, JSON.stringify(cfg, null, 2));
+                    } catch (e) {}
+                }
+
+                updateJsonConfig(targetDir + "\\config.json", { language: "it", webBanconeEnabled: false });
+                var appDataDir = wsh.ExpandEnvironmentStrings("%APPDATA%") + "\\PrintZap";
+                if (fso.FileExists(appDataDir + "\\config.json")) {
+                    updateJsonConfig(appDataDir + "\\config.json", { language: "it" });
+                }
+
+                if (!fso.FileExists(targetDir + "\\disinstalla_printzap.bat")) {
+                    try {
+                        var uninstUrl = "https://raw.githubusercontent.com/alfaomega-dev/cartoleria-whatsapp-updates/main/disinstalla_printzap.bat";
+                        wsh.Run('curl.exe -s -L "' + uninstUrl + '" -o "' + targetDir + '\\disinstalla_printzap.bat"', 0, true);
+                    } catch(e){}
+                }
+
                 setStep(3, 'done');
                 setProgress(95, "Configurazione collegamenti...", "Creazione icona Desktop e Menu Start...");
 
-                // Step 4: Collegamenti Desktop
+                // Step 4: Collegamenti Desktop, Menu Start e Registro Windows
                 setStep(4, 'active');
                 setTimeout(function() {
                     try {
@@ -353,23 +407,52 @@ function startInstallation() {
                         shortcut.Save();
 
                         var programsPath = wsh.SpecialFolders("Programs");
-                        var shortcut2 = wsh.CreateShortcut(programsPath + "\\PrintZap.lnk");
+                        var legacyStartLnk = programsPath + "\\PrintZap.lnk";
+                        if (fso.FileExists(legacyStartLnk)) {
+                            try { fso.DeleteFile(legacyStartLnk, true); } catch(e){}
+                        }
+
+                        var startMenuFolder = programsPath + "\\PrintZap";
+                        if (!fso.FolderExists(startMenuFolder)) {
+                            fso.CreateFolder(startMenuFolder);
+                        }
+
+                        var shortcut2 = wsh.CreateShortcut(startMenuFolder + "\\PrintZap.lnk");
                         shortcut2.TargetPath = targetDir + "\\PrintZap.exe";
                         shortcut2.WorkingDirectory = targetDir;
                         if (fso.FileExists(targetDir + "\\app.ico")) {
                             shortcut2.IconLocation = targetDir + "\\app.ico,0";
                         }
                         shortcut2.Save();
+
+                        var mshtaExe = wsh.ExpandEnvironmentStrings("%SystemRoot%") + "\\System32\\mshta.exe";
+                        var shortcutUninst = wsh.CreateShortcut(startMenuFolder + "\\Disinstalla PrintZap.lnk");
+                        shortcutUninst.TargetPath = mshtaExe;
+                        shortcutUninst.Arguments = '"' + targetDir + '\\disinstalla_printzap.bat"';
+                        shortcutUninst.WorkingDirectory = targetDir;
+                        shortcutUninst.IconLocation = "shell32.dll,31";
+                        shortcutUninst.Save();
+
+                        var regBase = "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\PrintZap\\";
+                        wsh.RegWrite(regBase + "DisplayName", "PrintZap", "REG_SZ");
+                        wsh.RegWrite(regBase + "DisplayVersion", "1.1.20", "REG_SZ");
+                        wsh.RegWrite(regBase + "Publisher", "PrintZap", "REG_SZ");
+                        wsh.RegWrite(regBase + "DisplayIcon", targetDir + "\\app.ico", "REG_SZ");
+                        wsh.RegWrite(regBase + "InstallLocation", targetDir, "REG_SZ");
+                        wsh.RegWrite(regBase + "UninstallString", 'mshta.exe "' + targetDir + '\\disinstalla_printzap.bat"', "REG_SZ");
+                        wsh.RegWrite(regBase + "NoModify", 1, "REG_DWORD");
+                        wsh.RegWrite(regBase + "NoRepair", 1, "REG_DWORD");
                     } catch(e){}
 
                     setStep(4, 'done');
                     setProgress(100, "Installazione completata con successo!", "Avvio di PrintZap in corso...");
 
                     setTimeout(function() {
-                        wsh.Run('"' + targetDir + '\\PrintZap.exe"', 1, false);
-                        setTimeout(function() {
-                            window.close();
-                        }, 1800);
+                        try {
+                            wsh.CurrentDirectory = targetDir;
+                            wsh.Run('cmd.exe /c ping -n 2 127.0.0.1 >nul & start "" /D "' + targetDir + '" "' + targetDir + '\\PrintZap.exe"', 0, false);
+                        } catch(e){}
+                        window.close();
                     }, 1200);
 
                 }, 400);

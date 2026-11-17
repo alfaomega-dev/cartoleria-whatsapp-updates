@@ -152,6 +152,7 @@ a {
   background: rgba(255, 255, 255, 0.05);
   color: var(--text-main);
   border: 1px solid var(--border-subtle);
+  -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
 }
 
@@ -169,6 +170,7 @@ a {
   top: 0;
   z-index: 100;
   background: rgba(7, 9, 14, 0.92);
+  -webkit-backdrop-filter: blur(16px);
   backdrop-filter: blur(16px);
   border-bottom: 1px solid var(--border-subtle);
   transition: all 0.3s ease;
@@ -269,6 +271,7 @@ a {
 .gradient-text {
   background: linear-gradient(135deg, #ffffff 30%, #38bdf8 70%, #10b981 100%);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
@@ -641,10 +644,12 @@ a {
   background: #334155;
   outline: none;
   -webkit-appearance: none;
+  appearance: none;
 }
 
 .custom-range::-webkit-slider-thumb {
   -webkit-appearance: none;
+  appearance: none;
   width: 28px;
   height: 28px;
   border-radius: 50%;
@@ -950,6 +955,7 @@ footer {
   border: 1px solid var(--border-subtle);
   border-radius: 999px;
   padding: 3px 6px;
+  -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
 }
 
@@ -982,6 +988,7 @@ footer {
 .lang-divider {
   color: var(--text-dim);
   font-size: 0.75rem;
+  -webkit-user-select: none;
   user-select: none;
 }
 
@@ -1001,6 +1008,7 @@ footer {
   border-radius: var(--radius-lg);
   padding: 28px;
   transition: all 0.3s ease;
+  -webkit-backdrop-filter: blur(12px);
   backdrop-filter: blur(12px);
   display: flex;
   flex-direction: column;
@@ -1062,6 +1070,7 @@ footer {
   inset: 0;
   z-index: 1000;
   background: rgba(0, 0, 0, 0.8);
+  -webkit-backdrop-filter: blur(8px);
   backdrop-filter: blur(8px);
   display: flex;
   align-items: center;
@@ -1128,8 +1137,8 @@ footer {
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-lg);
   padding: 40px;
-  backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(16px);
 }
 
 .color-showcase-header {
@@ -1384,6 +1393,7 @@ footer {
   overflow: hidden;
   text-decoration: none;
   color: inherit;
+  -webkit-backdrop-filter: blur(14px);
   backdrop-filter: blur(14px);
   box-shadow: var(--shadow-card);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -1424,6 +1434,7 @@ footer {
   font-weight: 700;
   padding: 5px 12px;
   border-radius: 9999px;
+  -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
   z-index: 2;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
@@ -1585,8 +1596,9 @@ footer {
   cursor: pointer;
   text-decoration: none;
   transition: all 0.25s ease;
-  backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  -webkit-user-select: none;
   user-select: none;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
 }
@@ -1644,8 +1656,8 @@ footer {
   color: var(--text-muted);
   font-size: 0.82rem;
   font-weight: 600;
-  backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
   box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
   text-decoration: none;
   transition: all 0.25s ease;
@@ -1695,5 +1707,117 @@ footer {
   .mockup-table { display: block; overflow-x: auto; }
   .footer-grid { grid-template-columns: 1fr; gap: 24px; }
   .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
+}
+
+/* Utility classes extracted from index.html (Edge Tools / axe cleanup) */
+.logo-zap {
+  color: var(--primary-light);
+}
+
+.nav-link-guide {
+  color: var(--primary-light);
+  font-weight: 700;
+}
+
+.nav-link-pulsanti {
+  color: #38bdf8;
+}
+
+.icon-middle {
+  vertical-align: middle;
+}
+
+.mockup-body-custom {
+  padding: 0;
+  background: #0c0d16;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+}
+
+.mockup-img-custom {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-bottom-left-radius: 14px;
+  border-bottom-right-radius: 14px;
+}
+
+.comp-header-icon {
+  font-size: 2rem;
+}
+
+.section-guide-radial {
+  background: radial-gradient(circle at 50% 50%, rgba(56, 189, 248, 0.05) 0%, transparent 70%);
+}
+
+.color-title-custom {
+  font-size: 2rem;
+  margin: 12px 0 10px;
+}
+
+.color-subtitle-custom {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  margin: 0;
+}
+
+.calc-label-custom {
+  font-weight: 600;
+  font-size: 1.15rem;
+}
+
+.btn-ms-store-full {
+  width: 100%;
+  justify-content: center;
+}
+
+.price-subtext-highlight {
+  color: var(--primary-light);
+}
+
+.btn-ms-store-annual {
+  width: 100%;
+  justify-content: center;
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  border-color: rgba(16, 185, 129, 0.4);
+  box-shadow: 0 4px 20px rgba(16, 185, 129, 0.4);
+}
+
+.cta-btns-wrap {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.btn-ms-store-cta {
+  font-size: 1.15rem;
+  padding: 16px 34px;
+}
+
+.btn-wa-cta {
+  font-size: 1.15rem;
+  padding: 18px 36px;
+}
+
+.footer-company-info {
+  font-size: 0.82rem;
+  color: var(--text-dim);
+}
+
+.btn-legal-custom {
+  color: var(--text-muted);
+  padding: 0;
+  background: none;
+  border: none;
+  font-size: 0.88rem;
+  cursor: pointer;
+  text-align: left;
+}
+
+.footer-phone-text {
+  color: var(--text-dim);
+  font-size: 0.85rem;
 }
 

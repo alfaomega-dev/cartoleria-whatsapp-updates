@@ -43,8 +43,8 @@
       border-radius: var(--radius-lg);
       padding: 36px;
       margin-bottom: 50px;
-      backdrop-filter: blur(16px);
       -webkit-backdrop-filter: blur(16px);
+      backdrop-filter: blur(16px);
       box-shadow: 0 10px 35px rgba(0,0,0,0.4);
       transition: border-color 0.25s, box-shadow 0.25s;
     }
@@ -149,12 +149,85 @@
       border: 1px solid rgba(56, 189, 248, 0.3);
       color: #7dd3fc;
     }
+    .guide-navbar {
+      border-bottom: 1px solid var(--border-subtle);
+    }
+    .guide-nav-btn-pulsanti {
+      border-color: #38bdf8;
+      color: #38bdf8;
+      padding: 8px 16px;
+      font-size: 0.85rem;
+    }
+    .guide-nav-btn-home {
+      padding: 8px 16px;
+      font-size: 0.85rem;
+    }
+    .guide-store-main-text {
+      font-size: 0.82rem;
+    }
+    .guide-header-container {
+      max-width: 900px;
+    }
+    .guide-header-badge {
+      margin-bottom: 16px;
+    }
+    .guide-hero-title {
+      font-size: 2.8rem;
+      margin: 0 0 16px;
+    }
+    .guide-hero-subtitle {
+      color: var(--text-muted);
+      font-size: 1.1rem;
+      line-height: 1.6;
+    }
+    .guide-main-container {
+      max-width: 1000px;
+      padding-bottom: 80px;
+    }
+    .guide-step-number-wa {
+      background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+      box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+    }
+    .guide-step-tag {
+      color: var(--text-muted);
+      font-size: 0.88rem;
+    }
+    .callout-box-mt {
+      margin-top: 20px;
+    }
+    .guide-cta-card {
+      text-align: center;
+      margin-top: 60px;
+      padding: 40px;
+      background: rgba(37, 211, 102, 0.05);
+      border: 1px solid rgba(37, 211, 102, 0.3);
+      border-radius: var(--radius-lg);
+    }
+    .guide-cta-title {
+      font-size: 1.8rem;
+      margin-bottom: 12px;
+      color: var(--text-main);
+    }
+    .guide-cta-subtitle {
+      color: var(--text-muted);
+      margin-bottom: 24px;
+    }
+    .guide-cta-btns {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .btn-wa-guide {
+      border-color: #25D366;
+      color: #25D366;
+    }
   </style>
 </head>
 <body>
 
   <!-- ================= HEADER NAVBAR ================= -->
-  <nav class="navbar" style="border-bottom: 1px solid var(--border-subtle);">
+  <nav class="navbar guide-navbar">
     <div class="container nav-container">
       <a href="index.html" class="logo-link">
         <img src="logo.png" alt="PrintZap Logo" class="nav-logo">
@@ -167,8 +240,8 @@
           <button type="button" class="lang-pill active" id="lang-btn-it" onclick="setGuideLang('it')">🇮🇹 IT</button>
           <button type="button" class="lang-pill" id="lang-btn-en" onclick="setGuideLang('en')">🇬🇧 EN</button>
         </div>
-        <a href="pulsanti.html" class="btn btn-outline" style="border-color: #38bdf8; color: #38bdf8; padding: 8px 16px; font-size: 0.85rem;" data-g18n="nav_buttons">🎛️ Mappa Pulsanti</a>
-        <a href="index.html" class="btn btn-outline" style="padding: 8px 16px; font-size: 0.85rem;" data-g18n="back_home">← Torna alla Home</a>
+        <a href="pulsanti.html" class="btn btn-outline guide-nav-btn-pulsanti" data-g18n="nav_buttons">🎛️ Mappa Pulsanti</a>
+        <a href="index.html" class="btn btn-outline guide-nav-btn-home" data-g18n="back_home">← Torna alla Home</a>
         <a href="installa_printzap.bat" download="installa_printzap.bat" class="btn-ms-store btn-sm">
           <span class="ms-store-icon">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
@@ -179,7 +252,7 @@
             </svg>
           </span>
           <span class="ms-store-text">
-            <span class="ms-store-main" style="font-size: 0.82rem;">Scarica PrintZap</span>
+            <span class="ms-store-main guide-store-main-text">Scarica PrintZap</span>
           </span>
         </a>
       </div>
@@ -188,25 +261,25 @@
 
   <!-- ================= HERO GUIDA ================= -->
   <header class="guide-header">
-    <div class="container" style="max-width: 900px;">
-      <div class="badge badge-emerald" style="margin-bottom: 16px;" data-g18n="guide_badge">Guida Operativa Ufficiale</div>
-      <h1 class="hero-title" style="font-size: 2.8rem; margin: 0 0 16px;" data-g18n="guide_title">Manuale Illustrato Passo per Passo</h1>
-      <p style="color: var(--text-muted); font-size: 1.1rem; line-height: 1.6;" data-g18n="guide_subtitle">
+    <div class="container guide-header-container">
+      <div class="badge badge-emerald guide-header-badge" data-g18n="guide_badge">Guida Operativa Ufficiale</div>
+      <h1 class="hero-title guide-hero-title" data-g18n="guide_title">Manuale Illustrato Passo per Passo</h1>
+      <p class="guide-hero-subtitle" data-g18n="guide_subtitle">
         Tutte le schermate del software spiegate pulsante per pulsante: dalla ricezione del file alla stampa, fino alla notifica e alla gestione della cartella clienti.
       </p>
     </div>
   </header>
 
   <!-- ================= MAIN CONTENT STEPS ================= -->
-  <main class="container" style="max-width: 1000px; padding-bottom: 80px;">
+  <main class="container guide-main-container">
 
     <!-- PASSO 0: COLLEGAMENTO WHATSAPP CON QR CODE -->
     <div class="guide-step-card" id="passo-0">
       <div class="guide-step-header">
-        <div class="guide-step-number" style="background: linear-gradient(135deg, #25D366 0%, #128C7E 100%); box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);">0</div>
+        <div class="guide-step-number guide-step-number-wa">0</div>
         <div>
           <h2 class="guide-step-title" data-g18n="step0_title">Primo Avvio: Connessione WhatsApp via Scansione QR Code</h2>
-          <span style="color: var(--text-muted); font-size: 0.88rem;" data-g18n="step0_tag">Associazione sicura dello smartphone in 5 secondi (senza costi API)</span>
+          <span class="guide-step-tag" data-g18n="step0_tag">Associazione sicura dello smartphone in 5 secondi (senza costi API)</span>
         </div>
       </div>
 
@@ -238,7 +311,7 @@
         </li>
       </ul>
 
-      <div class="callout-box callout-green" style="margin-top: 20px;">
+      <div class="callout-box callout-green callout-box-mt">
         <span data-g18n="step0_callout">🔒 <strong>Nessun canone WhatsApp / Meta:</strong> PrintZap si collega direttamente al tuo account WhatsApp Web ufficiale senza bisogno di costosi account sviluppatore o abbonamenti terzi.</span>
       </div>
     </div>
@@ -249,7 +322,7 @@
         <div class="guide-step-number">1</div>
         <div>
           <h2 class="guide-step-title" data-g18n="step1_title">Dashboard Principale & Indirizzo Locale (Porta 3000)</h2>
-          <span style="color: var(--text-muted); font-size: 0.88rem;" data-g18n="step1_tag">Schermata di avvio operativo e personalizzazione porta</span>
+          <span class="guide-step-tag" data-g18n="step1_tag">Schermata di avvio operativo e personalizzazione porta</span>
         </div>
       </div>
 
@@ -262,7 +335,7 @@
           <span class="icon-point">▶</span>
           <div>
             <strong data-g18n="step1_p1_strong">Indirizzo Web Locale (<code>localhost:3000</code>):</strong>
-            <span data-g18n="step1_p1_text">PrintZap si apre direttamente nel tuo browser predefinito (Google Chrome) a questo indirizzo locale. Non richiede connessioni a server remoti e risponde istantaneamente a zero lag.</span>
+            <span data-g18n="step1_p1_text">PrintZap si avvia in modalità Desktop App nativa (finestra autonoma senza barre URL o linguette) collegandosi all'indirizzo locale sicuro. Non richiede connessioni a server remoti e risponde istantaneamente a zero lag.</span>
           </div>
         </li>
         <li>
@@ -292,7 +365,7 @@
         <div class="guide-step-number">2</div>
         <div>
           <h2 class="guide-step-title" data-g18n="step2_title">Pannello Impostazioni & Configurazione del Servizio</h2>
-          <span style="color: var(--text-muted); font-size: 0.88rem;" data-g18n="step2_tag">Tutte le schede operative a portata di clic</span>
+          <span class="guide-step-tag" data-g18n="step2_tag">Tutte le schede operative a portata di clic</span>
         </div>
       </div>
 
@@ -331,7 +404,7 @@
         <div class="guide-step-number">3</div>
         <div>
           <h2 class="guide-step-title" data-g18n="step3_title">Flusso di Lavoro: Arrivo del File su WhatsApp Desktop</h2>
-          <span style="color: var(--text-muted); font-size: 0.88rem;" data-g18n="step3_tag">Usi WhatsApp come hai sempre fatto, senza cambiare abitudini</span>
+          <span class="guide-step-tag" data-g18n="step3_tag">Usi WhatsApp come hai sempre fatto, senza cambiare abitudini</span>
         </div>
       </div>
 
@@ -363,7 +436,7 @@
         <div class="guide-step-number">4</div>
         <div>
           <h2 class="guide-step-title" data-g18n="step4_title">Ordine Ricevuto & Etichetta GIACENZA a Video</h2>
-          <span style="color: var(--text-muted); font-size: 0.88rem;" data-g18n="step4_tag">Comprensione immediata dello stato cliente e delle stampe arretrate</span>
+          <span class="guide-step-tag" data-g18n="step4_tag">Comprensione immediata dello stato cliente e delle stampe arretrate</span>
         </div>
       </div>
 
@@ -406,7 +479,7 @@
         <div class="guide-step-number">5</div>
         <div>
           <h2 class="guide-step-title" data-g18n="step5_title">Apertura Istantanea della Cartella sul PC (Tasto "Apri Cartella")</h2>
-          <span style="color: var(--text-muted); font-size: 0.88rem;" data-g18n="step5_tag">Tutti i file catalogati con il nome reale del cliente</span>
+          <span class="guide-step-tag" data-g18n="step5_tag">Tutti i file catalogati con il nome reale del cliente</span>
         </div>
       </div>
 
@@ -439,7 +512,7 @@
         <div class="guide-step-number">6</div>
         <div>
           <h2 class="guide-step-title" data-g18n="step6_title">Invio Notifica "Stampa Pronta" & Cambio Colore a Video (Viola)</h2>
-          <span style="color: var(--text-muted); font-size: 0.88rem;" data-g18n="step6_tag">Il semaforo visivo che avvisa che il lavoro è concluso</span>
+          <span class="guide-step-tag" data-g18n="step6_tag">Il semaforo visivo che avvisa che il lavoro è concluso</span>
         </div>
       </div>
 
@@ -482,7 +555,7 @@
         <div class="guide-step-number">7</div>
         <div>
           <h2 class="guide-step-title" data-g18n="step7_title">Conferma Ricezione su WhatsApp & Salvaguardia Cronologia</h2>
-          <span style="color: var(--text-muted); font-size: 0.88rem;" data-g18n="step7_tag">Messaggio ufficiale recapitato senza perdere un singolo messaggio precedente</span>
+          <span class="guide-step-tag" data-g18n="step7_tag">Messaggio ufficiale recapitato senza perdere un singolo messaggio precedente</span>
         </div>
       </div>
 
@@ -522,7 +595,7 @@
         <div class="guide-step-number">8</div>
         <div>
           <h2 class="guide-step-title" data-g18n="step8_title">Download Automatico Link Cloud (Adobe, Drive...) & File Aggiunti (Giallo)</h2>
-          <span style="color: var(--text-muted); font-size: 0.88rem;" data-g18n="step8_tag">Niente più link aperti a mano nel browser e gestione visiva degli aggiornamenti</span>
+          <span class="guide-step-tag" data-g18n="step8_tag">Niente più link aperti a mano nel browser e gestione visiva degli aggiornamenti</span>
         </div>
       </div>
 
@@ -561,12 +634,12 @@
     </div>
 
     <!-- BOX FINALE -->
-    <div style="text-align: center; margin-top: 60px; padding: 40px; background: rgba(37, 211, 102, 0.05); border: 1px solid rgba(37, 211, 102, 0.3); border-radius: var(--radius-lg);">
-      <h3 style="font-size: 1.8rem; margin-bottom: 12px; color: var(--text-main);" data-g18n="final_title">Pronto a semplificare il banco della tua cartoleria?</h3>
-      <p style="color: var(--text-muted); margin-bottom: 24px;" data-g18n="final_subtitle">Installa PrintZap e prova gratis tutte queste funzionalità nel tuo negozio per 30 giorni.</p>
-      <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
+    <div class="guide-cta-card">
+      <h3 class="guide-cta-title" data-g18n="final_title">Pronto a semplificare il banco della tua cartoleria?</h3>
+      <p class="guide-cta-subtitle" data-g18n="final_subtitle">Installa PrintZap e prova gratis tutte queste funzionalità nel tuo negozio per 30 giorni.</p>
+      <div class="guide-cta-btns">
         <a href="index.html#prezzi" class="btn btn-primary" data-g18n="final_btn_try">Inizia la Prova Gratuita (30 Giorni)</a>
-        <a href="https://wa.me/390965370621" target="_blank" class="btn btn-outline" style="border-color: #25D366; color: #25D366;" data-g18n="final_btn_wa">Scrivici su WhatsApp (0965 370621)</a>
+        <a href="https://wa.me/390965370621" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-wa-guide" data-g18n="final_btn_wa">Scrivici su WhatsApp (0965 370621)</a>
       </div>
     </div>
 
@@ -593,7 +666,7 @@
         step1_title: "Dashboard Principale & Indirizzo Locale (Porta 3000)",
         step1_tag: "Schermata di avvio operativo e personalizzazione porta",
         step1_p1_strong: "Indirizzo Web Locale (localhost:3000):",
-        step1_p1_text: "PrintZap si apre direttamente nel tuo browser predefinito (Google Chrome) a questo indirizzo locale. Non richiede connessioni a server remoti e risponde istantaneamente a zero lag.",
+        step1_p1_text: "PrintZap si avvia in modalità Desktop App nativa (finestra autonoma senza barre URL o linguette) collegandosi all'indirizzo locale sicuro. Non richiede connessioni a server remoti e risponde istantaneamente a zero lag.",
         step1_p2_strong: "Porta TCP Personalizzabile (3000 o da Impostazioni):",
         step1_p2_text: "Se il computer del tuo negozio utilizza già altri software o gestionali che occupano la porta 3000, PrintZap scala in automatico con l'auto-fallback. Inoltre, puoi visualizzare e modificare la porta in qualsiasi momento direttamente dalla Dashboard nel pannello <strong>Impostazioni ⚙️ → Servizio & Grafica</strong>.",
         step1_p3_strong: "Barra Laterale di Controllo:",
@@ -677,7 +750,7 @@
         step1_title: "Main Dashboard & Local Address (Port 3000)",
         step1_tag: "Startup screen and custom port settings",
         step1_p1_strong: "Local Web Address (localhost:3000):",
-        step1_p1_text: "PrintZap opens directly inside your default browser (Google Chrome) at this local address. It does not require external servers and runs with zero latency.",
+        step1_p1_text: "PrintZap launches in native Desktop App mode (standalone distraction-free window without browser URL bars or tabs) connected to your local secure address. It does not require external servers and runs with zero latency.",
         step1_p2_strong: "Customizable TCP Port (3000 or via Settings):",
         step1_p2_text: "If your store computer already has POS or cash registers using port 3000, PrintZap automatically scales to a free port with intelligent fallback. You can also view and customize your listening port at any time directly from the Dashboard in <strong>Settings ⚙️ → Service & Graphics</strong>.",
         step1_p3_strong: "Control Sidebar:",

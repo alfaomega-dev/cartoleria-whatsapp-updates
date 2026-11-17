@@ -55,7 +55,7 @@ const TRANSLATIONS = {
     comp_good_4_title: "Recupero Notti e Weekend (96h):",
     comp_good_4_desc: " Accendi il PC il lunedì mattina e trovi tutti i file già organizzati.",
     comp_good_5_title: "Sinergia WhatsApp & Salvaguardia Cronologia:",
-    comp_good_5_desc: " Chatti normalmente da WhatsApp Desktop/Web; cancellando una chat dal telefono si rimuove anche da PrintZap. Rimuovere o evadere un ordine da PrintZap NON tocca la chat di WhatsApp (preservando tutta la cronologia dei messaggi), ma cancella i file archiviati sul PC liberando spazio prezioso sull'hard disk.",
+    comp_good_5_desc: " Chatti normalmente da WhatsApp Desktop/Web; cancellando una chat dal telefono o da WhatsApp Desktop, PrintZap rimuove subito l'ordine e cestina l'intera cartella cliente sul PC (chiudendo in automatico le cartelle aperte e gestendo i file bloccati). Rimuovere un ordine da PrintZap NON tocca la chat di WhatsApp (preservando tutta la cronologia dei messaggi sul telefono), ma cancella i file archiviati sul computer liberando spazio prezioso su disco.",
 
     // Features
     feat_badge: "Caratteristiche Esclusive",
@@ -77,6 +77,10 @@ const TRANSLATIONS = {
     feat_7_desc: "Se il cliente invia link di Adobe Acrobat, Google Drive, Dropbox o OneDrive, PrintZap scarica direttamente il file sul tuo PC senza farti aprire il browser.",
     feat_8_title: "Connessione QR Code in 5 Sec",
     feat_8_desc: "Inquadra il QR Code mostrato a video con WhatsApp e sei subito operativo, senza configurazioni complesse o account sviluppatore.",
+    feat_9_title: "Zero Conflitti Gestionali & Cassa",
+    feat_9_desc: "Nessun conflitto con registratori fiscali o gestionali di magazzino sulla porta 3000. PrintZap rileva le porte occupate e si sposta con 1 clic su qualsiasi porta libera.",
+    feat_10_title: "Desktop App Standalone & Menu Start",
+    feat_10_desc: "Si apre come un'applicazione Windows nativa a schermo intero senza barre URL, crea la cartella nel Menu Start e include un disinstallatore trasparente a 1 clic.",
 
     // Color System Showcase
     color_badge: "Segnali Visivi Intelligenti",
@@ -124,6 +128,10 @@ const TRANSLATIONS = {
     req_printers_desc: "Qualsiasi stampante, fotocopiatrice o plotter Windows",
     req_net_title: "Connessione Internet",
     req_net_desc: "Connessione attiva (ADSL, Fibra, 4G/5G o Wi-Fi)",
+    req_port_title: "Rete & Porte TCP",
+    req_port_desc: "Porta 3000 predefinita con auto-fallback intelligente e selezione libera da Impostazioni",
+    req_clean_title: "Installazione Pulita",
+    req_clean_desc: "Cartella dedicata nel Menu Start, registro disinstallazione Windows e disinstallatore grafico con scelta conservazione dati",
 
     // Pricing
     price_badge: "Prezzi Trasparenti",
@@ -171,9 +179,13 @@ const TRANSLATIONS = {
     faq_q5: "Posso chattare con i clienti da PrintZap o devo continuare a usare WhatsApp Desktop/Web?",
     faq_a5: "Per dialogare e inviare normali messaggi di testo con i tuoi clienti continui a utilizzare la tua consueta applicazione WhatsApp (Desktop, Web o Smartphone). PrintZap lavora in perfetta sinergia: si occupa in automatico di scaricare e catalogare i file di stampa, e ti permette di inviare la notifica ufficiale di \"Stampa Pronta\" con un singolo clic direttamente dalla sua dashboard (preservando il badge verde dei non letti su WhatsApp) oppure rispondendo 'stampa pronta' dal telefono.",
     faq_q6: "Cosa succede se cancello una chat dal telefono o da WhatsApp Desktop?",
-    faq_a6: "La logica è progettata per proteggere la tua cronologia e non intasare il computer: se cancelli una chat dal tuo smartphone o da WhatsApp Desktop/Web, PrintZap recepisce la cancellazione e rimuove l'ordine dal banco per evitare doppioni. Al contrario, se elimini o evadi un ordine da PrintZap, la tua conversazione su WhatsApp NON viene toccata (la cronologia e i messaggi con il cliente rimangono sempre intatti e al sicuro sul tuo telefono), ma vengono cancellati i file archiviati sul PC per liberare spazio prezioso su disco!",
+    faq_a6: "La logica è progettata per proteggere la tua cronologia e non intasare il computer: se cancelli una chat dal tuo smartphone o da WhatsApp Desktop/Web, PrintZap recepisce la cancellazione, rimuove l'ordine dal banco e cestina l'intera cartella locale del cliente sul PC, chiudendo in automatico le finestre di Esplora Risorse aperte. Al contrario, se elimini o evadi un ordine da PrintZap, la tua conversazione su WhatsApp NON viene toccata (la cronologia e i messaggi con il cliente rimangono sempre intatti e al sicuro sul tuo telefono), ma vengono cancellati i file archiviati sul PC per liberare spazio prezioso su disco!",
     faq_q7: "A cosa servono i diversi colori e badge (viola, giallo, scritta giacenza) che vedo a video?",
-    faq_a7: "PrintZap usa un sistema di semafori visivi studiato per il caos del bancone: il **Viola Elettrico pulsante** indica che l'ordine è stampato al 100% e la notifica è stata inviata (pronto per la consegna); il **badge Giallo GIACENZA** evidenzia i documenti arrivati ieri o nei giorni scorsi non ancora ritirati; il **Giallo Intenso** segnala nuovi file inviati dal cliente dopo la prima stampa; il **Verde** indica i file freschi ancora da stampare. Tutto è pensato per lavorare veloci e a zero errori anche nelle ore di punta!",
+    faq_a7: "PrintZap usa un sistema di semafori visivi studiato per il caos del bancone: il **Viola Elettrico pulsante** indica che l'ordine è stampato al100% e la notifica è stata inviata (pronto per la consegna); il **badge Giallo GIACENZA** evidenzia i documenti arrivati ieri o nei giorni scorsi non ancora ritirati; il **Giallo Intenso** segnala nuovi file inviati dal cliente dopo la prima stampa; il **Verde** indica i file freschi ancora da stampare. Tutto è pensato per lavorare veloci e a zero errori anche nelle ore di punta!",
+    faq_q8: "Ho già un registratore di cassa telematico o un gestionale sul computer: possono esserci conflitti di porta?",
+    faq_a8: "Zero conflitti! Molti software di cassa usano la porta standard 3000 o 8080. PrintZap include un algoritmo di auto-rilevamento: se la porta 3000 è occupata all'avvio, il programma scala automaticamente sulla prima porta libera successiva senza andare in crash. Inoltre, puoi personalizzare e cambiare a caldo la porta in qualsiasi momento da <strong>Impostazioni ⚙️ → Servizio & Grafica</strong>.",
+    faq_q9: "Come si installa e come si disinstalla PrintZap? Lascia file sparsi nel PC?",
+    faq_a9: "L'installazione si effettua con 1 clic tramite lo script rapido con curl: crea la cartella ufficiale <strong>PrintZap</strong> nel tuo Menu Start di Windows e registra l'app in 'Installazione applicazioni'. Se in futuro vorrai rimuoverlo, il pratico disinstallatore grafico ti chiederà se desideri mantenere lo storico dei tuoi clienti e la licenza oppure cancellare tutto a zero, senza lasciare file sparsi o chiavi orfane.",
 
     // Visual Hub (Manuali & Flusso)
     hub_badge: "📖 Documentazione Ufficiale Illustrata",
@@ -284,7 +296,7 @@ const TRANSLATIONS = {
     comp_good_4_title: "Nights & Weekends Recovery (96h):",
     comp_good_4_desc: " Turn on your PC on Monday morning and find all customer files already organized.",
     comp_good_5_title: "WhatsApp Synergy & History Protection:",
-    comp_good_5_desc: " Chat normally via WhatsApp Desktop/Web; deleting a chat on mobile clears it from PrintZap too. Clearing an order from PrintZap NEVER touches your WhatsApp chat (preserving your full customer conversation history), but cleans up the archived files on your PC to free up hard disk space.",
+    comp_good_5_desc: " Chat normally via WhatsApp Desktop/Web; deleting a chat on mobile or WhatsApp Desktop instantly removes the order from PrintZap and trashes the entire customer folder on PC (automatically closing open Windows Explorer windows and handling locked files). Clearing an order from PrintZap NEVER touches your WhatsApp chat (preserving your full customer conversation history safely on your phone), but cleans up the archived files on your PC to free up hard disk space.",
 
     // Features
     feat_badge: "Exclusive Features",
@@ -306,6 +318,10 @@ const TRANSLATIONS = {
     feat_7_desc: "When customers send Adobe Acrobat, Google Drive, Dropbox, or OneDrive links, PrintZap automatically downloads the file to your PC without opening a browser.",
     feat_8_title: "5-Sec QR Code Pairing",
     feat_8_desc: "Point WhatsApp at the on-screen QR Code to pair in 5 seconds. Zero complicated API setups or Meta developer accounts required.",
+    feat_9_title: "Zero POS & Cash Register Conflicts",
+    feat_9_desc: "No conflicts with fiscal cash registers or store ERPs using port 3000. PrintZap auto-detects busy ports and lets you switch to any free port with 1 click.",
+    feat_10_title: "Standalone Desktop App & Start Menu",
+    feat_10_desc: "Opens as a distraction-free native Windows application without browser address bars, creates a clean Start Menu folder, and includes a transparent 1-click uninstaller.",
 
     // Color System Showcase
     color_badge: "Smart Visual Signals",
@@ -353,6 +369,10 @@ const TRANSLATIONS = {
     req_printers_desc: "Any Windows printer, copier, multifunction or plotter",
     req_net_title: "Internet Connection",
     req_net_desc: "Active connection (ADSL, Fiber, 4G/5G, or Wi-Fi)",
+    req_port_title: "Network & TCP Ports",
+    req_port_desc: "Default port 3000 with smart auto-fallback and customizable port in Settings",
+    req_clean_title: "Clean Installation",
+    req_clean_desc: "Dedicated Start Menu folder, official Windows uninstall registration, and GUI uninstaller with optional data wipe",
 
     // Pricing
     price_badge: "Transparent Pricing",
@@ -400,9 +420,13 @@ const TRANSLATIONS = {
     faq_q5: "Can I chat with customers directly inside PrintZap or should I keep using WhatsApp Desktop/Web?",
     faq_a5: "To chat and exchange regular text messages with customers, you continue using your regular WhatsApp app (Desktop, Web, or Smartphone). PrintZap works in total synergy: it specifically automates receiving and cataloging incoming print files, and allows you to send the official \"Print Ready\" pickup notification with a single click directly from its dashboard (preserving the green unread badge on WhatsApp) or by simply replying 'print ready' from your phone.",
     faq_q6: "What happens if I delete a chat from WhatsApp Desktop or my phone?",
-    faq_a6: "The logic is designed to protect your conversation history and keep your PC clean: if you delete a chat from your phone or WhatsApp Desktop/Web, PrintZap detects it and removes the order from your queue to prevent duplicates. Conversely, deleting or completing an order from PrintZap NEVER deletes the chat on WhatsApp (your chat history and messages remain 100% safe on your phone), but the archived files on the PC are deleted to free up disk space!",
+    faq_a6: "The logic is designed to protect your conversation history and keep your PC clean: if you delete a chat from your phone or WhatsApp Desktop/Web, PrintZap detects it, removes the order from your queue, and trashes the entire customer folder on PC, automatically closing open Windows Explorer windows. Conversely, deleting or completing an order from PrintZap NEVER deletes the chat on WhatsApp (your chat history and messages remain 100% safe on your phone), but the archived files on the PC are deleted to free up disk space!",
     faq_q7: "What do the different screen colors and badges (purple, yellow, giacenza badge) mean?",
     faq_a7: "PrintZap uses a visual status system designed specifically for busy print counters: **Pulsing Electric Purple** means the order is 100% printed and the notification has been sent (ready for pickup); the **Amber GIACENZA badge** flags documents received yesterday or in past days not yet collected; **Bright Yellow** signals new files sent by the customer after your initial print; **Green** indicates fresh files waiting to be printed. Designed for high speed and zero mistakes during peak hours!",
+    faq_q8: "My store PC already runs a POS or cashier system: could there be port conflicts?",
+    faq_a8: "Zero conflicts! Many cashier systems use standard port 3000 or 8080. PrintZap features an intelligent port-detection algorithm: if port 3000 is occupied upon startup, it automatically advances to the next available port without crashing. Additionally, you can easily change and live-rebind the listening port at any time in <strong>Settings ⚙️ → Service & Graphics</strong>.",
+    faq_q9: "How is PrintZap installed and uninstalled? Does it leave clutter on my PC?",
+    faq_a9: "Installation takes 1 click with our high-speed curl installer: it creates an official <strong>PrintZap</strong> folder in your Windows Start Menu and registers the app under Windows 'Installed Apps'. If you ever want to uninstall it, the graphical uninstaller gives you the choice to either keep your client history and license or wipe everything clean with zero leftover files.",
 
     // Visual Hub (Manuals & Guides)
     hub_badge: "📖 Official Illustrated Documentation",

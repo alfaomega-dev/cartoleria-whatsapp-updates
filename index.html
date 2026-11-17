@@ -26,8 +26,8 @@
   <nav class="navbar">
     <div class="nav-container">
       <a href="#" class="nav-brand">
-        <img src="logo.png" alt="PrintZap Logo" class="nav-logo" onerror="this.style.display='none'">
-        <span>Print<span style="color: var(--primary-light);">Zap</span></span>
+        <img src="logo.png" alt="PrintZap Logo" class="nav-logo" onerror="this.classList.add('hidden')">
+        <span>Print<span class="logo-zap">Zap</span></span>
       </a>
 
       <ul class="nav-links">
@@ -36,8 +36,8 @@
         <li><a href="#calcolatore" data-i18n="nav_calculator">Risparmio</a></li>
         <li><a href="#prezzi" data-i18n="nav_pricing">Prezzi</a></li>
         <li><a href="#faq" data-i18n="nav_faq">FAQ</a></li>
-        <li><a href="#guide" style="color: var(--primary-light); font-weight: 700;" data-i18n="nav_hub">Manuali & Guide 📖</a></li>
-        <li><a href="pulsanti.html" style="color: #38bdf8;" data-i18n="nav_buttons">Pulsanti 🎛️</a></li>
+        <li><a href="#guide" class="nav-link-guide" data-i18n="nav_hub">Manuali & Guide 📖</a></li>
+        <li><a href="pulsanti.html" class="nav-link-pulsanti" data-i18n="nav_buttons">Pulsanti 🎛️</a></li>
       </ul>
 
       <div class="nav-actions">
@@ -120,9 +120,9 @@
 
       <!-- Live Visitor Counter Badge (Home Page) -->
       <div class="hero-visitor-wrap">
-        <a href="https://hits.sh/alfaomega-dev.github.io/cartoleria-whatsapp-updates/" target="_blank" rel="noopener" class="hero-visitor-badge" data-i18n-title="visitor_title" title="Statistiche visite in tempo reale (Oggi / Totale)">
+        <a href="https://hits.sh/alfaomega-dev.github.io/cartoleria-whatsapp-updates/" target="_blank" rel="noopener noreferrer" class="hero-visitor-badge" data-i18n-title="visitor_title" title="Statistiche visite in tempo reale (Oggi / Totale)">
           <span class="visitor-dot"></span>
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle;">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" class="icon-middle">
             <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
             <circle cx="12" cy="12" r="3"></circle>
           </svg>
@@ -146,8 +146,8 @@
           </div>
         </div>
 
-        <div class="mockup-body" style="padding: 0; background: #0c0d16; overflow: hidden; display: flex; justify-content: center;">
-          <img src="dashboard-preview.png" alt="Interfaccia reale di PrintZap con WhatsApp integrato" style="width: 100%; height: auto; display: block; border-bottom-left-radius: 14px; border-bottom-right-radius: 14px;">
+        <div class="mockup-body mockup-body-custom">
+          <img src="dashboard-preview.png" alt="Interfaccia reale di PrintZap con WhatsApp integrato" class="mockup-img-custom">
         </div>
       </div>
 
@@ -169,7 +169,7 @@
         <!-- Bad side -->
         <div class="card-comparison card-bad">
           <div class="comparison-header">
-            <span style="font-size: 2rem;">❌</span>
+            <span class="comp-header-icon">❌</span>
             <h3 data-i18n="comp_bad_title">Senza PrintZap (Il Caos Quotidiano)</h3>
           </div>
           <ul class="comparison-list">
@@ -199,7 +199,7 @@
         <!-- Good side -->
         <div class="card-comparison card-good">
           <div class="comparison-header">
-            <span style="font-size: 2rem;">✅</span>
+            <span class="comp-header-icon">✅</span>
             <h3 data-i18n="comp_good_title">Con PrintZap (Flusso Perfetto in 1 Clic)</h3>
           </div>
           <ul class="comparison-list">
@@ -221,7 +221,7 @@
             </li>
             <li class="comparison-item">
               <svg class="icon-check" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
-              <div><span data-i18n="comp_good_5_title">Sinergia WhatsApp & Salvaguardia Cronologia:</span><span data-i18n="comp_good_5_desc"> Chatti normalmente da WhatsApp Desktop/Web; cancellando una chat dal telefono si rimuove anche da PrintZap. Rimuovere o evadere un ordine da PrintZap NON tocca la chat di WhatsApp (preservando tutta la cronologia dei messaggi), ma cancella i file archiviati sul PC liberando spazio prezioso sull'hard disk.</span></div>
+              <div><span data-i18n="comp_good_5_title">Sinergia WhatsApp & Salvaguardia Cronologia:</span><span data-i18n="comp_good_5_desc"> Chatti normalmente da WhatsApp Desktop/Web; cancellando una chat dal telefono o da WhatsApp Desktop, PrintZap rimuove subito l'ordine e cestina l'intera cartella cliente sul PC (chiudendo in automatico le cartelle aperte e gestendo i file bloccati). Rimuovere un ordine da PrintZap NON tocca la chat di WhatsApp (preservando tutta la cronologia dei messaggi sul telefono), ma cancella i file archiviati sul computer liberando spazio prezioso su disco.</span></div>
             </li>
           </ul>
         </div>
@@ -230,7 +230,7 @@
   </section>
 
   <!-- ================= VISUAL HUB: LE GUIDE COMPLETE ================= -->
-  <section class="section" id="guide" style="background: radial-gradient(circle at 50% 50%, rgba(56, 189, 248, 0.05) 0%, transparent 70%);">
+  <section class="section section-guide-radial" id="guide">
     <div class="container">
       <div class="section-title-wrap">
         <div class="badge badge-sky" data-i18n="hub_badge">📖 Documentazione Ufficiale Illustrata</div>
@@ -347,14 +347,26 @@
           <h4 data-i18n="feat_8_title">Connessione QR Code in 5 Sec</h4>
           <p data-i18n="feat_8_desc">Inquadra il QR Code mostrato a video con WhatsApp e sei subito operativo, senza configurazioni complesse o account sviluppatore.</p>
         </div>
+
+        <div class="feature-card">
+          <div class="feature-icon-box icon-box-amber">🔌</div>
+          <h4 data-i18n="feat_9_title">Zero Conflitti Gestionali & Cassa</h4>
+          <p data-i18n="feat_9_desc">Nessun conflitto con registratori fiscali o gestionali di magazzino sulla porta 3000. PrintZap rileva le porte occupate e si sposta con 1 clic su qualsiasi porta libera.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon-box icon-box-violet">🖥️</div>
+          <h4 data-i18n="feat_10_title">Desktop App Standalone & Menu Start</h4>
+          <p data-i18n="feat_10_desc">Si apre come un'applicazione Windows nativa a schermo intero senza barre URL, crea la cartella nel Menu Start e include un disinstallatore trasparente a 1 clic.</p>
+        </div>
       </div>
 
       <!-- ================= COLOR CODING SYSTEM SHOWCASE ================= -->
       <div class="color-showcase-box">
         <div class="color-showcase-header">
           <div class="badge badge-blue" data-i18n="color_badge">Segnali Visivi Intelligenti</div>
-          <h3 class="section-title" style="font-size: 2rem; margin: 12px 0 10px;" data-i18n="color_title">Codice Colori del Bancone: Tutto Sotto Controllo a Colpo d'Occhio</h3>
-          <p style="color: var(--text-muted); font-size: 0.95rem; margin: 0;" data-i18n="color_subtitle">PrintZap adotta un'interfaccia reattiva a colori: ogni stato del cliente o del file è immediatamente riconoscibile senza dover leggere o interpretare nulla.</p>
+          <h3 class="section-title color-title-custom" data-i18n="color_title">Codice Colori del Bancone: Tutto Sotto Controllo a Colpo d'Occhio</h3>
+          <p class="color-subtitle-custom" data-i18n="color_subtitle">PrintZap adotta un'interfaccia reattiva a colori: ogni stato del cliente o del file è immediatamente riconoscibile senza dover leggere o interpretare nulla.</p>
         </div>
 
         <div class="color-showcase-grid">
@@ -413,12 +425,12 @@
 
       <div class="calculator-box">
         <div class="calc-label-row">
-          <label style="font-weight: 600; font-size: 1.15rem;" data-i18n="calc_files_label">File ricevuti al giorno:</label>
+          <label for="filesSlider" class="calc-label-custom" data-i18n="calc_files_label">File ricevuti al giorno:</label>
           <span class="calc-val-highlight"><span id="filesCountDisplay">40</span> <span data-i18n="calc_files_unit">file/giorno</span></span>
         </div>
 
         <div class="calc-slider-wrap">
-          <input type="range" min="10" max="150" step="5" value="40" class="custom-range" id="filesSlider">
+          <input type="range" min="10" max="150" step="5" value="40" class="custom-range" id="filesSlider" title="File ricevuti al giorno" aria-label="File ricevuti al giorno">
         </div>
 
         <div class="calc-results-grid">
@@ -486,6 +498,18 @@
           <h4 data-i18n="req_net_title">Connessione Internet</h4>
           <p data-i18n="req_net_desc">Connessione attiva (ADSL, Fibra, 4G/5G o Wi-Fi)</p>
         </div>
+
+        <div class="req-card">
+          <div class="req-icon-box">🔌</div>
+          <h4 data-i18n="req_port_title">Rete & Porte TCP</h4>
+          <p data-i18n="req_port_desc">Porta 3000 predefinita con auto-fallback intelligente e selezione libera da Impostazioni</p>
+        </div>
+
+        <div class="req-card">
+          <div class="req-icon-box">🗂️</div>
+          <h4 data-i18n="req_clean_title">Installazione Pulita</h4>
+          <p data-i18n="req_clean_desc">Cartella dedicata nel Menu Start, registro disinstallazione Windows e disinstallatore grafico con scelta conservazione dati</p>
+        </div>
       </div>
     </div>
   </section>
@@ -523,7 +547,7 @@
             <li><svg class="icon-check" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> <span data-i18n="plan_feat_updates">Tutti gli aggiornamenti software inclusi</span></li>
             <li><svg class="icon-check" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> <span data-i18n="plan_feat_cancel">Zero vincoli: disdici in qualsiasi momento</span></li>
           </ul>
-          <a href="installa_printzap.bat" download="installa_printzap.bat" class="btn-ms-store" style="width: 100%; justify-content: center;">
+          <a href="installa_printzap.bat" download="installa_printzap.bat" class="btn-ms-store btn-ms-store-full">
             <span class="ms-store-icon">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
                 <rect x="2" y="2" width="9.5" height="9.5" fill="#f25022"/>
@@ -551,7 +575,7 @@
             <span class="price-amount">200</span>
             <span class="price-period" data-i18n="plan_annual_period">+ IVA / anno</span>
           </div>
-          <p class="price-subtext" style="color: var(--primary-light);" data-i18n="plan_annual_subtext">Pari a soli <strong>16,60 € / mese</strong> (risparmi 28 € all'anno!)</p>
+          <p class="price-subtext price-subtext-highlight" data-i18n="plan_annual_subtext">Pari a soli <strong>16,60 € / mese</strong> (risparmi 28 € all'anno!)</p>
           <ul class="plan-features">
             <li><svg class="icon-check" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> <span data-i18n="plan_annual_feat_full"><strong>Identico al piano mensile: tutte le funzionalità incluse al 100%</strong></span></li>
             <li><svg class="icon-check" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> <span data-i18n="plan_annual_feat_savings">Risparmio economico immediato rispetto al canone mensile</span></li>
@@ -559,7 +583,7 @@
             <li><svg class="icon-check" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> <span data-i18n="plan_annual_feat_invoice">Una sola fattura annuale (più comodo per il commercialista)</span></li>
             <li><svg class="icon-check" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> <span data-i18n="plan_annual_feat_locked">Prezzo bloccato e zero pensieri per un anno intero</span></li>
           </ul>
-          <a href="installa_printzap.bat" download="installa_printzap.bat" class="btn-ms-store" style="width: 100%; justify-content: center; background: linear-gradient(135deg, #10b981 0%, #059669 100%); border-color: rgba(16, 185, 129, 0.4); box-shadow: 0 4px 20px rgba(16, 185, 129, 0.4);">
+          <a href="installa_printzap.bat" download="installa_printzap.bat" class="btn-ms-store btn-ms-store-annual">
             <span class="ms-store-icon">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
                 <rect x="2" y="2" width="9.5" height="9.5" fill="#ffffff"/>
@@ -664,6 +688,26 @@
             PrintZap usa un sistema di semafori visivi studiato per il caos del bancone: il <strong>Viola Elettrico pulsante</strong> indica che l'ordine è stampato al 100% e la notifica è stata inviata (pronto per la consegna); il <strong>badge Giallo GIACENZA</strong> evidenzia i documenti arrivati ieri o nei giorni scorsi non ancora ritirati; il <strong>Giallo Intenso</strong> segnala nuovi file inviati dal cliente dopo la prima stampa; il <strong>Verde</strong> indica i file freschi ancora da stampare. Tutto è pensato per lavorare veloci e a zero errori anche nelle ore di punta!
           </div>
         </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            <span data-i18n="faq_q8">Ho già un registratore di cassa telematico o un gestionale sul computer: possono esserci conflitti di porta?</span>
+            <span class="faq-icon">+</span>
+          </div>
+          <div class="faq-answer" data-i18n="faq_a8">
+            Zero conflitti! Molti software di cassa usano la porta standard 3000 o 8080. PrintZap include un algoritmo di auto-rilevamento: se la porta 3000 è occupata all'avvio, il programma scala automaticamente sulla prima porta libera successiva senza andare in crash. Inoltre, puoi personalizzare e cambiare a caldo la porta in qualsiasi momento da <strong>Impostazioni ⚙️ → Servizio & Grafica</strong>.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            <span data-i18n="faq_q9">Come si installa e come si disinstalla PrintZap? Lascia file sparsi nel PC?</span>
+            <span class="faq-icon">+</span>
+          </div>
+          <div class="faq-answer" data-i18n="faq_a9">
+            L'installazione si effettua con 1 clic tramite lo script rapido con curl: crea la cartella ufficiale <strong>PrintZap</strong> nel tuo Menu Start di Windows e registra l'app in 'Installazione applicazioni'. Se in futuro vorrai rimuoverlo, il pratico disinstallatore grafico ti chiederà se desideri mantenere lo storico dei tuoi clienti e la licenza oppure cancellare tutto a zero, senza lasciare file sparsi o chiavi orfane.
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -675,8 +719,8 @@
       <p data-i18n="cta_desc">
         Scarica subito PrintZap per Windows e inizia la tua prova gratuita di 30 giorni nel tuo negozio. Zero rischi, zero vincoli.
       </p>
-      <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
-        <a href="installa_printzap.bat" download="installa_printzap.bat" class="btn-ms-store" style="font-size: 1.15rem; padding: 16px 34px;">
+      <div class="cta-btns-wrap">
+        <a href="installa_printzap.bat" download="installa_printzap.bat" class="btn-ms-store btn-ms-store-cta">
           <span class="ms-store-icon">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
               <rect x="2" y="2" width="9.5" height="9.5" fill="#f25022"/>
@@ -689,7 +733,7 @@
             <span class="ms-store-main" data-i18n="cta_btn_download">Scarica PrintZap per Windows</span>
           </span>
         </a>
-        <a href="https://wa.me/390965370621?text=Ciao!%20Vorrei%20maggiori%20informazioni%20su%20PrintZap%20per%20la%20mia%20cartoleria." target="_blank" data-phone="390965370621" class="btn btn-wa js-wa-contact" style="font-size: 1.15rem; padding: 18px 36px;">
+        <a href="https://wa.me/390965370621?text=Ciao!%20Vorrei%20maggiori%20informazioni%20su%20PrintZap%20per%20la%20mia%20cartoleria." target="_blank" rel="noopener noreferrer" data-phone="390965370621" class="btn btn-wa js-wa-contact btn-wa-cta">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
             <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.03 14.69 2 12.04 2M12.05 3.67C14.25 3.67 16.31 4.53 17.87 6.09C19.42 7.65 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.15 12.04 20.15C10.56 20.15 9.11 19.76 7.85 19L7.55 18.83L4.43 19.65L5.26 16.61L5.06 16.29C4.24 14.99 3.8 13.47 3.8 11.91C3.81 7.37 7.5 3.67 12.05 3.67Z"/>
           </svg>
@@ -706,13 +750,13 @@
         <!-- Col 1: Brand -->
         <div class="footer-col footer-brand">
           <a href="#" class="nav-brand">
-            <img src="logo.png" alt="PrintZap Logo" class="nav-logo" onerror="this.style.display='none'">
-            <span>Print<span style="color: var(--primary-light);">Zap</span></span>
+            <img src="logo.png" alt="PrintZap Logo" class="nav-logo" onerror="this.classList.add('hidden')">
+            <span>Print<span class="logo-zap">Zap</span></span>
           </a>
           <p data-i18n="footer_brand_desc">
             L'assistente di stampa intelligente per cartolerie, copisterie e centri copie. Zero caos al bancone e conformità GDPR totale.
           </p>
-          <div style="font-size: 0.82rem; color: var(--text-dim);">
+          <div class="footer-company-info">
             Made with ❤️ for Italian Print Shops
           </div>
         </div>
@@ -743,9 +787,9 @@
         <div class="footer-col">
           <h4 data-i18n="footer_col_support">Assistenza & Note</h4>
           <ul>
-            <li><a href="https://wa.me/390965370621?text=Ciao!%20Vorrei%20maggiori%20informazioni%20su%20PrintZap%20per%20la%20mia%20cartoleria." target="_blank" class="js-wa-contact" data-phone="390965370621" data-i18n="footer_link_wa">Assistenza WhatsApp Diretta</a></li>
-            <li><button type="button" class="btn-legal-link" id="openLegalModal" style="color: var(--text-muted); padding: 0; background: none; border: none; font-size: 0.88rem; cursor: pointer; text-align: left;" data-i18n="legal_btn">Privacy Policy & GDPR</button></li>
-            <li><span style="color: var(--text-dim); font-size: 0.85rem;">📞 0965 370621</span></li>
+            <li><a href="https://wa.me/390965370621?text=Ciao!%20Vorrei%20maggiori%20informazioni%20su%20PrintZap%20per%20la%20mia%20cartoleria." target="_blank" rel="noopener noreferrer" class="js-wa-contact" data-phone="390965370621" data-i18n="footer_link_wa">Assistenza WhatsApp Diretta</a></li>
+            <li><button type="button" class="btn-legal-link btn-legal-custom" id="openLegalModal" data-i18n="legal_btn">Privacy Policy & GDPR</button></li>
+            <li><span class="footer-phone-text">📞 0965 370621</span></li>
           </ul>
         </div>
       </div>
@@ -755,9 +799,9 @@
         
         <!-- Contatore Visite Reali Live nel Footer -->
         <div class="visitor-counter-wrap">
-          <a href="https://hits.sh/alfaomega-dev.github.io/cartoleria-whatsapp-updates/" target="_blank" rel="noopener" class="visitor-counter-btn" data-i18n-title="visitor_title" title="Statistiche visite in tempo reale (Oggi / Totale)">
+          <a href="https://hits.sh/alfaomega-dev.github.io/cartoleria-whatsapp-updates/" target="_blank" rel="noopener noreferrer" class="visitor-counter-btn" data-i18n-title="visitor_title" title="Statistiche visite in tempo reale (Oggi / Totale)">
             <span class="visitor-dot"></span>
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle;">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" class="icon-middle">
               <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
               <circle cx="12" cy="12" r="3"></circle>
             </svg>

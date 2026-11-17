@@ -143,8 +143,8 @@
       border: 1px solid var(--border-subtle);
       border-radius: var(--radius-md);
       padding: 24px;
-      backdrop-filter: blur(14px);
       -webkit-backdrop-filter: blur(14px);
+      backdrop-filter: blur(14px);
       box-shadow: 0 8px 24px rgba(0,0,0,0.35);
       transition: all 0.25s ease;
       display: flex;
@@ -304,8 +304,8 @@
       padding: 28px;
       margin-top: 30px;
       box-shadow: 0 8px 30px rgba(0,0,0,0.4);
-      backdrop-filter: blur(14px);
       -webkit-backdrop-filter: blur(14px);
+      backdrop-filter: blur(14px);
     }
     .detail-card-header {
       display: flex;
@@ -360,6 +360,204 @@
       font-size: 0.88rem;
       line-height: 1.5;
     }
+
+    /* Extracted classes to avoid inline styles */
+    .mb-8 { margin-bottom: 8px; }
+    .mb-10 { margin-bottom: 10px; }
+    .mb-14 { margin-bottom: 14px; }
+    .text-center { text-align: center; }
+    .pill-wrap-row { display: flex; gap: 8px; flex-wrap: wrap; }
+    
+    .frame-w80 { min-width: 80px; }
+    .frame-w90 { min-width: 90px; }
+    .frame-w100 { min-width: 100px; }
+    .frame-w110 { min-width: 110px; }
+    .frame-w120 { min-width: 120px; }
+
+    .header-title {
+      font-size: 2.6rem;
+      font-weight: 800;
+      margin-bottom: 14px;
+      letter-spacing: -0.5px;
+    }
+    .header-subtitle {
+      color: var(--text-muted);
+      font-size: 1.15rem;
+      max-width: 780px;
+      margin: 0 auto 20px;
+      line-height: 1.6;
+    }
+    .ms-store-main-sm {
+      font-size: 0.82rem;
+    }
+    .main-buttons-container {
+      padding-bottom: 90px;
+    }
+
+    .sidebar-img-col-flex {
+      display: flex;
+      gap: 20px;
+      align-items: flex-end;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .sidebar-caption-single {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      margin-top: 8px;
+      font-weight: 600;
+    }
+    .sidebar-caption-multi {
+      font-size: 0.78rem;
+      color: #38bdf8;
+      margin-top: 8px;
+      font-weight: 700;
+    }
+    .sidebar-showcase-title {
+      font-size: 1.6rem;
+      color: var(--text-main);
+      margin-bottom: 12px;
+    }
+    .sidebar-showcase-desc {
+      color: var(--text-muted);
+      line-height: 1.6;
+      margin-bottom: 16px;
+    }
+    .sidebar-multichannel-callout {
+      background: rgba(56, 189, 248, 0.08);
+      border: 1px solid rgba(56, 189, 248, 0.25);
+      border-radius: var(--radius-sm);
+      padding: 12px 16px;
+      margin-bottom: 16px;
+    }
+    .sidebar-multichannel-title {
+      color: #38bdf8;
+      font-weight: 700;
+      font-size: 0.92rem;
+      margin-bottom: 4px;
+    }
+    .sidebar-multichannel-text {
+      color: var(--text-muted);
+      font-size: 0.88rem;
+      line-height: 1.5;
+    }
+
+    .state-pill.state-muted {
+      background: rgba(255, 255, 255, 0.08);
+      color: #9ca3af;
+    }
+
+    .settings-showcase-card {
+      margin-bottom: 30px;
+    }
+    .settings-img-col {
+      flex: 1;
+      max-width: 580px;
+      text-align: center;
+    }
+    .settings-preview-img {
+      max-height: 380px;
+      width: 100%;
+      object-fit: contain;
+      border-radius: 10px;
+      border: 2px solid rgba(56, 189, 248, 0.4);
+      box-shadow: 0 0 25px rgba(56, 189, 248, 0.15);
+      background: #090d16;
+    }
+    .settings-badge {
+      margin-bottom: 10px;
+      background: rgba(56, 189, 248, 0.12);
+      border-color: rgba(56, 189, 248, 0.3);
+      color: #38bdf8;
+    }
+    .settings-title {
+      font-size: 1.55rem;
+      color: var(--text-main);
+      margin-bottom: 12px;
+    }
+    .settings-desc {
+      color: var(--text-muted);
+      line-height: 1.6;
+      margin-bottom: 16px;
+    }
+
+    .deepdive-section {
+      margin-top: 50px;
+      border-top: 1px dashed rgba(255, 255, 255, 0.12);
+      padding-top: 35px;
+    }
+    .deepdive-header-box {
+      text-align: center;
+      margin-bottom: 25px;
+    }
+    .deepdive-title {
+      font-size: 1.7rem;
+      color: var(--text-main);
+    }
+    .deepdive-subtitle {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      max-width: 720px;
+      margin: 6px auto 0;
+    }
+    .deepdive-card-heading {
+      font-size: 1.35rem;
+      color: var(--text-main);
+      margin: 6px 0 0;
+    }
+
+    .badge-color-green {
+      background: rgba(37, 211, 102, 0.15);
+      color: #25D366;
+    }
+    .badge-color-blue {
+      background: rgba(56, 189, 248, 0.15);
+      color: #38bdf8;
+    }
+    .badge-color-purple {
+      background: rgba(168, 85, 247, 0.15);
+      color: #c084fc;
+    }
+    .badge-color-amber {
+      background: rgba(245, 158, 11, 0.15);
+      color: #fbbf24;
+    }
+    .badge-color-cyan {
+      background: rgba(6, 182, 212, 0.15);
+      color: #22d3ee;
+    }
+    .badge-color-red {
+      background: rgba(239, 68, 68, 0.15);
+      color: #f87171;
+    }
+
+    .final-cta-box {
+      text-align: center;
+      margin-top: 50px;
+      padding: 40px;
+      background: rgba(56, 189, 248, 0.05);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      border-radius: var(--radius-lg);
+    }
+    .final-cta-title {
+      font-size: 1.8rem;
+      margin-bottom: 12px;
+      color: var(--text-main);
+    }
+    .final-cta-subtitle {
+      color: var(--text-muted);
+      margin-bottom: 24px;
+    }
+    .final-cta-buttons {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .btn-outline-sky {
+      border-color: #38bdf8;
+      color: #38bdf8;
+    }
   </style>
 </head>
 <body>
@@ -367,14 +565,14 @@
   <!-- ================= HEADER DELLA PAGINA ================= -->
   <header class="buttons-header">
     <div class="container">
-      <div class="hero-badge" style="margin-bottom: 14px;" data-p18n="badge_title">
+      <div class="hero-badge mb-14" data-p18n="badge_title">
         <span class="pulse-dot"></span>
         Mappa Visiva dei Comandi PrintZap
       </div>
-      <h1 style="font-size: 2.6rem; font-weight: 800; margin-bottom: 14px; letter-spacing: -0.5px;" data-p18n="main_title">
+      <h1 class="header-title" data-p18n="main_title">
         Guida Completa a Tutti i Pulsanti & Icone
       </h1>
-      <p style="color: var(--text-muted); font-size: 1.15rem; max-width: 780px; margin: 0 auto 20px; line-height: 1.6;" data-p18n="main_subtitle">
+      <p class="header-subtitle" data-p18n="main_subtitle">
         Ogni singolo tasto e controllo dell'interfaccia spiegato con la sua immagine reale, il suo funzionamento al bancone e i diversi stati di colore.
       </p>
 
@@ -417,7 +615,7 @@
             </svg>
           </span>
           <span class="ms-store-text">
-            <span class="ms-store-main" style="font-size: 0.82rem;">Scarica PrintZap</span>
+            <span class="ms-store-main ms-store-main-sm">Scarica PrintZap</span>
           </span>
         </a>
       </div>
@@ -436,35 +634,35 @@
   </header>
 
   <!-- ================= CONTENUTO PRINCIPALE ================= -->
-  <main class="container" style="padding-bottom: 90px;">
+  <main class="container main-buttons-container">
 
     <!-- SHOWCASE BARRA LATERALE COMPLETA & MULTICANALE -->
     <div class="sidebar-showcase-card" id="sidebar-overview">
-      <div class="sidebar-img-col" style="display: flex; gap: 20px; align-items: flex-end; justify-content: center; flex-wrap: wrap;">
-        <div style="text-align: center;">
+      <div class="sidebar-img-col sidebar-img-col-flex">
+        <div class="text-center">
           <img src="pulsanti_img/sidebar_completa.png" alt="Barra Base PrintZap (Solo WhatsApp)">
-          <div style="font-size: 0.78rem; color: var(--text-muted); margin-top: 8px; font-weight: 600;" data-p18n="sidebar_mode_single">Base (Solo WhatsApp)</div>
+          <div class="sidebar-caption-single" data-p18n="sidebar_mode_single">Base (Solo WhatsApp)</div>
         </div>
-        <div style="text-align: center;">
+        <div class="text-center">
           <img src="pulsanti_img/sidebar_servizi_attivi.png" alt="Barra Multicanale con Servizi Aperti">
-          <div style="font-size: 0.78rem; color: #38bdf8; margin-top: 8px; font-weight: 700;" data-p18n="sidebar_mode_multi">Multicanale (Servizi Aperti) ⚡</div>
+          <div class="sidebar-caption-multi" data-p18n="sidebar_mode_multi">Multicanale (Servizi Aperti) ⚡</div>
         </div>
       </div>
       <div class="sidebar-info-col">
-        <div class="hero-badge" style="margin-bottom: 10px;" data-p18n="sidebar_badge">Layout Ufficiale PrintZap</div>
-        <h3 style="font-size: 1.6rem; color: var(--text-main); margin-bottom: 12px;" data-p18n="sidebar_showcase_title">
+        <div class="hero-badge mb-10" data-p18n="sidebar_badge">Layout Ufficiale PrintZap</div>
+        <h3 class="sidebar-showcase-title" data-p18n="sidebar_showcase_title">
           La Barra di Comando Sinistra Sempre Visibile
         </h3>
-        <p style="color: var(--text-muted); line-height: 1.6; margin-bottom: 16px;" data-p18n="sidebar_showcase_desc">
+        <p class="sidebar-showcase-desc" data-p18n="sidebar_showcase_desc">
           Posizionata sul bordo sinistro della finestra a tutta altezza, la barra laterale ti permette di navigare tra canali di ricezione, aprire l'archivio su disco e monitorare la connessione WhatsApp con un solo colpo d'occhio.
         </p>
-        <div style="background: rgba(56, 189, 248, 0.08); border: 1px solid rgba(56, 189, 248, 0.25); border-radius: var(--radius-sm); padding: 12px 16px; margin-bottom: 16px;">
-          <div style="color: #38bdf8; font-weight: 700; font-size: 0.92rem; margin-bottom: 4px;" data-p18n="sidebar_multichannel_title">✨ Nuove Icone con Servizi Aperti:</div>
-          <div style="color: var(--text-muted); font-size: 0.88rem; line-height: 1.5;" data-p18n="sidebar_multichannel_desc">
+        <div class="sidebar-multichannel-callout">
+          <div class="sidebar-multichannel-title" data-p18n="sidebar_multichannel_title">✨ Nuove Icone con Servizi Aperti:</div>
+          <div class="sidebar-multichannel-text" data-p18n="sidebar_multichannel_desc">
             Quando attivi <strong>E-mail</strong>, <strong>Telegram</strong> o <strong>Web Bancone</strong> nel pannello Impostazioni, le loro 3 rispettive icone compaiono automaticamente sotto WhatsApp, creando un centralino unico per tutti i clienti!
           </div>
         </div>
-        <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+        <div class="pill-wrap-row">
           <span class="state-pill state-green" data-p18n="pill_always_ready">✓ Sempre a Portata di Clic</span>
           <span class="state-pill state-amber" data-p18n="pill_no_navigation">✓ Zero Finestre Nascoste</span>
           <span class="state-pill state-purple" data-p18n="pill_touch_friendly">✓ Progettata per Touchscreen</span>
@@ -616,7 +814,7 @@
             <strong data-p18n="label_states">Stati Visivi:</strong>
             <span data-p18n="btn3_states">
               <span class="state-pill state-green">Verde Brillante</span> Suono attivo (avviso sonoro ad ogni file).<br>
-              <span class="state-pill" style="background: rgba(255,255,255,0.08); color: #9ca3af;">Grigio Muto</span> Silenzioso (ideale se ascolti musica o nei picchi).
+              <span class="state-pill state-muted">Grigio Muto</span> Silenzioso (ideale se ascolti musica o nei picchi).
             </span>
           </div>
         </div>
@@ -749,7 +947,7 @@
         <!-- 2.1 APRI CARTELLA CLIENTE -->
         <div class="btn-card">
           <div class="btn-card-top">
-            <div class="btn-img-frame" style="min-width: 110px;">
+            <div class="btn-img-frame frame-w110">
               <img src="pulsanti_img/btn_apri_cartella.png" alt="Pulsante Apri Cartella Cliente">
             </div>
             <div class="btn-meta">
@@ -769,7 +967,7 @@
         <!-- 2.2 NOTIFICA PRONTO (VERDE) -->
         <div class="btn-card">
           <div class="btn-card-top">
-            <div class="btn-img-frame" style="min-width: 110px;">
+            <div class="btn-img-frame frame-w110">
               <img src="pulsanti_img/btn_notifica_verde.png" alt="Pulsante Notifica Pronto Verde">
             </div>
             <div class="btn-meta">
@@ -789,7 +987,7 @@
         <!-- 2.3 NOTIFICA INVIATA (VIOLA) -->
         <div class="btn-card">
           <div class="btn-card-top">
-            <div class="btn-img-frame" style="min-width: 110px;">
+            <div class="btn-img-frame frame-w110">
               <img src="pulsanti_img/btn_notifica_viola.png" alt="Pulsante Notifica Viola Inviata">
             </div>
             <div class="btn-meta">
@@ -809,7 +1007,7 @@
         <!-- 2.4 NOTIFICA FILE AGGIUNTI (GIALLO ORO) -->
         <div class="btn-card">
           <div class="btn-card-top">
-            <div class="btn-img-frame" style="min-width: 110px;">
+            <div class="btn-img-frame frame-w110">
               <img src="pulsanti_img/btn_notifica_giallo.png" alt="Pulsante Notifica Giallo Oro Nuovi File">
             </div>
             <div class="btn-meta">
@@ -844,7 +1042,7 @@
         <!-- 3.1 APRI FILE -->
         <div class="btn-card">
           <div class="btn-card-top">
-            <div class="btn-img-frame" style="min-width: 100px;">
+            <div class="btn-img-frame frame-w100">
               <img src="pulsanti_img/btn_apri_file.png" alt="Pulsante Apri File">
             </div>
             <div class="btn-meta">
@@ -864,7 +1062,7 @@
         <!-- 3.2 NOTIFICA VELOCE SESSIONE (RAZZETTO) -->
         <div class="btn-card">
           <div class="btn-card-top">
-            <div class="btn-img-frame" style="min-width: 80px;">
+            <div class="btn-img-frame frame-w80">
               <img src="pulsanti_img/btn_quick_notify.png" alt="Notifica Veloce Razzetto">
             </div>
             <div class="btn-meta">
@@ -880,7 +1078,7 @@
         <!-- 3.3 CHECKBOX STAMPATO -->
         <div class="btn-card">
           <div class="btn-card-top">
-            <div class="btn-img-frame" style="min-width: 80px;">
+            <div class="btn-img-frame frame-w80">
               <img src="pulsanti_img/btn_stampato.png" alt="Spunta Stampato">
             </div>
             <div class="btn-meta">
@@ -916,7 +1114,7 @@
         <!-- 3.5 SELETTORE VISTA GRIGLIA / LISTA -->
         <div class="btn-card">
           <div class="btn-card-top">
-            <div class="btn-img-frame" style="min-width: 90px;">
+            <div class="btn-img-frame frame-w90">
               <img src="pulsanti_img/btn_griglia_lista.png" alt="Selettore Griglia e Lista">
             </div>
             <div class="btn-meta">
@@ -963,7 +1161,7 @@
         <!-- 4.1 BADGE GIACENZA -->
         <div class="btn-card">
           <div class="btn-card-top">
-            <div class="btn-img-frame" style="min-width: 80px;">
+            <div class="btn-img-frame frame-w80">
               <img src="pulsanti_img/badge_giacenza.png" alt="Badge Giacenza Giallo">
             </div>
             <div class="btn-meta">
@@ -979,7 +1177,7 @@
         <!-- 4.2 BADGE DA STAMPARE -->
         <div class="btn-card">
           <div class="btn-card-top">
-            <div class="btn-img-frame" style="min-width: 80px;">
+            <div class="btn-img-frame frame-w80">
               <img src="pulsanti_img/badge_da_stampare.png" alt="Badge Da Stampare Rosso">
             </div>
             <div class="btn-meta">
@@ -995,7 +1193,7 @@
         <!-- 4.3 BADGE GIÀ STAMPATO -->
         <div class="btn-card">
           <div class="btn-card-top">
-            <div class="btn-img-frame" style="min-width: 80px;">
+            <div class="btn-img-frame frame-w80">
               <img src="pulsanti_img/badge_gia_stampato.png" alt="Badge Già Stampato Verde">
             </div>
             <div class="btn-meta">
@@ -1022,19 +1220,19 @@
       </div>
 
       <!-- SHOWCASE DEL MODAL IMPOSTAZIONI -->
-      <div class="sidebar-showcase-card" style="margin-bottom: 30px;">
-        <div class="sidebar-img-col" style="flex: 1; max-width: 580px; text-align: center;">
-          <img src="pulsanti_img/impostazioni_completa.png" alt="Pannello Impostazioni PrintZap" style="max-height: 380px; width: 100%; object-fit: contain; border-radius: 10px; border: 2px solid rgba(56, 189, 248, 0.4); box-shadow: 0 0 25px rgba(56, 189, 248, 0.15); background: #090d16;">
+      <div class="sidebar-showcase-card settings-showcase-card">
+        <div class="sidebar-img-col settings-img-col">
+          <img src="pulsanti_img/impostazioni_completa.png" alt="Pannello Impostazioni PrintZap" class="settings-preview-img">
         </div>
         <div class="sidebar-info-col">
-          <div class="hero-badge" style="margin-bottom: 10px; background: rgba(56, 189, 248, 0.12); border-color: rgba(56, 189, 248, 0.3); color: #38bdf8;" data-p18n="modal_badge">Pannello Impostazioni Ufficiale</div>
-          <h3 style="font-size: 1.55rem; color: var(--text-main); margin-bottom: 12px;" data-p18n="modal_showcase_title">
+          <div class="hero-badge settings-badge" data-p18n="modal_badge">Pannello Impostazioni Ufficiale</div>
+          <h3 class="settings-title" data-p18n="modal_showcase_title">
             Configurazione Modulare & Multi-Canale
           </h3>
-          <p style="color: var(--text-muted); line-height: 1.6; margin-bottom: 16px;" data-p18n="modal_showcase_desc">
+          <p class="settings-desc" data-p18n="modal_showcase_desc">
             Accessibile cliccando l'ingranaggio ⚙️ nella barra laterale, la finestra ti permette di attivare o disattivare ogni canale di ricezione in piena autonomia con appositi interruttori ON/OFF, regolare cartelle, stampanti e verificare licenza e statistiche.
           </p>
-          <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+          <div class="pill-wrap-row">
             <span class="state-pill state-green" data-p18n="pill_9tabs">✓ 9 Schede Dedicate</span>
             <span class="state-pill state-purple" data-p18n="pill_modular">✓ Attivazione a Scelta Canali</span>
             <span class="state-pill state-amber" data-p18n="pill_instant_save">✓ Salvataggio Immediato</span>
@@ -1047,7 +1245,7 @@
         <!-- 5.1 TAB WHATSAPP -->
         <div class="btn-card">
           <div class="btn-card-top">
-            <div class="btn-img-frame" style="min-width: 80px;">
+            <div class="btn-img-frame frame-w80">
               <img src="pulsanti_img/tab_whatsapp.png" alt="Tab WhatsApp">
             </div>
             <div class="btn-meta">
@@ -1067,7 +1265,7 @@
         <!-- 5.2 TAB TELEGRAM -->
         <div class="btn-card">
           <div class="btn-card-top">
-            <div class="btn-img-frame" style="min-width: 80px;">
+            <div class="btn-img-frame frame-w80">
               <img src="pulsanti_img/tab_telegram.png" alt="Tab Telegram">
             </div>
             <div class="btn-meta">
@@ -1087,7 +1285,7 @@
         <!-- 5.3 TAB WEB BANCONE -->
         <div class="btn-card">
           <div class="btn-card-top">
-            <div class="btn-img-frame" style="min-width: 80px;">
+            <div class="btn-img-frame frame-w80">
               <img src="pulsanti_img/tab_web_bancone.png" alt="Tab Web Bancone">
             </div>
             <div class="btn-meta">
@@ -1107,7 +1305,7 @@
         <!-- 5.4 TAB E-MAIL -->
         <div class="btn-card">
           <div class="btn-card-top">
-            <div class="btn-img-frame" style="min-width: 80px;">
+            <div class="btn-img-frame frame-w80">
               <img src="pulsanti_img/tab_email.png" alt="Tab E-mail">
             </div>
             <div class="btn-meta">
@@ -1127,7 +1325,7 @@
         <!-- 5.5 TAB SERVIZIO -->
         <div class="btn-card">
           <div class="btn-card-top">
-            <div class="btn-img-frame" style="min-width: 80px;">
+            <div class="btn-img-frame frame-w80">
               <img src="pulsanti_img/tab_servizio.png" alt="Tab Servizio">
             </div>
             <div class="btn-meta">
@@ -1143,7 +1341,7 @@
         <!-- 5.6 TAB AGGIORNAMENTI -->
         <div class="btn-card">
           <div class="btn-card-top">
-            <div class="btn-img-frame" style="min-width: 80px;">
+            <div class="btn-img-frame frame-w80">
               <img src="pulsanti_img/tab_aggiornamenti.png" alt="Tab Aggiornamenti">
             </div>
             <div class="btn-meta">
@@ -1159,7 +1357,7 @@
         <!-- 5.7 TAB LICENZA -->
         <div class="btn-card">
           <div class="btn-card-top">
-            <div class="btn-img-frame" style="min-width: 80px;">
+            <div class="btn-img-frame frame-w80">
               <img src="pulsanti_img/tab_licenza.png" alt="Tab Licenza">
             </div>
             <div class="btn-meta">
@@ -1175,7 +1373,7 @@
         <!-- 5.8 TAB STATISTICHE -->
         <div class="btn-card">
           <div class="btn-card-top">
-            <div class="btn-img-frame" style="min-width: 80px;">
+            <div class="btn-img-frame frame-w80">
               <img src="pulsanti_img/tab_statistiche.png" alt="Tab Statistiche">
             </div>
             <div class="btn-meta">
@@ -1191,7 +1389,7 @@
         <!-- 5.9 TAB SISTEMA & LOG -->
         <div class="btn-card">
           <div class="btn-card-top">
-            <div class="btn-img-frame" style="min-width: 80px;">
+            <div class="btn-img-frame frame-w80">
               <img src="pulsanti_img/tab_sistema_log.png" alt="Tab Sistema e Log">
             </div>
             <div class="btn-meta">
@@ -1207,7 +1405,7 @@
         <!-- 5.10 TOGGLE SWITCH (INTERRUTTORE SERVIZI) -->
         <div class="btn-card">
           <div class="btn-card-top">
-            <div class="btn-img-frame" style="min-width: 80px;">
+            <div class="btn-img-frame frame-w80">
               <img src="pulsanti_img/toggle_switch.png" alt="Interruttore Toggle Switch">
             </div>
             <div class="btn-meta">
@@ -1230,7 +1428,7 @@
         <!-- 5.11 SALVA IMPOSTAZIONI -->
         <div class="btn-card">
           <div class="btn-card-top">
-            <div class="btn-img-frame" style="min-width: 120px;">
+            <div class="btn-img-frame frame-w120">
               <img src="pulsanti_img/btn_salva_impostazioni.png" alt="Pulsante Salva Impostazioni">
             </div>
             <div class="btn-meta">
@@ -1262,11 +1460,11 @@
       </div>
 
       <!-- APPROFONDIMENTO SCHEDE DI CONFIGURAZIONE (FOTO 1 - 6) -->
-      <div style="margin-top: 50px; border-top: 1px dashed rgba(255, 255, 255, 0.12); padding-top: 35px;">
-        <div style="text-align: center; margin-bottom: 25px;">
-          <div class="hero-badge" style="margin-bottom: 8px;" data-p18n="deepdive_badge">Guida Visiva alle Schede di Sistema</div>
-          <h3 style="font-size: 1.7rem; color: var(--text-main);" data-p18n="deepdive_title">Tutti i Menu Interni Spiegati Funzione per Funzione</h3>
-          <p style="color: var(--text-muted); font-size: 0.95rem; max-width: 720px; margin: 6px auto 0;" data-p18n="deepdive_subtitle">
+      <div class="deepdive-section">
+        <div class="deepdive-header-box">
+          <div class="hero-badge mb-8" data-p18n="deepdive_badge">Guida Visiva alle Schede di Sistema</div>
+          <h3 class="deepdive-title" data-p18n="deepdive_title">Tutti i Menu Interni Spiegati Funzione per Funzione</h3>
+          <p class="deepdive-subtitle" data-p18n="deepdive_subtitle">
             Dalla ricezione Telegram al portale Wi-Fi con QR Code, dalla gestione temi e licenza fino al report contabile delle stampe e al backup completo.
           </p>
         </div>
@@ -1275,8 +1473,8 @@
         <div class="detail-showcase-card">
           <div class="detail-card-header">
             <div>
-              <span class="btn-location-badge" style="background: rgba(37, 211, 102, 0.15); color: #25D366;">Foto Base • Connessione WhatsApp</span>
-              <h4 style="font-size: 1.35rem; color: var(--text-main); margin: 6px 0 0;" data-p18n="card_wa_title">📱 Connessione WhatsApp & Scansione QR Code</h4>
+              <span class="btn-location-badge badge-color-green">Foto Base • Connessione WhatsApp</span>
+              <h4 class="deepdive-card-heading" data-p18n="card_wa_title">📱 Connessione WhatsApp & Scansione QR Code</h4>
             </div>
             <span class="state-pill state-green" data-p18n="pill_wa_quick">Associazione Istantanea in 5 Secondi</span>
           </div>
@@ -1307,8 +1505,8 @@
         <div class="detail-showcase-card">
           <div class="detail-card-header">
             <div>
-              <span class="btn-location-badge" style="background: rgba(56, 189, 248, 0.15); color: #38bdf8;">Foto 1 • Impostazioni Telegram</span>
-              <h4 style="font-size: 1.35rem; color: var(--text-main); margin: 6px 0 0;" data-p18n="card_tg_title">✈️ Integrazione Telegram Multi-Modalità</h4>
+              <span class="btn-location-badge badge-color-blue">Foto 1 • Impostazioni Telegram</span>
+              <h4 class="deepdive-card-heading" data-p18n="card_tg_title">✈️ Integrazione Telegram Multi-Modalità</h4>
             </div>
             <span class="state-pill state-green" data-p18n="pill_tg_ready">Canale Ricezione Alternativo</span>
           </div>
@@ -1339,8 +1537,8 @@
         <div class="detail-showcase-card">
           <div class="detail-card-header">
             <div>
-              <span class="btn-location-badge" style="background: rgba(168, 85, 247, 0.15); color: #c084fc;">Foto 2 • Web Bancone</span>
-              <h4 style="font-size: 1.35rem; color: var(--text-main); margin: 6px 0 0;" data-p18n="card_web_title">🌐 Portale Web Bancone (Caricamento via QR Code)</h4>
+              <span class="btn-location-badge badge-color-purple">Foto 2 • Web Bancone</span>
+              <h4 class="deepdive-card-heading" data-p18n="card_web_title">🌐 Portale Web Bancone (Caricamento via QR Code)</h4>
             </div>
             <span class="state-pill state-purple" data-p18n="pill_web_noapp">Zero App da Installare</span>
           </div>
@@ -1371,8 +1569,8 @@
         <div class="detail-showcase-card">
           <div class="detail-card-header">
             <div>
-              <span class="btn-location-badge" style="background: rgba(37, 211, 102, 0.15); color: #25D366;">Foto 3 • Servizio & Grafica</span>
-              <h4 style="font-size: 1.35rem; color: var(--text-main); margin: 6px 0 0;" data-p18n="card_srv_title">⚙️ Impostazioni Servizio, Temi & Automazioni</h4>
+              <span class="btn-location-badge badge-color-green">Foto 3 • Servizio & Grafica</span>
+              <h4 class="deepdive-card-heading" data-p18n="card_srv_title">⚙️ Impostazioni Servizio, Temi & Automazioni</h4>
             </div>
             <span class="state-pill state-green" data-p18n="pill_srv_custom">Personalizzazione Totale</span>
           </div>
@@ -1403,8 +1601,8 @@
         <div class="detail-showcase-card">
           <div class="detail-card-header">
             <div>
-              <span class="btn-location-badge" style="background: rgba(245, 158, 11, 0.15); color: #fbbf24;">Foto 4 • Stato Licenza</span>
-              <h4 style="font-size: 1.35rem; color: var(--text-main); margin: 6px 0 0;" data-p18n="card_lic_title">🔒 Stato Licenza, ID Macchina & Rinnovi</h4>
+              <span class="btn-location-badge badge-color-amber">Foto 4 • Stato Licenza</span>
+              <h4 class="deepdive-card-heading" data-p18n="card_lic_title">🔒 Stato Licenza, ID Macchina & Rinnovi</h4>
             </div>
             <span class="state-pill state-amber" data-p18n="pill_lic_lifetime">Trasparenza Completa</span>
           </div>
@@ -1435,8 +1633,8 @@
         <div class="detail-showcase-card">
           <div class="detail-card-header">
             <div>
-              <span class="btn-location-badge" style="background: rgba(6, 182, 212, 0.15); color: #22d3ee;">Foto 5 • Statistiche & Report</span>
-              <h4 style="font-size: 1.35rem; color: var(--text-main); margin: 6px 0 0;" data-p18n="card_stat_title">📊 Statistiche di Produttività & Resoconto Stampa</h4>
+              <span class="btn-location-badge badge-color-cyan">Foto 5 • Statistiche & Report</span>
+              <h4 class="deepdive-card-heading" data-p18n="card_stat_title">📊 Statistiche di Produttività & Resoconto Stampa</h4>
             </div>
             <span class="state-pill state-green" data-p18n="pill_stat_export">Esportazioni PDF & Excel</span>
           </div>
@@ -1467,8 +1665,8 @@
         <div class="detail-showcase-card">
           <div class="detail-card-header">
             <div>
-              <span class="btn-location-badge" style="background: rgba(239, 68, 68, 0.15); color: #f87171;">Foto 6 • Disaster Recovery & Log</span>
-              <h4 style="font-size: 1.35rem; color: var(--text-main); margin: 6px 0 0;" data-p18n="card_sys_title">💾 Disaster Recovery, Backup & Spegnimento Pulito</h4>
+              <span class="btn-location-badge badge-color-red">Foto 6 • Disaster Recovery & Log</span>
+              <h4 class="deepdive-card-heading" data-p18n="card_sys_title">💾 Disaster Recovery, Backup & Spegnimento Pulito</h4>
             </div>
             <span class="state-pill state-red" data-p18n="pill_sys_safe">Massima Sicurezza Dati</span>
           </div>
@@ -1499,11 +1697,11 @@
     </section>
 
     <!-- BOX FINALE CALL TO ACTION -->
-    <div style="text-align: center; margin-top: 50px; padding: 40px; background: rgba(56, 189, 248, 0.05); border: 1px solid rgba(56, 189, 248, 0.3); border-radius: var(--radius-lg);">
-      <h3 style="font-size: 1.8rem; margin-bottom: 12px; color: var(--text-main);" data-p18n="final_title">Tutti i comandi pronti all'uso sul tuo banco</h3>
-      <p style="color: var(--text-muted); margin-bottom: 24px;" data-p18n="final_subtitle">Installa PrintZap e prova gratis la comodità di questa interfaccia per 30 giorni.</p>
-      <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
-        <a href="guida.html" class="btn btn-outline" style="border-color: #38bdf8; color: #38bdf8;" data-p18n="final_btn_workflow">Consulta la Guida al Flusso di Lavoro 📖</a>
+    <div class="final-cta-box">
+      <h3 class="final-cta-title" data-p18n="final_title">Tutti i comandi pronti all'uso sul tuo banco</h3>
+      <p class="final-cta-subtitle" data-p18n="final_subtitle">Installa PrintZap e prova gratis la comodità di questa interfaccia per 30 giorni.</p>
+      <div class="final-cta-buttons">
+        <a href="guida.html" class="btn btn-outline btn-outline-sky" data-p18n="final_btn_workflow">Consulta la Guida al Flusso di Lavoro 📖</a>
         <a href="index.html#prezzi" class="btn btn-primary" data-p18n="final_btn_try">Inizia la Prova Gratuita (30gg)</a>
       </div>
     </div>

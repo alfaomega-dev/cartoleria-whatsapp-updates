@@ -20,7 +20,7 @@ exit /b
     minimizebutton="yes"
     windowstate="normal"
     scroll="no"
-    selection="no"
+    selection="yes"
     contextmenu="no"
 />
 <style type="text/css">
@@ -37,7 +37,7 @@ exit /b
     .wrapper {
         position: fixed;
         top: 0; left: 0; right: 0; bottom: 0;
-        padding: 24px 28px;
+        padding: 22px 26px;
         display: flex;
         flex-direction: column;
         background: radial-gradient(circle at 85% 15%, #182229 0%, #0b141a 75%);
@@ -45,7 +45,8 @@ exit /b
     .header {
         display: flex;
         align-items: center;
-        margin-bottom: 20px;
+        margin-bottom: 16px;
+        flex-shrink: 0;
     }
     .brand-icon {
         width: 44px; height: 44px;
@@ -59,12 +60,109 @@ exit /b
         color: #fff;
         margin-right: 14px;
         box-shadow: 0 4px 12px rgba(37, 211, 102, 0.25);
+        flex-shrink: 0;
     }
     .brand-text h1 {
-        margin: 0; font-size: 20px; font-weight: 700; color: #ffffff; letter-spacing: -0.3px;
+        margin: 0; font-size: 19px; font-weight: 700; color: #ffffff; letter-spacing: -0.3px;
     }
     .brand-text p {
-        margin: 2px 0 0 0; font-size: 12px; color: #8696a0; font-weight: 500;
+        margin: 3px 0 0 0; font-size: 12px; color: #8696a0; font-weight: 500;
+    }
+
+    /* Schermata Licenza */
+    .screen-license {
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+    }
+    .license-card {
+        background: #111b21;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 8px;
+        padding: 12px 14px;
+        margin-bottom: 12px;
+        overflow-y: scroll;
+        height: 250px;
+        font-size: 11.5px;
+        line-height: 1.55;
+        color: #cbd5e1;
+        white-space: pre-wrap;
+        user-select: text;
+        font-family: Consolas, 'Segoe UI', monospace;
+    }
+    .checkbox-box {
+        background: rgba(37, 211, 102, 0.06);
+        border: 1px solid rgba(37, 211, 102, 0.28);
+        border-radius: 8px;
+        padding: 10px 14px;
+        margin-bottom: 14px;
+        cursor: pointer;
+        flex-shrink: 0;
+    }
+    .checkbox-row {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        cursor: pointer;
+    }
+    .checkbox-row input[type="checkbox"] {
+        margin: 0;
+        width: 17px;
+        height: 17px;
+        cursor: pointer;
+        flex-shrink: 0;
+    }
+    .checkbox-title {
+        font-size: 12px;
+        font-weight: 600;
+        color: #e9edef;
+        line-height: 1.35;
+        user-select: none;
+    }
+    .actions {
+        margin-top: auto;
+        display: flex;
+        justify-content: flex-end;
+        gap: 10px;
+        flex-shrink: 0;
+    }
+    .btn {
+        border: none;
+        border-radius: 8px;
+        padding: 9px 20px;
+        font-size: 13px;
+        font-weight: 600;
+        cursor: pointer;
+        font-family: inherit;
+    }
+    .btn-cancel {
+        background: #202c33;
+        color: #e9edef;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .btn-cancel:hover {
+        background: #2a3942;
+    }
+    .btn-primary {
+        background: linear-gradient(135deg, #7c3aed, #25d366);
+        color: #ffffff;
+        box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
+    }
+    .btn-primary:hover {
+        filter: brightness(1.1);
+    }
+    .btn:disabled {
+        opacity: 0.35;
+        cursor: default;
+        filter: grayscale(1);
+        box-shadow: none;
+    }
+
+    /* Schermata Installazione */
+    .screen-install {
+        display: none;
+        flex-direction: column;
+        flex-grow: 1;
     }
     .steps-container {
         background: #111b21;
@@ -79,7 +177,6 @@ exit /b
         padding: 6px 0;
         font-size: 13px;
         color: #8696a0;
-        transition: color 0.2s;
     }
     .step-row.active {
         color: #e9edef;
@@ -161,49 +258,174 @@ exit /b
     <div class="header">
         <div class="brand-icon">⚡</div>
         <div class="brand-text">
-            <h1>Installazione Rapida PrintZap</h1>
-            <p>Download dei componenti ufficiali da GitHub e configurazione client</p>
+            <h1 id="brandTitle">Installazione Rapida PrintZap</h1>
+            <p id="brandSubtitle">Contratto di Licenza d'Uso e Condizioni di Servizio</p>
         </div>
     </div>
 
-    <div class="steps-container">
-        <div class="step-row" id="step1">
-            <div class="step-bullet">1</div>
-            <div class="step-label">Verifica disponibilità ultima versione su GitHub</div>
+    <!-- 1. ACCETTAZIONE LICENZA -->
+    <div id="screenLicense" class="screen-license">
+        <div class="license-card">CONTRATTO DI LICENZA D'USO E CONDIZIONI DI VENDITA - PRINTZAP
+=============================================================
+
+1. OGGETTO DEL CONTRATTO
+Il Licenziatario acquisisce il diritto d'uso personale, non trasferibile e a tempo determinato (es. mensile, annuale o secondo offerta commerciale) del software "PrintZap", un'applicazione desktop progettata per:
+* La gestione automatica di file in coda di stampa localmente;
+* L'organizzazione e la cancellazione automatica dei file dopo la consegna/stampa;
+* Il prelievo automatico di file da una cartella locale e dall'integrazione con il servizio di messaggistica WhatsApp (di seguito "Modulo di Integrazione").
+
+---
+
+2. NATURA DEL MODULO DI INTEGRAZIONE (WHATSAPP)
+Il Licenziatario prende atto e accetta espressamente che:
+* Il modulo di integrazione con WhatsApp non è un prodotto ufficiale di Meta Platforms Inc. né è da essa approvato, sponsorizzato o autorizzato.
+* Il funzionamento di tale modulo dipende esclusivamente dalla struttura tecnica che Meta decide di adottare per il proprio servizio WhatsApp Web.
+* Il Licenziante non ha alcun controllo sulle modifiche, aggiornamenti o interruzioni che Meta potrà apportare al proprio servizio.
+
+---
+
+3. LIMITAZIONE DI RESPONSABILITÀ PER INTERRUZIONE DEL SERVIZIO E CASO DI FORZA MAGGIORE
+Il Licenziatario solleva espressamente il Licenziante da qualsiasi responsabilità, richiesta di risarcimento, perdita di fatturato, fermo macchina o danno derivante da:
+* Sospensione, blocco o cancellazione dell'account WhatsApp del Licenziatario;
+* Interruzione, malfunzionamento o impossibilità tecnica del modulo di prelievo automatico a seguito di aggiornamenti dei sistemi di Meta/WhatsApp;
+* Mancata ricezione o ritardo nella ricezione di file da parte dei clienti a causa di problemi di rete o di terze parti.
+
+Clausola di Forza Maggiore: Qualora modifiche strutturali o di sicurezza ai servizi di terze parti (WhatsApp) rendessero tecnicamente impossibile il ripristino o il funzionamento del Modulo di Integrazione, il contratto si risolverà di diritto per impossibilità sopravvenuta (forza maggiore), escludendo qualsiasi obbligo di risarcimento, indennizzo o rimborso dei canoni residui da parte del Licenziante.
+
+---
+
+4. MANUTENZIONE, AGGIORNAMENTI E COMPATIBILITÀ
+* Assistenza Inclusa: Per la durata del periodo di validità della licenza acquistata, il Licenziante garantisce il rilascio di aggiornamenti correttivi per bug interni del software e per il ripristino del modulo di integrazione WhatsApp (compatibilmente con i limiti delle librerie open-source utilizzate).
+* Compatibilità: Il Licenziante non garantisce il corretto funzionamento del software su sistemi operativi obsoleti o non supportati (es. versioni Windows non aggiornate), né in presenza di antivirus, firewall o software di sicurezza locali del Licenziatario che ne blocchino le attività di rete o l'accesso al sistema.
+
+---
+
+5. TRATTAMENTO DEI DATI E PRIVACY (GDPR)
+Trattandosi di software installato localmente sul PC del Licenziatario:
+* I file (PDF, immagini e documenti) inviati dai clienti finali risiedono esclusivamente sull'hardware locale del Licenziatario.
+* Il Licenziante non ha accesso, non archivia su propri server e non tratta in alcun modo i dati dei clienti finali o i documenti gestiti da PrintZap.
+* Il Licenziatario si dichiara unico Titolare del trattamento dei dati personali dei propri clienti e si impegna a rispettare la normativa GDPR (Regolamento UE 2016/679) nei loro confronti.
+
+---
+
+6. DIVIETO DI MANOMISSIONE, DECOMPILAZIONE E CRACKING
+Il codice sorgente, l'architettura e l'interfaccia di PrintZap sono di esclusiva proprietà intellettuale del Licenziante. È fatto espresso divieto al Licenziatario di:
+* Decompilare, disassemblare o effettuare operazioni di reverse engineering sul software;
+* Bypassare, alterare o tentare di aggirare i sistemi di verifica e controllo online della licenza d'uso.
+Qualsiasi violazione comporterà la disattivazione immediata del software, la revoca della licenza senza alcun diritto di rimborso, e la segnalazione per la tutela dei diritti d'autore.
+
+---
+
+7. LIMITAZIONE MASSIMA DEL RISARCIMENTO DANNI
+In ogni caso e per qualsiasi tipo di controversia (inclusi eventuali bug del software o perdite di dati), la responsabilità totale del Licenziante nei confronti del Licenziatario per danni diretti, indiretti, commerciali o perdite di profitto non potrà mai superare la somma complessiva effettivamente pagata dal Licenziatario per l'acquisto della licenza d'uso del software nei dodici (12) mesi precedenti all'evento che ha generato il danno.
+
+---
+
+8. MANLEVA SUL COPYRIGHT DEI CONTENUTI DEI CLIENTI
+Il Licenziatario garantisce che i file inviati dai propri utenti finali e stampati tramite il software non violano diritti d'autore, brevetti, marchi o qualsiasi altra normativa vigente. Il Licenziatario si impegna a manlevare e tenere indenne il Licenziante da qualsiasi sanzione, spesa legale o richiesta di risarcimento avanzata da terzi a causa del contenuto o della liceità dei documenti elaborati e stampati tramite PrintZap.
+
+---
+
+9. COMUNICAZIONE E TELEMETRIA DI CONTROLLO
+Il software richiede una connessione internet attiva per il controllo periodico di validità della licenza e la ricerca di aggiornamenti. Il Licenziatario acconsente a tale trasmissione di dati tecnici, necessaria a verificare il corretto utilizzo del software.
+
+---
+
+10. NULLITÀ PARZIALE (SEVERABILITY)
+L'eventuale invalidità, inefficacia o nullità di una o più clausole del presente contratto, anche derivante da modifiche della legislazione vigente o da sentenze giudiziarie, non pregiudicherà la validità e l'efficacia delle rimanenti disposizioni, che continueranno ad avere piena forza e validità.
+
+---
+
+11. LEGGE APPLICABILE E FORO COMPETENTE ESCLUSIVO
+Il presente contratto è regolato dalla legge italiana. Per qualsiasi controversia derivante dall'interpretazione, esecuzione o risoluzione del presente accordo, le parti stabiliscono la competenza esclusiva e inderogabile del Foro di Reggio Calabria.
+
+=============================================================
+ACCETTAZIONE SPECIFICA DELLE CLAUSOLE VESSATORIE
+Ai sensi e per gli effetti degli artt. 1341 e 1342 del Codice Civile italiano, il Licenziatario dichiara di aver letto attentamente e di approvare specificamente i seguenti articoli:
+* Art. 3: Limitazione di responsabilità per interruzione servizio e forza maggiore;
+* Art. 4: Limitazioni di compatibilità tecnica e antivirus;
+* Art. 6: Divieto di manomissione, reverse engineering e revoca immediata senza rimborso;
+* Art. 7: Limitazione massima dell'importo del risarcimento danni;
+* Art. 8: Manleva sul copyright e sulla liceità dei contenuti stampati;
+* Art. 11: Foro competente esclusivo inderogabile di Reggio Calabria.</div>
+        <div class="checkbox-box" onclick="toggleAgree()">
+            <div class="checkbox-row">
+                <input type="checkbox" id="chkAgree" onclick="onCheckboxClick(event)">
+                <div class="checkbox-title">Ho letto e accetto integralmente il Contratto di Licenza e i termini d'uso</div>
+            </div>
         </div>
-        <div class="step-row" id="step2">
-            <div class="step-bullet">2</div>
-            <div class="step-label">Download pacchetto completo (via curl)</div>
-        </div>
-        <div class="step-row" id="step3">
-            <div class="step-bullet">3</div>
-            <div class="step-label">Estrazione dei file in %LOCALAPPDATA%\PrintZap</div>
-        </div>
-        <div class="step-row" id="step4">
-            <div class="step-bullet">4</div>
-            <div class="step-label">Creazione icona Desktop, Menu Start e avvio applicazione</div>
+        <div class="actions">
+            <button type="button" class="btn btn-cancel" onclick="window.close()">Annulla</button>
+            <button type="button" class="btn btn-primary" id="btnContinue" disabled onclick="acceptAndInstall()">Accetta e Installa →</button>
         </div>
     </div>
 
-    <div class="progress-box">
-        <div class="progress-header">
-            <span id="progressStepTitle">Inizializzazione in corso...</span>
-            <span id="progressPct">0%</span>
+    <!-- 2. PROGRESSO INSTALLAZIONE -->
+    <div id="screenInstall" class="screen-install">
+        <div class="steps-container">
+            <div class="step-row" id="step1">
+                <div class="step-bullet">1</div>
+                <div class="step-label">Verifica disponibilità ultima versione su GitHub</div>
+            </div>
+            <div class="step-row" id="step2">
+                <div class="step-bullet">2</div>
+                <div class="step-label">Download pacchetto completo (via curl)</div>
+            </div>
+            <div class="step-row" id="step3">
+                <div class="step-bullet">3</div>
+                <div class="step-label">Estrazione dei file in %LOCALAPPDATA%\PrintZap</div>
+            </div>
+            <div class="step-row" id="step4">
+                <div class="step-bullet">4</div>
+                <div class="step-label">Creazione icona Desktop, Menu Start e avvio applicazione</div>
+            </div>
         </div>
-        <div class="progress-track">
-            <div class="progress-fill" id="progressBar"></div>
+
+        <div class="progress-box">
+            <div class="progress-header">
+                <span id="progressStepTitle">Inizializzazione in corso...</span>
+                <span id="progressPct">0%</span>
+            </div>
+            <div class="progress-track">
+                <div class="progress-fill" id="progressBar"></div>
+            </div>
+            <div class="status-msg" id="statusDetail">Preparazione ambiente...</div>
+            <div class="error-box" id="errorBox"></div>
         </div>
-        <div class="status-msg" id="statusDetail">Preparazione ambiente...</div>
-        <div class="error-box" id="errorBox"></div>
     </div>
 </div>
 
 <script>
 window.onload = function() {
-    window.resizeTo(570, 440);
-    window.moveTo((screen.width - 570) / 2, (screen.height - 440) / 2);
-    startInstallation();
+    window.resizeTo(600, 560);
+    window.moveTo((screen.width - 600) / 2, (screen.height - 560) / 2);
 };
+
+function toggleAgree() {
+    var chk = document.getElementById('chkAgree');
+    chk.checked = !chk.checked;
+    updateButton();
+}
+
+function onCheckboxClick(e) {
+    if (!e) e = window.event;
+    if (e.stopPropagation) e.stopPropagation();
+    e.cancelBubble = true;
+    updateButton();
+}
+
+function updateButton() {
+    var chk = document.getElementById('chkAgree');
+    var btn = document.getElementById('btnContinue');
+    btn.disabled = !chk.checked;
+}
+
+function acceptAndInstall() {
+    document.getElementById('screenLicense').style.display = 'none';
+    document.getElementById('screenInstall').style.display = 'flex';
+    document.getElementById('brandSubtitle').innerText = "Download dei componenti ufficiali da GitHub e configurazione client";
+    startInstallation();
+}
 
 function setProgress(pct, title, detail) {
     document.getElementById('progressBar').style.width = pct + '%';
@@ -377,10 +599,10 @@ function startInstallation() {
                     } catch (e) {}
                 }
 
-                updateJsonConfig(targetDir + "\\config.json", { language: "it", webBanconeEnabled: false });
+                updateJsonConfig(targetDir + "\\config.json", { language: "it", webBanconeEnabled: false, licenseAccepted: true });
                 var appDataDir = wsh.ExpandEnvironmentStrings("%APPDATA%") + "\\PrintZap";
                 if (fso.FileExists(appDataDir + "\\config.json")) {
-                    updateJsonConfig(appDataDir + "\\config.json", { language: "it" });
+                    updateJsonConfig(appDataDir + "\\config.json", { language: "it", licenseAccepted: true });
                 }
 
                 if (!fso.FileExists(targetDir + "\\disinstalla_printzap.bat")) {

@@ -20,7 +20,7 @@ exit /b
     minimizebutton="yes"
     windowstate="normal"
     scroll="no"
-    selection="no"
+    selection="yes"
     contextmenu="no"
 />
 <style type="text/css">
@@ -37,7 +37,7 @@ exit /b
     .wrapper {
         position: fixed;
         top: 0; left: 0; right: 0; bottom: 0;
-        padding: 24px 28px;
+        padding: 22px 26px;
         display: flex;
         flex-direction: column;
         background: radial-gradient(circle at 85% 15%, #182229 0%, #0b141a 75%);
@@ -45,7 +45,8 @@ exit /b
     .header {
         display: flex;
         align-items: center;
-        margin-bottom: 20px;
+        margin-bottom: 16px;
+        flex-shrink: 0;
     }
     .brand-icon {
         width: 44px; height: 44px;
@@ -59,12 +60,109 @@ exit /b
         color: #fff;
         margin-right: 14px;
         box-shadow: 0 4px 12px rgba(37, 211, 102, 0.25);
+        flex-shrink: 0;
     }
     .brand-text h1 {
-        margin: 0; font-size: 20px; font-weight: 700; color: #ffffff; letter-spacing: -0.3px;
+        margin: 0; font-size: 19px; font-weight: 700; color: #ffffff; letter-spacing: -0.3px;
     }
     .brand-text p {
-        margin: 2px 0 0 0; font-size: 12px; color: #8696a0; font-weight: 500;
+        margin: 3px 0 0 0; font-size: 12px; color: #8696a0; font-weight: 500;
+    }
+
+    /* License Screen */
+    .screen-license {
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+    }
+    .license-card {
+        background: #111b21;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 8px;
+        padding: 12px 14px;
+        margin-bottom: 12px;
+        overflow-y: scroll;
+        height: 250px;
+        font-size: 11.5px;
+        line-height: 1.55;
+        color: #cbd5e1;
+        white-space: pre-wrap;
+        user-select: text;
+        font-family: Consolas, 'Segoe UI', monospace;
+    }
+    .checkbox-box {
+        background: rgba(37, 211, 102, 0.06);
+        border: 1px solid rgba(37, 211, 102, 0.28);
+        border-radius: 8px;
+        padding: 10px 14px;
+        margin-bottom: 14px;
+        cursor: pointer;
+        flex-shrink: 0;
+    }
+    .checkbox-row {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        cursor: pointer;
+    }
+    .checkbox-row input[type="checkbox"] {
+        margin: 0;
+        width: 17px;
+        height: 17px;
+        cursor: pointer;
+        flex-shrink: 0;
+    }
+    .checkbox-title {
+        font-size: 12px;
+        font-weight: 600;
+        color: #e9edef;
+        line-height: 1.35;
+        user-select: none;
+    }
+    .actions {
+        margin-top: auto;
+        display: flex;
+        justify-content: flex-end;
+        gap: 10px;
+        flex-shrink: 0;
+    }
+    .btn {
+        border: none;
+        border-radius: 8px;
+        padding: 9px 20px;
+        font-size: 13px;
+        font-weight: 600;
+        cursor: pointer;
+        font-family: inherit;
+    }
+    .btn-cancel {
+        background: #202c33;
+        color: #e9edef;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .btn-cancel:hover {
+        background: #2a3942;
+    }
+    .btn-primary {
+        background: linear-gradient(135deg, #7c3aed, #25d366);
+        color: #ffffff;
+        box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
+    }
+    .btn-primary:hover {
+        filter: brightness(1.1);
+    }
+    .btn:disabled {
+        opacity: 0.35;
+        cursor: default;
+        filter: grayscale(1);
+        box-shadow: none;
+    }
+
+    /* Installation Screen */
+    .screen-install {
+        display: none;
+        flex-direction: column;
+        flex-grow: 1;
     }
     .steps-container {
         background: #111b21;
@@ -79,7 +177,6 @@ exit /b
         padding: 6px 0;
         font-size: 13px;
         color: #8696a0;
-        transition: color 0.2s;
     }
     .step-row.active {
         color: #e9edef;
@@ -161,49 +258,174 @@ exit /b
     <div class="header">
         <div class="brand-icon">⚡</div>
         <div class="brand-text">
-            <h1>PrintZap Quick Installer</h1>
-            <p>Official package download from GitHub and client setup</p>
+            <h1 id="brandTitle">PrintZap Quick Installation</h1>
+            <p id="brandSubtitle">End User License Agreement & Terms of Service</p>
         </div>
     </div>
 
-    <div class="steps-container">
-        <div class="step-row" id="step1">
-            <div class="step-bullet">1</div>
-            <div class="step-label">Checking latest version availability on GitHub</div>
+    <!-- 1. LICENSE ACCEPTANCE -->
+    <div id="screenLicense" class="screen-license">
+        <div class="license-card">END USER LICENSE AGREEMENT AND TERMS OF SERVICE - PRINTZAP
+=============================================================
+
+1. SUBJECT OF THE AGREEMENT
+The Licensee acquires the personal, non-transferable, and time-limited right to use (e.g. monthly, annual, or according to commercial offer) the "PrintZap" software, a desktop application designed for:
+* Automatic local print queue management;
+* Automatic organization and deletion of files after delivery/printing;
+* Automatic fetching of files from a local directory and from integration with WhatsApp messaging service (hereinafter "Integration Module").
+
+---
+
+2. NATURE OF THE INTEGRATION MODULE (WHATSAPP)
+The Licensee expressly acknowledges and agrees that:
+* The WhatsApp integration module is not an official product of Meta Platforms Inc. nor is it approved, sponsored, or authorized by Meta.
+* The operation of this module depends exclusively on the technical structure that Meta chooses to adopt for its WhatsApp Web service.
+* The Licensor has no control over modifications, updates, or service interruptions made by Meta to its service.
+
+---
+
+3. LIMITATION OF LIABILITY FOR SERVICE INTERRUPTION AND FORCE MAJEURE
+The Licensee expressly releases the Licensor from any liability, claim for compensation, loss of turnover, downtime, or damage arising from:
+* Suspension, blocking, or deletion of the Licensee's WhatsApp account;
+* Interruption, malfunction, or technical impossibility of the automatic fetching module following updates to Meta/WhatsApp systems;
+* Failure or delay in receiving files from end customers due to network or third-party issues.
+
+Force Majeure Clause: Should structural or security changes to third-party services (WhatsApp) render the restoration or operation of the Integration Module technically impossible, the agreement shall terminate by operation of law due to supervening impossibility (force majeure), excluding any obligation of compensation, indemnity, or refund of remaining fees by the Licensor.
+
+---
+
+4. MAINTENANCE, UPDATES, AND COMPATIBILITY
+* Included Support: For the duration of the purchased license period, the Licensor guarantees the release of corrective updates for internal software bugs and for restoring the WhatsApp integration module (subject to open-source library limitations).
+* Compatibility: The Licensor does not guarantee proper operation of the software on obsolete or unsupported operating systems (e.g., outdated Windows versions), nor in the presence of local antivirus, firewall, or security software blocking network activity or system access.
+
+---
+
+5. DATA PROCESSING AND PRIVACY (GDPR)
+Since the software is installed locally on the Licensee's PC:
+* Files (PDFs, images, and documents) sent by end customers reside exclusively on the Licensee's local hardware.
+* The Licensor does not access, store on its servers, or process in any way the data of end customers or documents managed by PrintZap.
+* The Licensee declares to be the sole Data Controller of their end customers' personal data and agrees to comply with GDPR regulations (EU Regulation 2016/679).
+
+---
+
+6. PROHIBITION OF TAMPERING, REVERSE ENGINEERING, AND CRACKING
+The source code, architecture, and interface of PrintZap are the exclusive intellectual property of the Licensor. The Licensee is strictly prohibited from:
+* Decompiling, disassembling, or performing reverse engineering operations on the software;
+* Bypassing, altering, or attempting to circumvent online license verification and control systems.
+Any violation will result in immediate deactivation of the software, revocation of the license without refund, and report for copyright protection.
+
+---
+
+7. MAXIMUM LIMITATION OF DAMAGES
+In any event and for any type of dispute (including software bugs or data loss), the Licensor's total liability to the Licensee for direct, indirect, commercial, or lost profit damages shall never exceed the total sum actually paid by the Licensee for purchasing the software license in the twelve (12) months preceding the event giving rise to damage.
+
+---
+
+8. INDEMNIFICATION ON CUSTOMER CONTENT COPYRIGHT
+The Licensee warrants that files sent by their end users and printed via the software do not violate copyrights, patents, trademarks, or any applicable laws. The Licensee agrees to indemnify and hold harmless the Licensor from any penalty, legal expense, or compensation claim by third parties due to the content or legality of documents processed and printed via PrintZap.
+
+---
+
+9. CONTROL COMMUNICATION AND TELEMETRY
+The software requires an active internet connection for periodic license validity checks and update searches. The Licensee consents to such transmission of technical data necessary to verify proper software usage.
+
+---
+
+10. SEVERABILITY
+The invalidity, ineffectiveness, or nullity of one or more clauses of this agreement shall not affect the validity and effectiveness of the remaining provisions, which shall continue in full force and effect.
+
+---
+
+11. GOVERNING LAW AND JURISDICTION
+This agreement is governed by Italian law. For any dispute arising from the interpretation, execution, or termination of this agreement, the parties establish the exclusive jurisdiction of the Court of Reggio Calabria (Italy).
+
+=============================================================
+SPECIFIC ACCEPTANCE OF UNREASONABLE / BURDENSOME CLAUSES
+Pursuant to Articles 1341 and 1342 of the Italian Civil Code, the Licensee declares to have carefully read and specifically approved the following sections:
+* Section 3: Limitation of liability for service interruption and force majeure;
+* Section 4: Technical compatibility limitations and antivirus;
+* Section 6: Prohibition of tampering, reverse engineering, and immediate revocation without refund;
+* Section 7: Maximum limitation of damages;
+* Section 8: Indemnification on customer content copyright;
+* Section 11: Exclusive jurisdiction of the Court of Reggio Calabria.</div>
+        <div class="checkbox-box" onclick="toggleAgree()">
+            <div class="checkbox-row">
+                <input type="checkbox" id="chkAgree" onclick="onCheckboxClick(event)">
+                <div class="checkbox-title">I have read and agree to the End User License Agreement and Terms of Service</div>
+            </div>
         </div>
-        <div class="step-row" id="step2">
-            <div class="step-bullet">2</div>
-            <div class="step-label">Downloading full package (via curl)</div>
-        </div>
-        <div class="step-row" id="step3">
-            <div class="step-bullet">3</div>
-            <div class="step-label">Extracting files to %LOCALAPPDATA%\PrintZap</div>
-        </div>
-        <div class="step-row" id="step4">
-            <div class="step-bullet">4</div>
-            <div class="step-label">Creating Desktop &amp; Start Menu shortcuts and launching app</div>
+        <div class="actions">
+            <button type="button" class="btn btn-cancel" onclick="window.close()">Cancel</button>
+            <button type="button" class="btn btn-primary" id="btnContinue" disabled onclick="acceptAndInstall()">Accept & Install →</button>
         </div>
     </div>
 
-    <div class="progress-box">
-        <div class="progress-header">
-            <span id="progressStepTitle">Initializing...</span>
-            <span id="progressPct">0%</span>
+    <!-- 2. INSTALLATION PROGRESS -->
+    <div id="screenInstall" class="screen-install">
+        <div class="steps-container">
+            <div class="step-row" id="step1">
+                <div class="step-bullet">1</div>
+                <div class="step-label">Check latest version availability on GitHub</div>
+            </div>
+            <div class="step-row" id="step2">
+                <div class="step-bullet">2</div>
+                <div class="step-label">Download full package (via curl)</div>
+            </div>
+            <div class="step-row" id="step3">
+                <div class="step-bullet">3</div>
+                <div class="step-label">Extract files to %LOCALAPPDATA%\PrintZap</div>
+            </div>
+            <div class="step-row" id="step4">
+                <div class="step-bullet">4</div>
+                <div class="step-label">Create Desktop icon, Start Menu folder and launch app</div>
+            </div>
         </div>
-        <div class="progress-track">
-            <div class="progress-fill" id="progressBar"></div>
+
+        <div class="progress-box">
+            <div class="progress-header">
+                <span id="progressStepTitle">Initializing...</span>
+                <span id="progressPct">0%</span>
+            </div>
+            <div class="progress-track">
+                <div class="progress-fill" id="progressBar"></div>
+            </div>
+            <div class="status-msg" id="statusDetail">Preparing environment...</div>
+            <div class="error-box" id="errorBox"></div>
         </div>
-        <div class="status-msg" id="statusDetail">Preparing environment...</div>
-        <div class="error-box" id="errorBox"></div>
     </div>
 </div>
 
 <script>
 window.onload = function() {
-    window.resizeTo(570, 440);
-    window.moveTo((screen.width - 570) / 2, (screen.height - 440) / 2);
-    startInstallation();
+    window.resizeTo(600, 560);
+    window.moveTo((screen.width - 600) / 2, (screen.height - 560) / 2);
 };
+
+function toggleAgree() {
+    var chk = document.getElementById('chkAgree');
+    chk.checked = !chk.checked;
+    updateButton();
+}
+
+function onCheckboxClick(e) {
+    if (!e) e = window.event;
+    if (e.stopPropagation) e.stopPropagation();
+    e.cancelBubble = true;
+    updateButton();
+}
+
+function updateButton() {
+    var chk = document.getElementById('chkAgree');
+    var btn = document.getElementById('btnContinue');
+    btn.disabled = !chk.checked;
+}
+
+function acceptAndInstall() {
+    document.getElementById('screenLicense').style.display = 'none';
+    document.getElementById('screenInstall').style.display = 'flex';
+    document.getElementById('brandSubtitle').innerText = "Downloading official components from GitHub and setting up client";
+    startInstallation();
+}
 
 function setProgress(pct, title, detail) {
     document.getElementById('progressBar').style.width = pct + '%';
@@ -274,9 +496,9 @@ function startInstallation() {
         }
 
         setStep(1, 'done');
-        setProgress(15, "Downloading PrintZap package...", "Starting download via curl...");
+        setProgress(15, "Downloading PrintZap package...", "Starting curl download...");
 
-        // Step 2: Background curl download without console window
+        // Step 2: Download ZIP with curl
         setStep(2, 'active');
         try {
             if (fso.FileExists(tempZip)) fso.DeleteFile(tempZip, true);
@@ -312,7 +534,7 @@ function startInstallation() {
 
         function onDownloadFinished() {
             if (!fso.FileExists(tempZip) || fso.GetFile(tempZip).Size < 5000000) {
-                showError("Download error: package unavailable or connection interrupted.");
+                showError("Download error: package not available or connection lost.");
                 return;
             }
 
@@ -320,7 +542,7 @@ function startInstallation() {
             setStep(2, 'done');
             setProgress(80, "Extracting files...", "Package downloaded (" + finalMb + " MB). Installing...");
 
-            // Step 3: Extract
+            // Step 3: Extraction
             setStep(3, 'active');
             setTimeout(function() {
                 try {
@@ -336,7 +558,7 @@ function startInstallation() {
 
                 try { fso.DeleteFile(tempZip, true); } catch(e){}
 
-                // Configure English language and disable Web Bancone by default
+                // English language config
                 function readUtf8File(filePath) {
                     var s = new ActiveXObject("ADODB.Stream");
                     s.Type = 2;
@@ -377,10 +599,10 @@ function startInstallation() {
                     } catch (e) {}
                 }
 
-                updateJsonConfig(targetDir + "\\config.json", { language: "en", webBanconeEnabled: false });
+                updateJsonConfig(targetDir + "\\config.json", { language: "en", webBanconeEnabled: false, licenseAccepted: true });
                 var appDataDir = wsh.ExpandEnvironmentStrings("%APPDATA%") + "\\PrintZap";
                 if (fso.FileExists(appDataDir + "\\config.json")) {
-                    updateJsonConfig(appDataDir + "\\config.json", { language: "en" });
+                    updateJsonConfig(appDataDir + "\\config.json", { language: "en", licenseAccepted: true });
                 }
 
                 if (!fso.FileExists(targetDir + "\\disinstalla_printzap.bat")) {
@@ -391,9 +613,9 @@ function startInstallation() {
                 }
 
                 setStep(3, 'done');
-                setProgress(95, "Configuring shortcuts...", "Creating Desktop and Start Menu shortcuts...");
+                setProgress(95, "Configuring shortcuts...", "Creating Desktop and Start Menu icons...");
 
-                // Step 4: Desktop, Start Menu & Windows Registry
+                // Step 4: Shortcuts and Windows Registry
                 setStep(4, 'active');
                 setTimeout(function() {
                     try {
@@ -428,7 +650,7 @@ function startInstallation() {
                         var mshtaExe = wsh.ExpandEnvironmentStrings("%SystemRoot%") + "\\System32\\mshta.exe";
                         var shortcutUninst = wsh.CreateShortcut(startMenuFolder + "\\Uninstall PrintZap.lnk");
                         shortcutUninst.TargetPath = mshtaExe;
-                        shortcutUninst.Arguments = '"' + targetDir + '\\disinstalla_printzap.bat" --lang=en';
+                        shortcutUninst.Arguments = '"' + targetDir + '\\disinstalla_printzap.bat"';
                         shortcutUninst.WorkingDirectory = targetDir;
                         shortcutUninst.IconLocation = "shell32.dll,31";
                         shortcutUninst.Save();
@@ -439,7 +661,7 @@ function startInstallation() {
                         wsh.RegWrite(regBase + "Publisher", "PrintZap", "REG_SZ");
                         wsh.RegWrite(regBase + "DisplayIcon", targetDir + "\\app.ico", "REG_SZ");
                         wsh.RegWrite(regBase + "InstallLocation", targetDir, "REG_SZ");
-                        wsh.RegWrite(regBase + "UninstallString", 'mshta.exe "' + targetDir + '\\disinstalla_printzap.bat" --lang=en', "REG_SZ");
+                        wsh.RegWrite(regBase + "UninstallString", 'mshta.exe "' + targetDir + '\\disinstalla_printzap.bat"', "REG_SZ");
                         wsh.RegWrite(regBase + "NoModify", 1, "REG_DWORD");
                         wsh.RegWrite(regBase + "NoRepair", 1, "REG_DWORD");
                     } catch(e){}

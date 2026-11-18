@@ -2192,6 +2192,19 @@
           el.innerHTML = dict[key];
         }
       });
+      const installerFile = lang === 'en' ? 'install_printzap.bat' : 'installa_printzap.bat';
+      const installerLabel = lang === 'en' ? 'Download PrintZap' : 'Scarica PrintZap';
+      document.querySelectorAll('a[href$="installa_printzap.bat"], a[href$="install_printzap.bat"]').forEach(link => {
+        link.setAttribute('href', installerFile);
+        if (link.hasAttribute('download')) {
+          link.setAttribute('download', installerFile);
+        }
+        const labelEl = link.querySelector('.ms-store-main');
+        if (labelEl) {
+          labelEl.textContent = installerLabel;
+        }
+      });
+
       document.documentElement.lang = lang;
     }
 

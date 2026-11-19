@@ -18,7 +18,7 @@ const TRANSLATIONS = {
 
     // Hero
     hero_badge: "⚡ 30 Giorni di Prova Gratuita Completa Senza Carta di Credito",
-    hero_title: "Ricevi, organizza e stampa i file dei clienti <br><span class=\"gradient-text\">da WhatsApp ed Email in 1 Clic</span>",
+    hero_title: "Ricevi, organizza e stampa i file dei clienti <br><span class=\"gradient-text\">da WhatsApp e Bancone in 1 Clic</span>",
     hero_subtitle: "Basta con il Desktop invaso da allegati senza nome, clienti che sbirciano i messaggi privati degli altri e ore perse a salvare file a mano. PrintZap cataloga tutto in cartelle ordinate, rispetta la privacy GDPR e avvisa il cliente quando le stampe sono pronte.",
     hero_cta_download: "Scarica per Windows (.bat)",
     hero_cta_sub: "Installazione Rapida con curl",
@@ -62,7 +62,7 @@ const TRANSLATIONS = {
     feat_title: "Tutto quello che serve alla tua cartoleria",
     feat_subtitle: "Non un gestionale generico, ma uno strumento laser focalizzato sul tuo flusso di stampa quotidiano.",
     feat_1_title: "Multi-Canale Reale",
-    feat_1_desc: "Ricevi file da WhatsApp Web, Bot Telegram, Portale Wi-Fi del bancone e casella Email (con il nuovo Wizard 30 Secondi per Gmail, Outlook, Aruba, Libero, TIM, PEC e pulsante 1-clic per Password per App).",
+    feat_1_desc: "Ricevi file da WhatsApp Web (con recupero 96 ore ed eliminazione silenziosa su revoca), Bot Telegram ad alta qualità e Portale Wi-Fi del Bancone tramite QR Code senza scambiare numeri né configurare password.",
     feat_2_title: "Privacy GDPR a Norma",
     feat_2_desc: "I dati personali e i numeri di telefono sono oscurati. Puoi lasciare il monitor girato verso il cliente senza alcun rischio di sanzioni.",
     feat_3_title: "Notifica \"Stampa Pronta\"",
@@ -142,7 +142,7 @@ const TRANSLATIONS = {
     plan_monthly_desc: "Tutte le funzionalità di PrintZap, con rinnovo mese per mese.",
     plan_monthly_period: "+ IVA / mese",
     plan_monthly_subtext: "Meno di 65 centesimi al giorno. Disdici quando vuoi.",
-    plan_feat_channels: "Tutti i canali attivi (WhatsApp, Telegram, Email, Bancone Wi-Fi)",
+    plan_feat_channels: "Tutti i canali attivi (WhatsApp, Telegram, Bancone Wi-Fi)",
     plan_feat_notifications: "Notifiche illimitate \"Stampa Pronta\" ai clienti",
     plan_feat_weekend: "Recupero automatico Notti & Weekend (96 ore)",
     plan_feat_updates: "Tutti gli aggiornamenti software inclusi",
@@ -186,8 +186,8 @@ const TRANSLATIONS = {
     faq_a8: "Zero conflitti! Molti software di cassa usano la porta standard 3000 o 8080. PrintZap include un algoritmo di auto-rilevamento: se la porta 3000 è occupata all'avvio, il programma scala automaticamente sulla prima porta libera successiva senza andare in crash. Inoltre, puoi personalizzare e cambiare a caldo la porta in qualsiasi momento da <strong>Impostazioni ⚙️ → Servizio & Grafica</strong>.",
     faq_q9: "Come si installa e come si disinstalla PrintZap? Lascia file sparsi nel PC?",
     faq_a9: "L'installazione si effettua con 1 clic tramite lo script rapido con curl: crea la cartella ufficiale <strong>PrintZap</strong> nel tuo Menu Start di Windows e registra l'app in 'Installazione applicazioni'. Se in futuro vorrai rimuoverlo, il pratico disinstallatore grafico ti chiederà se desideri mantenere lo storico dei tuoi clienti e la licenza oppure cancellare tutto a zero, senza lasciare file sparsi o chiavi orfane.",
-    faq_q10: "È complicato collegare la casella E-mail del negozio (Gmail, Aruba, Libero, PEC)?",
-    faq_a10: "Ci vogliono solo 30 secondi! Inserendo il tuo indirizzo, il nuovo Wizard Smart compila in automatico tutti i server IMAP/SMTP per Gmail, Outlook, Aruba, Libero, Virgilio, TIM, Tiscali, PEC Aruba, Yahoo e iCloud senza farti digitare parametri tecnici. Per Gmail e provider con verifica in 2 passaggi c'è il pulsante diretto a 1 clic per creare il codice da 16 lettere (con pulizia automatica degli spazi) e puoi anche importare i filtri anti-spam da Thunderbird (.dat).",
+    faq_q10: "E se un cliente al bancone non vuole darmi il numero WhatsApp?",
+    faq_a10: "C'è il Portale Web Bancone integrato! Attivi l'interruttore con 1 clic e stampi il QR Code da mettere sul banco: il cliente lo inquadra dallo smartphone e carica subito PDF, foto o documenti dal browser — senza scambio di numeri, senza password IMAP/SMTP e senza rischi di spam.",
 
     // Visual Hub (Manuali & Flusso)
     hub_badge: "📖 Documentazione Ufficiale Illustrata",
@@ -203,7 +203,7 @@ const TRANSLATIONS = {
     hub_card2_tag: "🎛️ 33 Controlli & Schede",
     hub_card2_title: "Enciclopedia Pulsanti & Schede Impostazioni",
     hub_card2_desc: "La mappa visiva definitiva: scorciatoie della barra laterale, interruttori sonori, semafori di stato e le 6 schede avanzate di configurazione.",
-    hub_card2_p1: "Mappa completa barra laterale (WhatsApp, E-mail, Telegram, Bancone)",
+    hub_card2_p1: "Mappa completa barra laterale (WhatsApp, Telegram, Web Bancone)",
     hub_card2_p2: "Semafori intelligenti (Verde, Giallo Oro, Giallo Giacenza, Viola)",
     hub_card2_p3: "Manuale 6 schede: QR Code Bancone, Bot Telegram, Statistiche, Log",
     hub_card2_btn: "Esplora Tutti i Pulsanti & Icone ➔",
@@ -261,7 +261,7 @@ const TRANSLATIONS = {
 
     // Hero
     hero_badge: "⚡ 30-Day Full Free Trial Without Credit Card",
-    hero_title: "Receive, organize and print customer files <br><span class=\"gradient-text\">from WhatsApp & Email in 1 Click</span>",
+    hero_title: "Receive, organize and print customer files <br><span class=\"gradient-text\">from WhatsApp & Counter in 1 Click</span>",
     hero_subtitle: "No more cluttered desktops with nameless attachments, customers peeking at private messages, or hours spent saving files manually. PrintZap catalogs everything into neat folders, protects GDPR privacy, and notifies customers when prints are ready.",
     hero_cta_download: "Download for Windows (.bat)",
     hero_cta_sub: "Quick Install with curl",
@@ -305,7 +305,7 @@ const TRANSLATIONS = {
     feat_title: "Everything your print shop needs",
     feat_subtitle: "Not a bloated generic ERP, but a laser-focused tool tailored to your daily printing workflow.",
     feat_1_title: "True Multi-Channel",
-    feat_1_desc: "Receive files from WhatsApp Web, Telegram Bot, Shop Wi-Fi Portal, and E-mail (featuring the new 30-Second Smart Wizard for Gmail, Outlook, Yahoo, iCloud, Aruba, PEC with 1-click App Password helper).",
+    feat_1_desc: "Receive files from WhatsApp Web (with 96h recovery & silent delete on revocation), uncompressed Telegram Bot, and Countertop Wi-Fi QR Portal with zero phone numbers or password setup.",
     feat_2_title: "GDPR Privacy Compliant",
     feat_2_desc: "Personal data and phone numbers are masked. You can leave your display facing customers with zero privacy risks.",
     feat_3_title: "\"Print Ready\" Notification",
@@ -385,7 +385,7 @@ const TRANSLATIONS = {
     plan_monthly_desc: "All PrintZap features included, renewed month by month.",
     plan_monthly_period: "+ VAT / month",
     plan_monthly_subtext: "Less than 65 cents per day. Cancel anytime.",
-    plan_feat_channels: "All channels active (WhatsApp, Telegram, Email, Counter Wi-Fi)",
+    plan_feat_channels: "All channels active (WhatsApp, Telegram, Counter Wi-Fi)",
     plan_feat_notifications: "Unlimited \"Print Ready\" customer notifications",
     plan_feat_weekend: "Automatic Nights & Weekends lookback recovery (96 hours)",
     plan_feat_updates: "All software updates included",
@@ -429,8 +429,8 @@ const TRANSLATIONS = {
     faq_a8: "Zero conflicts! Many cashier systems use standard port 3000 or 8080. PrintZap features an intelligent port-detection algorithm: if port 3000 is occupied upon startup, it automatically advances to the next available port without crashing. Additionally, you can easily change and live-rebind the listening port at any time in <strong>Settings ⚙️ → Service & Graphics</strong>.",
     faq_q9: "How is PrintZap installed and uninstalled? Does it leave clutter on my PC?",
     faq_a9: "Installation takes 1 click with our high-speed curl installer: it creates an official <strong>PrintZap</strong> folder in your Windows Start Menu and registers the app under Windows 'Installed Apps'. If you ever want to uninstall it, the graphical uninstaller gives you the choice to either keep your client history and license or wipe everything clean with zero leftover files.",
-    faq_q10: "Is it complicated to connect my shop's E-mail inbox (Gmail, Outlook, iCloud, custom providers)?",
-    faq_a10: "It takes just 30 seconds! Type your e-mail address and our new Smart Wizard automatically configures all IMAP/SMTP server settings for Gmail, Outlook, Yahoo, iCloud, Aruba, Libero, TIM, Tiscali, and PEC without typing technical ports. For Gmail and 2FA accounts, it includes a 1-click button to generate the 16-letter App Password (automatically stripping spaces), clear error guidance, and Thunderbird (.dat) anti-spam filter import.",
+    faq_q10: "What if a walk-in customer does not want to share their WhatsApp number?",
+    faq_a10: "Use the built-in Countertop Web Portal! Flip the switch in 1 click and display the printable QR Code on your counter: walk-in customers scan it with their smartphone camera and upload PDFs or photos right from their browser — zero phone number exchange, zero IMAP/SMTP password setup, and zero spam.",
 
     // Visual Hub (Manuals & Guides)
     hub_badge: "📖 Official Illustrated Documentation",
@@ -446,7 +446,7 @@ const TRANSLATIONS = {
     hub_card2_tag: "🎛️ 33 Controls & Panels",
     hub_card2_title: "Buttons & Settings Encyclopedia",
     hub_card2_desc: "The definitive visual map: sidebar shortcuts, sound toggles, status colors, and the 6 deep settings configuration panels.",
-    hub_card2_p1: "Complete sidebar map (WhatsApp, E-mail, Telegram, Wi-Fi Counter)",
+    hub_card2_p1: "Complete sidebar map (WhatsApp, Telegram, Countertop Web)",
     hub_card2_p2: "Smart color indicators (Green, Gold, Yellow, Purple)",
     hub_card2_p3: "6-Tab manual: Counter QR, Telegram bot, Analytics, Backup",
     hub_card2_btn: "Explore All Buttons & Icons ➔",

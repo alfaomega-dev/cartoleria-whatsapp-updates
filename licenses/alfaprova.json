@@ -1,8 +1,8 @@
 {
-  "installDate": "2026-11-26T11:43:32.732Z",
-  "active": false,
+  "installDate": "2026-11-26T11:46:33.069Z",
+  "active": true,
   "customer": "alfaprova",
-  "expiryDate": "2027-05-25",
+  "expiryDate": "2027-06-24",
   "machineId": "PZ-89AA-C760-ED82",
-  "key": "9fc1008b9c2748c4c7e16a0dce593ca125ab5a34469c6c3f9e052657173a9a81"
+  "key": "082434a4f00f801a128c5f97eefc23c7b6068085dbf61987b23d60c7be03a14e"
 }
